@@ -1,0 +1,2 @@
+call PlainText()
+call SymbolMacros()
