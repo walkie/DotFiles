@@ -7,8 +7,9 @@ My configuration files and notes to myself for setting up new machines.
 
 These files contain sensitive information and should be copied over manually.
 
- * `.gitconfig` -- contains GitHub authentication token
- * `.ssh` -- duh
+ * `.gitconfig`
+ * `.profile.private`
+ * `.ssh`
 
 
 ## Setting up Vim
