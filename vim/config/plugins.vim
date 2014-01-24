@@ -16,11 +16,15 @@ let g:yankring_history_dir = '~/.vim'
 cabbr yr YRShow
 
 " Interacting with the shell
-NeoBundle 'Shougo/vimproc.vim'
+NeoBundle 'Shougo/vimproc.vim', { 'build' :
+    \ { 'mac'  : 'make -f make_mac.mak'
+    \ , 'unix' : 'make -f make_unix.mak' } }
 NeoBundle 'Shougo/vimshell.vim'
 
-" Language-specific plugins
+" Interact with ghc-mod (first: cabal install ghc-mod)
 NeoBundle 'eagletmt/ghcmod-vim'
+
+" Other language-specific plugins
 NeoBundle 'idris-hackers/idris-vim'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'wlangstroth/vim-racket'
