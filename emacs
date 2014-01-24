@@ -25,7 +25,7 @@
 (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
 
 ; turn on proof general
-(load-file "/Users/walkie/.emacs.d/ProofGeneral-4.1/generic/proof-site.el")
+(load-file "/Users/walkie/.emacs.d/proofgeneral/generic/proof-site.el")
 
 ; set up agda-mode
 (load-file (let ((coding-system-for-read 'utf-8))
