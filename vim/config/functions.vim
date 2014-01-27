@@ -12,6 +12,8 @@ function PlainText()
   highlight SpellCap guisp=Green
   " Command to reformat a paragraph
   nmap F {gq}k
+  " Use one space after periods on reformat
+  setlocal nojoinspaces
 endfunction
 
 " Override some options in PlainText()
