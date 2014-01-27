@@ -25,7 +25,6 @@ set suffixes+=.aux,.bbl,.blg,.dvi,.log,.pdf,.ps,.toc
 set directory=~/.vim/swap,.
 
 " Add my functions and key-mappings, load plugins
-source ~/.vim/config/ftdetect.vim
 source ~/.vim/config/functions.vim
 source ~/.vim/config/maps.vim
 source ~/.vim/config/plugins.vim
