@@ -1,5 +1,5 @@
 " Insert a blank line from normal mode
-noremap <RETURN> ^i<RETURN><ESC>
+noremap <S-RETURN> ^i<RETURN><ESC>
 
 " Make window switching easier
 noremap <S-J> <C-W>j
