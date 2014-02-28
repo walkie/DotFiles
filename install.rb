@@ -1,12 +1,12 @@
 # flag to enable actual file system modifications
 $live = true
 
+# change to the directory containing this script
+Dir.chdir(File.dirname(__FILE__))
+
 # produce a list of the config files to link
 $ignore = ["README.md","install.rb"]
 $files = Dir.entries(Dir.getwd).reject { |f| f.start_with?(".") } - $ignore
-
-# change to the directory containing this script
-Dir.chdir(File.dirname(__FILE__))
 
 # prompt the user and exit if they don't reply with 'y'
 def confirm(msg)
