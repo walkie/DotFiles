@@ -32,3 +32,6 @@ NeoBundle 'wlangstroth/vim-racket'
 " General utilities
 NeoBundle 'ervandew/supertab'
 NeoBundle 'salsifis/vim-transpose'
+
+" Install plugins on start up
+NeoBundleCheck

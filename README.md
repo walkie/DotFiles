@@ -15,12 +15,12 @@ over manually.
 
 ## Setting up Vim
 
-Plugins are managed semi-automatically by
-[NeoBundle](https://github.com/Shougo/neobundle.vim):
+Plugins are managed automatically by
+[NeoBundle](https://github.com/Shougo/neobundle.vim), which must be installed
+manually:
 
     mkdir -p ~/.vim/bundle
     git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-    ~/.vim/bundle/neobundle.vim/bin/neoinstall
 
 
 ## Setting up Emacs
