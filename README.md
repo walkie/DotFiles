@@ -13,6 +13,19 @@ over manually.
  * `.ssh/`
 
 
+## Installation
+
+The contents of this repository are recursively hard-linked to the home
+directory to share changes between the two and avoid the occasional problem
+caused by symlinks.
+
+The script `install.rb` automates this linking and also sets up the vim plugin
+manager. It doesn't automate the setup of emacs.
+
+New config files must be either manually linked into the repository, or else
+copied into the repository followed by re-running the install script.
+
+
 ## Setting up Vim
 
 Plugins are managed automatically by
