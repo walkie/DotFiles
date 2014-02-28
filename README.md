@@ -18,7 +18,7 @@ over manually.
 Plugins are managed semi-automatically by
 [NeoBundle](https://github.com/Shougo/neobundle.vim):
 
-    mkdir -p .vim/bundle
+    mkdir -p ~/.vim/bundle
     git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
     ~/.vim/bundle/neobundle.vim/bin/neoinstall
 
@@ -31,7 +31,7 @@ people.)
 
 Plugins are managed manually:
 
-    mkdir .emacs.d
+    mkdir ~/.emacs.d
     git clone https://github.com/emacsmirror/evil ~/.emacs.d/evil
     git clone https://github.com/emacsmirror/undo-tree ~/.emacs.d/undo-tree
     git clone https://github.com/emacsmirror/proofgeneral ~/.emacs.d/proofgeneral
