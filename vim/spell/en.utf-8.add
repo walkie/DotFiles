@@ -1,12 +1,13 @@
 Axelrod
 CPP
-Dagstuhl
 DSEL
 DSELs
 DSLs
+Dagstuhl
 Erwig
 Hagl
 Hagl's
+Idris
 Klaatu
 MySQL
 Ostermann
@@ -23,6 +24,7 @@ anonymized
 arity
 bimatrix
 bitstring
+codata
 composability
 composable
 compositionality
