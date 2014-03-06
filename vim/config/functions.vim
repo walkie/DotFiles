@@ -25,6 +25,25 @@ function SoftWrap()
   setlocal nolist       " list disables linebreak
 endfunction
 
+" Set up the visual style of the GUI for regular editing.
+function NormalStyle()
+  if has("gui_running")
+    set transparency=10
+    set guifont=Liberation_Mono:h12
+    colorscheme torte
+  endif
+endfunction
+
+" Set up the visual style of the GUI for presentations.
+function PresentationStyle()
+  if has("gui_running")
+    set transparency=0
+    set guifont=Liberation_Mono:h24
+    colorscheme default
+    colorscheme default " bug requires loading default scheme twice
+  endif
+endfunction
+
 " Latex-style mappings for common mathematical characters
 function SymbolMacros()
   imap <buffer> \forall ∀
