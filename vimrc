@@ -11,6 +11,9 @@ set ruler        " turn the ruler on
 set backspace=2  " backspace over anything
 syntax enable    " turn on syntax highlighting
 
+" Set default font encoding
+setglobal fileencoding=utf-8
+
 " Searching
 set incsearch    " incremental search
 set nohlsearch   " turn off search highlighting
