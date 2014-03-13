@@ -27,7 +27,11 @@ NeoBundle 'eagletmt/ghcmod-vim'
 " Other language-specific plugins
 NeoBundle 'idris-hackers/idris-vim'
 NeoBundle 'groenewege/vim-less'
-NeoBundle 'wlangstroth/vim-racket'
+NeoBundle 'vim-scripts/coq-syntax'
+NeoBundle 'vim-scripts/mips.vim'
+" NeoBundle 'joaopizani/agda-vim'
+" NeoBundle 'derekwyatt/vim-scala'
+" NeoBundle 'wlangstroth/vim-racket'
 
 " General utilities
 NeoBundle 'ervandew/supertab'
