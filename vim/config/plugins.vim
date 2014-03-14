@@ -13,8 +13,8 @@ NeoBundle 'Shougo/vimshell.vim'
 
 " Buffer Explorer (B in normal mode to open)
 NeoBundle 'jlanzarotta/bufexplorer'
-let g:bufExplorerShowRelativePath=1
-nmap B \be
+let g:bufExplorerShowRelativePath = 1
+nmap B <Leader>be
 
 " YankRing (:yr to open)
 NeoBundle 'vim-scripts/YankRing.vim'

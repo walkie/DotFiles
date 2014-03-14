@@ -9,7 +9,7 @@ syn clear hsTypedef
 syn match hsTypedef "\<\(type\|newtype\|family\)\>"
 
 " keyboard shortcuts for ghcmod-vim
-nmap ,t :GhcModType<CR>
-nmap ,T :GhcModTypeClear<CR>
-nmap ,c :GhcModCheck<CR>
-nmap ,l :GhcModLint<CR>
+nmap <Leader>t :GhcModType<CR>
+nmap <Leader>T :GhcModTypeClear<CR>
+nmap <Leader>c :GhcModCheck<CR>
+nmap <Leader>l :GhcModLint<CR>

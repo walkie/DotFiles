@@ -1,3 +1,6 @@
+" Set the <Leader> key
+let mapleader = ','
+
 " Insert a blank line from normal mode
 noremap <S-RETURN> ^i<RETURN><ESC>
 
