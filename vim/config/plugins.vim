@@ -16,6 +16,9 @@ NeoBundle 'jlanzarotta/bufexplorer'
 let g:bufExplorerShowRelativePath = 1
 nmap B <Leader>be
 
+" NERD tree file explorer
+NeoBundle 'scrooloose/nerdtree'
+
 " YankRing (:yr to open)
 NeoBundle 'vim-scripts/YankRing.vim'
 let g:yankring_history_dir = '~/.vim'
