@@ -64,6 +64,7 @@ alias kisumu='ssh $KISUMU'
 alias updatedb='sudo /usr/libexec/locate.updatedb'
 
 # cd that works with mac aliases
+# from: http://hints.macworld.com/article.php?story=20050828054129701
 function cd {
   if [ ${#1} == 0 ]; then
     builtin cd
