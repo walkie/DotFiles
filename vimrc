@@ -15,8 +15,10 @@ syntax enable    " turn on syntax highlighting
 setglobal fileencoding=utf-8
 
 " Searching
-set incsearch    " incremental search
-set nohlsearch   " turn off search highlighting
+set incsearch " incremental search
+set hlsearch  " turn on search highlighting
+highlight clear Search
+highlight Search ctermbg=DarkGray
 
 " Ignore whitespace in diff-mode
 set diffopt+=iwhite " ignore whitespace in diff-mode

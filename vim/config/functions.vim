@@ -31,6 +31,8 @@ function NormalStyle()
     set transparency=10
     set guifont=Liberation_Mono:h12
     colorscheme torte
+    highlight clear Search
+    highlight Search guibg=gray35
   endif
 endfunction
 

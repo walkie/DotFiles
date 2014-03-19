@@ -20,6 +20,5 @@ map <Down> gj
 inoremap <Up> <C-O>gk
 inoremap <Down> <C-O>gj
 
-" Make space and backspace more useful
-" nnoremap <Space> 30j
-" nnoremap <Backspace> 30k
+" Use space to remove search highlighting
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
