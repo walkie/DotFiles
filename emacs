@@ -45,3 +45,6 @@
 
 ; turn off mouse highlighting--hate it!
 (setq mouse-highlight nil)
+
+; disable toolbar
+(tool-bar-mode 0)
