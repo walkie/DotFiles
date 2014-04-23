@@ -5,6 +5,7 @@
 ;;;; Plugins - load these first so we can override their settings later
 
 ; turn on and configure undo-tree plugin
+(add-to-list 'load-path "/Users/walkie/.emacs.d/undo-tree")
 (require 'undo-tree)
 (global-undo-tree-mode)
 

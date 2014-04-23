@@ -42,6 +42,10 @@ manually:
 hack it up to act like Vim, so this is a pretty terrible configuration for most
 people.)
 
+Install [Aquamacs](http://aquamacs.org/). From within Aquamacs:
+
+    Tools -> Install Command Line Tools
+
 Plugins are managed manually:
 
     mkdir ~/.emacs.d
