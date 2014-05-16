@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# start file name with date in YYYY-MM-DD format
+filename=`date "+%Y-%m-%d"`
+
+# concatenate arguments to file name
+for word in "$@"; do
+  filename+=" $word"
+done
+
+# append markdown extension
+filename+=".md"
+
+# open in MacVim
+mvim "$filename"

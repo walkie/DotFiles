@@ -1,0 +1,3 @@
+#!/bin/bash
+
+find . -name "*.hs" -exec grep -H "$1" {} \;

@@ -4,9 +4,15 @@ $live = true
 # change to the directory containing this script
 Dir.chdir(File.dirname(__FILE__))
 
-# produce a list of the config files to link
-$ignore = ["README.md","install.rb"]
-$files = Dir.entries(Dir.getwd).reject { |f| f.start_with?(".") } - $ignore
+# get all non-dot files in a directory
+def non_dots(dir)
+  return Dir.entries(dir).reject { |f| f.start_with?(".") }
+end
+
+# produce lists of the files to link
+$ignore = ["README.md","install.rb","bin"]
+$files = non_dots(Dir.getwd) - $ignore
+$execs = non_dots("bin").map { |f| File.join("bin", f) }
 
 # prompt the user and exit if they don't reply with 'y'
 def confirm(msg)
@@ -20,7 +26,6 @@ def link(source, target)
   if File.directory?(source)
     `mkdir #{target}` if $live
     contents = Dir.entries(source) - [".",".."]
-    # puts "contents of #{source}: #{contents}"
     contents.each do |f|
       link(File.join(source, f), File.join(target, f))
     end
@@ -36,6 +41,9 @@ def each_existing
     $files.each do |f|
       dotted = "." + f
       yield dotted if File.exist?(dotted)
+    end
+    $execs.each do |f|
+      yield f if File.exist?(f)
     end
   end
 end
@@ -56,8 +64,16 @@ $files.each do |source|
   link(source, target)
 end
 
+# copy executable scripts
+puts "Linking executable scripts to ~/bin ..."
+$execs.each do |source|
+  target = File.join(Dir.home, source)
+  link(source,target)
+  `chmod +x #{target}` if $live
+end
+
 # set up vim plugin manager
-puts "Installing vim plugin manager ..."
+confirm "Install the vim plugin manager?"
 bundle = File.join(Dir.home, ".vim", "bundle")
 neobundle = File.join(bundle, "neobundle.vim")
 if $live
