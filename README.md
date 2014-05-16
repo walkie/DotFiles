@@ -61,16 +61,18 @@ A few other miscellaneous things that need to be done manually.
 
  * Compile [getTrueName.c](http://hints.macworld.com/dlfiles/getTrueName.txt),
    and put in `~/bin` so `cd` works with Mac aliases.
- 
+
  * Install [Haskell Platform](http://www.haskell.org/platform/)
- 
+
  * Install [MacVim](https://code.google.com/p/macvim/) and copy `mvim` script
    into `~/bin`.
- 
+
  * Install [TeXLive](https://www.tug.org/texlive/)
-   
+
    * Plus install non-free fonts:
-         
-         wget http://tug.org/fonts/getnonfreefonts/install-getnonfreefonts
-         texlua install-getnonfreefonts
-         getnonfreefonts --all
+
+     ```
+     wget http://tug.org/fonts/getnonfreefonts/install-getnonfreefonts
+     texlua install-getnonfreefonts
+     getnonfreefonts --all
+     ```
