@@ -43,6 +43,11 @@ GIT=/usr/local/git
 export PATH=$GIT/bin:$PATH
 export MANPATH=$GIT/share/man/git-manpages:$MANPATH
 
+# Set up SQLite
+SQLITE=/usr/local/Cellar/sqlite/3.8.4.3
+export PATH=$SQLITE/bin:$PATH
+export MANPATH=$SQLITE/share/man/man1:$MANPATH
+
 # Set up libraries installed by Homebrew
 export PKG_CONFIG_PATH=/usr/local/Cellar/libffi/3.0.13/lib/pkgconfig:$PKG_CONFIG_PATH
 
