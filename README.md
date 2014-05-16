@@ -15,9 +15,9 @@ over manually.
 
 ## Installation
 
-The contents of this repository are recursively hard-linked to the home
-directory to share changes between the two and avoid the occasional problem
-caused by symlinks.
+(Most of) the contents of this repository are recursively hard-linked to the
+home directory to share changes between the two and avoid the occasional
+problem caused by sym-links.
 
 The script `install.rb` automates this linking and also sets up the vim plugin
 manager. It doesn't automate the setup of emacs.
@@ -28,9 +28,8 @@ copied into the repository followed by re-running the install script.
 
 ## Setting up Vim
 
-Plugins are managed automatically by
-[NeoBundle](https://github.com/Shougo/neobundle.vim), which must be installed
-manually:
+Plugins are managed automatically by [NeoBundle](https://github.com/Shougo/neobundle.vim).
+The install script does the following:
 
     mkdir -p ~/.vim/bundle
     git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
@@ -54,3 +53,24 @@ Plugins are managed manually:
     git clone https://github.com/emacsmirror/proofgeneral ~/.emacs.d/proofgeneral
 
 Also will need to install [Coq](http://coq.inria.fr/) separately.
+
+
+## Miscellaneous
+
+A few other miscellaneous things that need to be done manually.
+
+ * Compile [getTrueName.c](http://hints.macworld.com/dlfiles/getTrueName.txt),
+   and put in `~/bin` so `cd` works with Mac aliases.
+ 
+ * Install [Haskell Platform](http://www.haskell.org/platform/)
+ 
+ * Install [MacVim](https://code.google.com/p/macvim/) and copy `mvim` script
+   into `~/bin`.
+ 
+ * Install [TeXLive](https://www.tug.org/texlive/)
+   
+   * Plus install non-free fonts:
+         
+         wget http://tug.org/fonts/getnonfreefonts/install-getnonfreefonts
+         texlua install-getnonfreefonts
+         getnonfreefonts --all
