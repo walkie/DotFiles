@@ -65,7 +65,6 @@ alias lla='ls -lah'
 alias view='vim -R'
 alias amacs='aquamacs'
 alias access='ssh $ACCESS'
-alias kisumu='ssh $KISUMU'
 alias updatedb='sudo /usr/libexec/locate.updatedb'
 
 # cd that works with mac aliases
