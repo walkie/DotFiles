@@ -1,3 +1,5 @@
+AST
+Apel
 Axelrod
 Barnsdale
 CPP
@@ -8,8 +10,11 @@ Dagstuhl
 Erwig
 Hagl
 Hagl's
+IDE
+IDEs
 Idris
 Klaatu
+Kästner
 MySQL
 NPC
 Ostermann
@@ -52,10 +57,12 @@ idempotency
 incentivize
 instantiability
 instantiable
+invertibility
 labeling
 labelings
 metamodels
 metaprogramming
+metavariables
 misattribute
 misattributed
 misattributing
@@ -65,6 +72,7 @@ omissible
 oregonstate
 overdetermination
 overgeneralization
+plugin
 programmatically
 projectional
 pseudocode
@@ -85,8 +93,10 @@ tradeoffs
 transformative
 troublingly
 unaddressed
+updatable
 von
 walkiner
 waypoint
 waypoints
+workflow
 worldview
