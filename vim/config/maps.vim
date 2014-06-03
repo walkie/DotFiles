@@ -2,16 +2,16 @@
 let mapleader = ','
 
 " Insert a blank line from normal mode
-noremap <S-RETURN> ^i<RETURN><ESC>
+nnoremap <S-RETURN> ^i<RETURN><ESC>
 
 " Make window switching easier
-noremap <S-J> <C-W>j
-noremap <S-K> <C-W>k
-noremap <S-H> <C-W>h
-noremap <S-L> <C-W>l
+nnoremap <S-J> <C-W>j
+nnoremap <S-K> <C-W>k
+nnoremap <S-H> <C-W>h
+nnoremap <S-L> <C-W>l
 
 " Make Y copy to the end of the line
-noremap <S-Y> y$
+nnoremap <S-Y> y$
 
 " Make the arrow keys move up and down *visible* lines
 " i.e. they work slightly different than j and k, but this is often useful
