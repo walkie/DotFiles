@@ -33,6 +33,7 @@ NeoBundle 'eagletmt/ghcmod-vim'
 " Other language-specific plugins
 NeoBundle 'idris-hackers/idris-vim'
 NeoBundle 'groenewege/vim-less'
+NeoBundle 'tpope/vim-markdown'
 NeoBundle 'vim-scripts/coq-syntax'
 NeoBundle 'vim-scripts/mips.vim'
 " NeoBundle 'joaopizani/agda-vim'
