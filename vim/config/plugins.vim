@@ -18,6 +18,9 @@ nmap B <Leader>be
 
 " NERD tree file explorer
 NeoBundle 'scrooloose/nerdtree'
+let g:NERDTreeMouseMode=2
+let g:NERDTreeMapOpenInTabSilent="<C-T>"
+nnoremap <S-T> :NERDTreeToggle<CR>
 
 " YankRing (:yr to open)
 NeoBundle 'vim-scripts/YankRing.vim'
