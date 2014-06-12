@@ -1,3 +1,10 @@
 #!/bin/bash
 
+if [ $# -ne 1 ]; then
+  echo 'usage: hsfind term'
+  echo '  Recursively searches for "term" in all *.hs files,'
+  echo '  starting from the current directory.'
+  exit
+fi
+
 find . -name "*.hs" -exec grep -H "$1" {} \;

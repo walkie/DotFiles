@@ -1,3 +1,10 @@
 #!/bin/bash
 
+if [ $# -ne 2 ]; then
+  echo 'usage: extfind ext term'
+  echo '  Recursively searches for "term" in all *.ext files,'
+  echo '  starting from the current directory.'
+  exit
+fi
+
 find . -name "*.$1" -exec grep -H "$2" {} \;
