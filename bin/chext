@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [ $# -lt 2 ]; then
+  echo 'usage: chext old new [files...]'
+  echo '  Changes the extension of .old files to .new.'
+  echo '  Applies to *.old if no argument files are given.'
+  exit
+fi
+
+# read and discard file extension arguments
+OLD_EXT=$1
+NEW_EXT=$2
+shift 2
+
+# get list of files
+if [ $# -eq 0 ]; then
+  FILES=`ls *.$OLD_EXT`
+else
+  FILES="$@"
+fi
+
+# rename the files
+for f in $FILES; do
+  mv $f `basename $f .$OLD_EXT`.$NEW_EXT
+done
