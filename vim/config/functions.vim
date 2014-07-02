@@ -11,7 +11,7 @@ function PlainText()
   highlight SpellCap ctermbg=Black
   highlight SpellCap guisp=Green
   " Command to reformat a paragraph
-  nmap F {gq}k
+  nmap F mF{gq}`F
   " Use one space after periods on reformat
   setlocal nojoinspaces
 endfunction
