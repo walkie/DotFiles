@@ -1,7 +1,9 @@
 " Turn on plain text options
 function PlainText()
+  
   " Turn on text wrapping
   setlocal textwidth=79
+  
   " Turn on spell checking
   setlocal spell
   highlight SpellBad ctermfg=DarkRed
@@ -10,10 +12,14 @@ function PlainText()
   highlight SpellCap ctermfg=DarkGreen
   highlight SpellCap ctermbg=Black
   highlight SpellCap guisp=Green
-  " Command to reformat a paragraph
+  
+  " Commands to reformat paragraphs
   nmap F mF{gq}`F
+  nmap <Leader>F mF{jvipJ`F
+  
   " Use one space after periods on reformat
   setlocal nojoinspaces
+
 endfunction
 
 " Override some options in PlainText()
