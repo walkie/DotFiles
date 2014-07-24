@@ -36,8 +36,8 @@ NeoBundle 'groenewege/vim-less'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'vim-scripts/coq-syntax'
 NeoBundle 'vim-scripts/mips.vim'
+NeoBundle 'derekwyatt/vim-scala'
 " NeoBundle 'joaopizani/agda-vim'
-" NeoBundle 'derekwyatt/vim-scala'
 " NeoBundle 'wlangstroth/vim-racket'
 
 " General utilities

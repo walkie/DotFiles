@@ -34,7 +34,7 @@ export PATH=$COQ/bin:$PATH
 export MANPATH=$COQ/man:$MANPATH
 
 # Set up Scala
-SCALA=~/Documents/Code/libs/scala-2.10.2
+SCALA=~/Documents/Code/libs/scala-2.11.1
 export PATH=$SCALA/bin:$PATH
 export MANPATH=$SCALA/man:$MANPATH
 
