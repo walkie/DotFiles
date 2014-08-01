@@ -27,8 +27,19 @@ NeoBundle 'vim-scripts/YankRing.vim'
 let g:yankring_history_dir = '~/.vim'
 cabbr yr YRShow
 
+" Tab completion (<Tab> file/text completion, <C-Space> omni-completion)
+NeoBundle 'ervandew/supertab'
+let g:SuperTabNoCompleteAfter = ['^\s*']
+let g:SuperTabDefaultCompletionType = 'context'
+if has("gui_running")
+  imap <C-Space> <C-R>=SuperTabAlternateCompletion('<C-X><C-O>')<CR>
+else
+  imap <NUL> <C-R>=SuperTabAlternateCompletion('<C-X><C-O>')<CR>
+endif
+
 " Interact with ghc-mod (first: cabal install ghc-mod)
 NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'eagletmt/neco-ghc'
 
 " Other language-specific plugins
 NeoBundle 'idris-hackers/idris-vim'
@@ -41,7 +52,6 @@ NeoBundle 'derekwyatt/vim-scala'
 " NeoBundle 'wlangstroth/vim-racket'
 
 " General utilities
-NeoBundle 'ervandew/supertab'
 NeoBundle 'salsifis/vim-transpose'
 
 " Install plugins on start up

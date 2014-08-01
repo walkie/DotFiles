@@ -13,3 +13,6 @@ nmap <Leader>t :GhcModType<CR>
 nmap <Leader>T :GhcModTypeClear<CR>
 nmap <Leader>c :GhcModCheck<CR>
 nmap <Leader>l :GhcModLint<CR>
+
+" omni auto-completion via necoghc and ghc-mod
+setlocal omnifunc=necoghc#omnifunc
