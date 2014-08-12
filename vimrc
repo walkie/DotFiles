@@ -11,6 +11,9 @@ set ruler        " turn the ruler on
 set backspace=2  " backspace over anything
 syntax enable    " turn on syntax highlighting
 
+" When wrapping, show the last line even if it is too long
+set display+=lastline
+
 " Set default font encoding
 setglobal fileencoding=utf-8
 
