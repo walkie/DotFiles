@@ -67,21 +67,6 @@ alias amacs='aquamacs'
 alias access='ssh $ACCESS'
 alias updatedb='sudo /usr/libexec/locate.updatedb'
 
-# cd that works with mac aliases
-# from: http://hints.macworld.com/article.php?story=20050828054129701
-function cd {
-  if [ ${#1} == 0 ]; then
-    builtin cd
-  elif [ -d "${1}" ]; then
-    builtin cd "${1}"
-  elif [[ -f "${1}" || -L "${1}" ]]; then
-    path=$(getTrueName "$1")
-    builtin cd "$path"
-  else
-    builtin cd "${1}"
-  fi
-}
-
 # Set up RVM
 # Load RVM into a shell session as a function
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
