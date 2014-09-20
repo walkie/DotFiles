@@ -63,6 +63,10 @@ A few other miscellaneous things that need to be done manually.
 
  * Install [MacVim](https://code.google.com/p/macvim/) and copy `mvim` script
    into `~/bin`.
+ 
+ * Install [Liberation fonts](https://fedorahosted.org/liberation-fonts/)
+
+ * Install [Homebrew](http://brew.sh/)
 
  * Install [TeXLive](https://www.tug.org/texlive/)
 
