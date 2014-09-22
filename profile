@@ -7,7 +7,6 @@ export PS1=">> $BLUE\u$NO_COLOR@$BLUE\h $GREEN\t $RED\w$NO_COLOR \n\$ "
 # export PROMPT_COMMAND='EXIT_TEMP=$?; if [ $EXIT_TEMP -ne 0 ]; then echo "[Exit code: $EXIT_TEMP]"; fi'
 
 # Environment variables
-export PATH=/usr/local/bin:$PATH
 export DISPLAY=:0.0
 export EDITOR=vim
 
@@ -20,36 +19,13 @@ export HISTSIZE=10000                      # store ten thousand entries instead 
 export HISTFILESIZE=1000000
 
 # Set up LaTeX
-TEXLIVE=/usr/local/texlive/2012/
-export PATH=$TEXLIVE/bin/x86_64-darwin:$PATH
-export MANPATH=$TEXLIVE/doc/man:$MANPATH
+TEXLIVE=/usr/local/texlive/2014/bin/x86_64-darwin
+export PATH=$TEXLIVE:$PATH
+export MANPATH=$TEXLIVE/man:$MANPATH
 
 # Set up Haskell
-HASKELL_PLATFORM=~/Library/Haskell
+HASKELL_PLATFORM=/Library/Haskell
 export PATH=$HASKELL_PLATFORM/bin:$PATH
-
-# Set up Coq
-COQ=/Applications/CoqIdE_8.3pl4.app/Contents/Resources
-export PATH=$COQ/bin:$PATH
-export MANPATH=$COQ/man:$MANPATH
-
-# Set up Scala
-SCALA=~/Documents/Code/libs/scala-2.11.1
-export PATH=$SCALA/bin:$PATH
-export MANPATH=$SCALA/man:$MANPATH
-
-# Set up Git
-GIT=/usr/local/git
-export PATH=$GIT/bin:$PATH
-export MANPATH=$GIT/share/man/git-manpages:$MANPATH
-
-# Set up SQLite
-SQLITE=/usr/local/Cellar/sqlite/3.8.4.3
-export PATH=$SQLITE/bin:$PATH
-export MANPATH=$SQLITE/share/man/man1:$MANPATH
-
-# Set up libraries installed by Homebrew
-export PKG_CONFIG_PATH=/usr/local/Cellar/libffi/3.0.13/lib/pkgconfig:$PKG_CONFIG_PATH
 
 # Add local bin last
 export PATH=~/bin:$PATH
@@ -66,8 +42,3 @@ alias view='vim -R'
 alias amacs='aquamacs'
 alias access='ssh $ACCESS'
 alias updatedb='sudo /usr/libexec/locate.updatedb'
-
-# Set up RVM
-# Load RVM into a shell session as a function
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-export PATH=~/.rvm/bin:$PATH
