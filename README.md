@@ -59,6 +59,9 @@ Also will need to install [Coq](http://coq.inria.fr/) separately.
 
 A few other miscellaneous things that need to be done manually.
 
+ * Compile [getTrueName.c](http://hints.macworld.com/dlfiles/getTrueName.txt),
+   and put in `~/bin` so `cd` works with Mac aliases.
+
  * Install [Haskell Platform](http://www.haskell.org/platform/)
 
  * Install [MacVim](https://code.google.com/p/macvim/) and copy `mvim` script
