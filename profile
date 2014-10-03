@@ -25,7 +25,8 @@ export MANPATH=$TEXLIVE/man:$MANPATH
 
 # Set up Haskell
 HASKELL_PLATFORM=/Library/Haskell
-export PATH=$HASKELL_PLATFORM/bin:$PATH
+HASKELL_PLATFORM_USER=~/Library/Haskell
+export PATH=$HASKELL_PLATFORM_USER/bin:$HASKELL_PLATFORM/bin:$PATH
 
 # Add local bin last
 export PATH=~/bin:$PATH
