@@ -49,6 +49,8 @@ function PresentationStyle()
     set guifont=Liberation_Mono:h24
     colorscheme default
     colorscheme default " bug requires loading default scheme twice
+    " hide tildes at end of file
+    highlight NonText guifg=bg
   endif
 endfunction
 
