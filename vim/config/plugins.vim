@@ -2,7 +2,7 @@
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Interacting with the shell
@@ -53,6 +53,9 @@ NeoBundle 'derekwyatt/vim-scala'
 
 " General utilities
 NeoBundle 'salsifis/vim-transpose'
+
+" This has to be called after all bundles are listed
+call neobundle#end()
 
 " Install plugins on start up
 NeoBundleCheck
