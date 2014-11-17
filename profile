@@ -28,6 +28,9 @@ HASKELL_PLATFORM=/Library/Haskell
 HASKELL_PLATFORM_USER=~/Library/Haskell
 export PATH=$HASKELL_PLATFORM_USER/bin:$HASKELL_PLATFORM/bin:$PATH
 
+# Set up LLVM
+export PKG_CONFIG_PATH=/usr/local/opt/libffi/lib/pkgconfig
+
 # Add local bin last
 export PATH=~/bin:$PATH
 
