@@ -28,6 +28,10 @@
 ; turn on proof general
 (load-file "/Users/walkie/.emacs.d/proofgeneral/generic/proof-site.el")
 
+; enable idris mode
+(add-to-list 'load-path "/Users/walkie/.emacs.d/idris-mode")
+(require 'idris-mode)
+
 ; set up agda-mode
 ; (load-file (let ((coding-system-for-read 'utf-8))
 ;                 (shell-command-to-string "agda-mode locate")))
