@@ -48,6 +48,7 @@ NeoBundle 'tpope/vim-markdown'
 NeoBundle 'vim-scripts/coq-syntax'
 NeoBundle 'vim-scripts/mips.vim'
 NeoBundle 'derekwyatt/vim-scala'
+NeoBundle 'walkie/twelf-vim'
 " NeoBundle 'joaopizani/agda-vim'
 " NeoBundle 'wlangstroth/vim-racket'
 
