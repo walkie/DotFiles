@@ -1,7 +1,3 @@
-; set up load path
-(add-to-list 'load-path "/Users/walkie/.emacs.d")
-
-
 ;;;; Plugins - load these first so we can override their settings later
 
 ; turn on and configure undo-tree plugin
@@ -30,8 +26,8 @@
 (add-hook 'coq-mode-hook (lambda () (electric-indent-local-mode -1)))
 
 ; enable idris mode
-(add-to-list 'load-path "/Users/walkie/.emacs.d/idris-mode")
-(require 'idris-mode)
+; (add-to-list 'load-path "/Users/walkie/.emacs.d/idris-mode")
+; (require 'idris-mode)
 
 ; set up agda-mode
 ; (load-file (let ((coding-system-for-read 'utf-8))
