@@ -25,8 +25,9 @@
 (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
 (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
 
-; turn on proof general
+; turn on and configure proof general
 (load-file "/Users/walkie/.emacs.d/proofgeneral/generic/proof-site.el")
+(add-hook 'coq-mode-hook (lambda () (electric-indent-local-mode -1)))
 
 ; enable idris mode
 (add-to-list 'load-path "/Users/walkie/.emacs.d/idris-mode")
