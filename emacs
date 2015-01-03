@@ -23,7 +23,9 @@
 
 ; turn on and configure proof general
 (load-file "/Users/walkie/.emacs.d/proofgeneral/generic/proof-site.el")
+(setq proof-splash-enable nil)
 (add-hook 'coq-mode-hook (lambda () (electric-indent-local-mode -1)))
+(add-hook 'coq-mode-hook (lambda () (show-paren-mode -1)))
 
 ; enable idris mode
 ; (add-to-list 'load-path "/Users/walkie/.emacs.d/idris-mode")
