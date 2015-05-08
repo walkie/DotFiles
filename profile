@@ -29,8 +29,9 @@ export PATH=~/.cabal/bin:$PATH
 # Set up LLVM
 export PKG_CONFIG_PATH=/usr/local/opt/libffi/lib/pkgconfig
 
-# Add local bin last
+# Add local bin and update path for OS X applications
 export PATH=~/bin:$PATH
+launchctl setenv PATH $PATH
 
 # Aliases
 alias cp="cp -i"
