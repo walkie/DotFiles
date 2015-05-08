@@ -23,10 +23,8 @@ TEXLIVE=/usr/local/texlive/2014/bin/x86_64-darwin
 export PATH=$TEXLIVE:$PATH
 export MANPATH=$TEXLIVE/man:$MANPATH
 
-# Set up Haskell
-HASKELL_PLATFORM=/Library/Haskell
-HASKELL_PLATFORM_USER=~/Library/Haskell
-export PATH=$HASKELL_PLATFORM_USER/bin:$HASKELL_PLATFORM/bin:$PATH
+# Add Cabal binaries to path
+export PATH=~/.cabal/bin:$PATH
 
 # Set up LLVM
 export PKG_CONFIG_PATH=/usr/local/opt/libffi/lib/pkgconfig
