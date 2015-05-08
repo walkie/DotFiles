@@ -61,6 +61,7 @@ function SymbolMacros()
   imap <buffer> \notexists ∄
   imap <buffer> \in ∈
   imap <buffer> \notin ∉
+  imap <buffer> \epsilon ε
   imap <buffer> \Lambda Λ
   imap <buffer> \lambda λ
   imap <buffer> \mu µ

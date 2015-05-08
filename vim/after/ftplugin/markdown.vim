@@ -1,2 +1,2 @@
 call PlainText()
-call SymbolMacros()
+" call SymbolMacros()
