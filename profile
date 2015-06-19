@@ -26,6 +26,9 @@ export MANPATH=$TEXLIVE/man:$MANPATH
 # Add Cabal binaries to path
 export PATH=~/.cabal/bin:$PATH
 
+# Add Prolog to path
+export PATH=/Applications/SWI-Prolog.app/Contents/MacOS:$PATH
+
 # Set up LLVM
 export PKG_CONFIG_PATH=/usr/local/opt/libffi/lib/pkgconfig
 
