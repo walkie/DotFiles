@@ -1,10 +1,12 @@
 AST
 Apel
+Automator
 Axelrod
 Barnsdale
 CEK
 CESK
 CPP
+CoScripter
 DSEL
 DSELs
 DSLs
@@ -22,6 +24,7 @@ MySQL
 NPC
 Ostermann
 Preprocessor's
+Prolog
 Rendel
 SCM
 TODO
@@ -33,9 +36,13 @@ Walkingshaw
 accessor
 annotational
 anonymized
+app
+arities
 arity
 bimatrix
+bioinformatics
 bitstring
+checkboxes
 codata
 componentization
 composability
@@ -46,6 +53,7 @@ counterfactual
 counterfactually
 counterfactuals
 deconstruct
+derivability
 diff
 diffs
 edu
@@ -67,6 +75,7 @@ instantiable
 invertibility
 labeling
 labelings
+lede
 metamodels
 metaprogramming
 metavariables
@@ -98,6 +107,8 @@ subdomain
 subdomains
 sublanguage
 subsubsection
+summative
+teleportation
 tradeoffs
 transformative
 troublingly
@@ -109,6 +120,7 @@ vs.
 walkiner
 waypoint
 waypoints
+webpage
 workflow
+workflows
 worldview
-Derivability
