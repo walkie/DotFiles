@@ -1,12 +1,11 @@
 " start new lines at the same indent level as the previous
 set autoindent
 
-" fix so we don't auto-insert '-' in language pragmas
-setlocal comments=f:{-#,s1fl:{-,mb:-,ex:-},:--
+" tell vim about Haskell comments and pragmas
+setlocal comments=f:{-#,s1fl:{-,mb:-,ex:-},:-- commentstring=--\ %s
 
-" add highlighting of 'family' keyword
-syn clear hsTypedef
-syn match hsTypedef "\<\(type\|newtype\|family\)\>"
+" auto-wrap long comments and auto-insert comment leaders
+setlocal formatoptions=croql
 
 " keyboard shortcuts for ghcmod-vim
 nmap <Leader>t :GhcModType<CR>

@@ -37,9 +37,15 @@ else
   imap <NUL> <C-R>=SuperTabAlternateCompletion('<C-X><C-O>')<CR>
 endif
 
-" Interact with ghc-mod (first: cabal install ghc-mod)
+" Haskell stuff (first: cabal install ghc-mod)
 NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'eagletmt/neco-ghc'
+NeoBundle 'raichoo/haskell-vim'
+let g:haskell_enable_quantification = 1
+let g:haskell_indent_case = 2
+let g:haskell_indent_do = 3
+let g:cabal_indent_section = 2
+
 
 " Other language-specific plugins
 NeoBundle 'idris-hackers/idris-vim'
