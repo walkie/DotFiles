@@ -39,3 +39,7 @@ source ~/.vim/config/plugins.vim
 
 " Turn on ftplugin wizardry (must come after plugins)
 filetype plugin indent on
+
+" Load my after scripts last
+set runtimepath-=~/.vim/after
+set runtimepath+=~/.vim/after
