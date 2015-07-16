@@ -1,5 +1,6 @@
 Session.vim
 .DS_Store
+.cabal-sandbox
 *.swp
 *.synctex.gz
 .#*
