@@ -18,23 +18,32 @@ export HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S " # store a time stamp with each entry
 export HISTSIZE=10000                      # store ten thousand entries instead of 500
 export HISTFILESIZE=1000000
 
-# Set up LaTeX
-TEXLIVE=/usr/local/texlive/2014/bin/x86_64-darwin
-export PATH=$TEXLIVE:$PATH
-export MANPATH=$TEXLIVE/man:$MANPATH
-
-# Add Cabal binaries to path
-export PATH=~/.cabal/bin:$PATH
-
-# Add Prolog to path
-export PATH=/Applications/SWI-Prolog.app/Contents/MacOS:$PATH
-
 # Set up LLVM
 export PKG_CONFIG_PATH=/usr/local/opt/libffi/lib/pkgconfig
+
+# Add Homebrew's sbin to the path
+export PATH=/usr/local/sbin:$PATH
+export PATH=/usr/local/opt/sqlite/bin:$PATH
+
+# Add Prolog to path
+# export PATH=/Applications/SWI-Prolog.app/Contents/MacOS:$PATH
+
+# Add Racket to path
+export PATH=/Applications/Racket-v6.3/bin:$PATH
+
+# Add Cabal and Stack binaries to path
+export PATH=~/.cabal/bin:$PATH
+export PATH=~/.local/bin:$PATH
 
 # Add local bin and update path for OS X applications
 export PATH=~/bin:$PATH
 launchctl setenv PATH $PATH
+
+# Turn on fancy auto-completion.
+# Depends on: brew install bash-completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
 
 # Aliases
 alias cp="cp -i"

@@ -37,6 +37,10 @@ else
   imap <NUL> <C-R>=SuperTabAlternateCompletion('<C-X><C-O>')<CR>
 endif
 
+" Nicer file system and Git integration
+NeoBundle 'tpope/vim-eunuch'
+NeoBundle 'tpope/vim-fugitive'
+
 " Haskell stuff (first: cabal install ghc-mod)
 NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'eagletmt/neco-ghc'
@@ -46,6 +50,11 @@ let g:haskell_indent_case = 2
 let g:haskell_indent_do = 3
 let g:cabal_indent_section = 2
 
+" Liquid Haskell
+" NeoBundle 'scrooloose/syntastic'
+" NeoBundle 'panagosg7/vim-annotations'
+" NeoBundle 'ucsd-progsys/liquid-types.vim'
+" let g:vim_annotations_offset = '/.liquid/'
 
 " Other language-specific plugins
 NeoBundle 'idris-hackers/idris-vim'

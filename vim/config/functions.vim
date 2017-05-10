@@ -3,6 +3,7 @@ function PlainText()
   
   " Turn on text wrapping
   setlocal textwidth=79
+  setlocal formatoptions+=t
   
   " Turn on spell checking
   setlocal spell
@@ -29,6 +30,13 @@ function SoftWrap()
   setlocal wrap         " turn on soft text wrapping
   setlocal linebreak    " don't break in the middle of words
   setlocal nolist       " list disables linebreak
+endfunction
+
+" Maximize the window of the GUI
+function Maximize()
+  if has("gui_running")
+    set lines=999 columns=9999
+  endif
 endfunction
 
 " Set up the visual style of the GUI for regular editing.

@@ -1,5 +1,6 @@
-" Set the <Leader> key
-let mapleader = ','
+" Set the <Leader> and <LocalLeader> keys
+let mapleader = ';'
+let maplocalleader = ','
 
 " Insert a blank line from normal mode
 nnoremap <S-RETURN> ^i<RETURN><ESC>
@@ -30,6 +31,12 @@ vnoremap <Down> gj
 
 inoremap <Up> <C-O>gk
 inoremap <Down> <C-O>gj
+
+" Enable Emacs/Mac-style line movement
+noremap <C-A> <Home>
+noremap <C-E> <End>
+inoremap <C-A> <Home>
+inoremap <C-E> <End>
 
 " Use space to remove search highlighting
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
