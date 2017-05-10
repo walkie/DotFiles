@@ -75,8 +75,8 @@ end
 # set up vim plugin manager
 confirm "Install the vim plugin manager?"
 bundle = File.join(Dir.home, ".vim", "bundle")
-neobundle = File.join(bundle, "neobundle.vim")
+vundle = File.join(bundle, "Vundle.vim")
 if $live
   `mkdir #{bundle}`
-  `git clone https://github.com/Shougo/neobundle.vim #{neobundle}`
+  `git clone https://github.com/VundleVim/Vundle.vim.git #{vundle}`
 end
