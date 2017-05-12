@@ -1,5 +1,5 @@
 " Turn on plain text options
-function PlainText()
+function! PlainText()
   
   " Turn on text wrapping
   setlocal textwidth=79
@@ -25,7 +25,7 @@ endfunction
 
 " Override some options in PlainText()
 " to get soft rather than hard wrapping
-function SoftWrap()
+function! SoftWrap()
   setlocal textwidth=0  " turn off hard text wrapping
   setlocal wrap         " turn on soft text wrapping
   setlocal linebreak    " don't break in the middle of words
@@ -33,14 +33,14 @@ function SoftWrap()
 endfunction
 
 " Maximize the window of the GUI
-function Maximize()
+function! Maximize()
   if has("gui_running")
     set lines=999 columns=9999
   endif
 endfunction
 
 " Set up the visual style of the GUI for regular editing.
-function NormalStyle()
+function! NormalStyle()
   if has("gui_running")
     set transparency=10
     set guifont=Liberation_Mono:h12
@@ -51,7 +51,7 @@ function NormalStyle()
 endfunction
 
 " Set up the visual style of the GUI for presentations.
-function PresentationStyle()
+function! PresentationStyle()
   if has("gui_running")
     set transparency=0
     set guifont=Liberation_Mono:h24
@@ -63,7 +63,7 @@ function PresentationStyle()
 endfunction
 
 " Latex-style mappings for common mathematical characters
-function SymbolMacros()
+function! SymbolMacros()
   imap <buffer> \forall ∀
   imap <buffer> \exists ∃
   imap <buffer> \notexists ∄

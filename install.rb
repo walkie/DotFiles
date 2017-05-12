@@ -71,12 +71,3 @@ $execs.each do |source|
   link(source,target)
   `chmod +x #{target}` if $live
 end
-
-# set up vim plugin manager
-confirm "Install the vim plugin manager?"
-bundle = File.join(Dir.home, ".vim", "bundle")
-vundle = File.join(bundle, "Vundle.vim")
-if $live
-  `mkdir #{bundle}`
-  `git clone https://github.com/VundleVim/Vundle.vim.git #{vundle}`
-end
