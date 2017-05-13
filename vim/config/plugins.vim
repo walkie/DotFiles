@@ -25,6 +25,10 @@ let g:NERDTreeMouseMode=2
 let g:NERDTreeMapOpenInTabSilent="<C-T>"
 nnoremap <S-T> :NERDTreeToggle<CR>
 
+" Fuzzy file finder
+Plug 'ctrlpvim/ctrlp.vim'
+nnoremap <S-F> :CtrlP<CR>
+
 " Fancy status line (see config/airline.vim)
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
