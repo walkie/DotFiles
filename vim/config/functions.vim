@@ -1,10 +1,10 @@
 " Turn on plain text options
 function! PlainText()
-  
+
   " Turn on text wrapping
   setlocal textwidth=79
   setlocal formatoptions+=t
-  
+
   " Turn on spell checking
   setlocal spell
   highlight SpellBad ctermfg=DarkRed
@@ -13,11 +13,11 @@ function! PlainText()
   highlight SpellCap ctermfg=DarkGreen
   highlight SpellCap ctermbg=Black
   highlight SpellCap guisp=Green
-  
+
   " Commands to reformat paragraphs
   nmap F mF{gq}`F
   nmap <Leader>F mF{jvipJ`F
-  
+
   " Use one space after periods on reformat
   setlocal nojoinspaces
 
@@ -48,6 +48,7 @@ function! NormalStyle()
     highlight clear Search
     highlight Search guibg=gray35
   endif
+  let g:airline_theme='wombat'  " other decent ones: badcat, monochrome
 endfunction
 
 " Set up the visual style of the GUI for presentations.
@@ -60,6 +61,7 @@ function! PresentationStyle()
     " hide tildes at end of file
     highlight NonText guifg=bg
   endif
+  let g:airline_theme='aurora'
 endfunction
 
 " Latex-style mappings for common mathematical characters

@@ -32,10 +32,12 @@ set suffixes+=.aux,.bbl,.blg,.dvi,.log,.pdf,.ps,.toc
 " Put all swap files in the same directory
 set directory=~/.vim/swap,.
 
-" Add my functions and key-mappings, load plugins
+" Add my functions and key-mappings, load plugins, configure status line
 source ~/.vim/config/functions.vim
 source ~/.vim/config/maps.vim
 source ~/.vim/config/plugins.vim
+" source ~/.vim/config/airline.vim
+source ~/.vim/config/statusline.vim
 
 " Turn on ftplugin wizardry (vim-plug does this automatically)
 " filetype plugin indent on

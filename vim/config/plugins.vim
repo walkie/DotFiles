@@ -25,6 +25,10 @@ let g:NERDTreeMouseMode=2
 let g:NERDTreeMapOpenInTabSilent="<C-T>"
 nnoremap <S-T> :NERDTreeToggle<CR>
 
+" Fancy status line (see config/airline.vim)
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+
 " YankRing (:yr to open)
 Plug 'vim-scripts/YankRing.vim'
 let g:yankring_history_dir = '~/.vim'
@@ -44,7 +48,7 @@ endif
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 
-" Haskell stuff (first: cabal install ghc-mod)
+" Haskell stuff (first: stack install ghc-mod)
 Plug 'eagletmt/ghcmod-vim'
 Plug 'eagletmt/neco-ghc'
 Plug 'raichoo/haskell-vim'
