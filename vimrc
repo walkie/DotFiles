@@ -15,6 +15,7 @@ syntax enable    " turn on syntax highlighting
 set display+=lastline
 
 " Set default font encoding
+set encoding=utf-8
 setglobal fileencoding=utf-8
 
 " Searching
