@@ -17,10 +17,7 @@ over manually.
 
 (Most of) the contents of this repository are recursively hard-linked to the
 home directory to share changes between the two and avoid the occasional
-problem caused by sym-links.
-
-The script `install.rb` automates this linking and also sets up the vim plugin
-manager. It doesn't automate the setup of emacs.
+problem caused by sym-links. The script `install.rb` automates this linking.
 
 New config files must be either manually linked into the repository, or else
 copied into the repository followed by re-running the install script.
@@ -28,11 +25,9 @@ copied into the repository followed by re-running the install script.
 
 ## Setting up Vim
 
-Plugins are managed automatically by [NeoBundle](https://github.com/Shougo/neobundle.vim).
-The install script does the following:
-
-    mkdir -p ~/.vim/bundle
-    git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+Plugins are managed automatically by [vim-plug](https://github.com/junegunn/vim-plug).
+The plugin manager should be automatically installed after launching vim for
+the first time. Run `:PlugUpdate` from within vim to install the plugins.
 
 
 ## Setting up Emacs
@@ -59,24 +54,29 @@ Also will need to install [Coq](http://coq.inria.fr/) separately.
 
 A few other miscellaneous things that need to be done manually.
 
- * Compile [getTrueName.c](http://hints.macworld.com/dlfiles/getTrueName.txt),
-   and put in `~/bin` so `cd` works with Mac aliases.
+ * Install [Homebrew](http://brew.sh/) and at least these packages:
+   
+   ```
+   brew install git
+   brew install ghc
+   brew install haskell-stack
+   brew install pandoc
+   brew install curl
+   brew install wget
+   brew tap caskroom/cask
+   brew cask install mactex
+   brew cask install macvim
+   ```
 
- * Install [Haskell Platform](http://www.haskell.org/platform/)
+ * Install non-free LaTeX fonts:
 
- * Install [MacVim](https://code.google.com/p/macvim/) and copy `mvim` script
-   into `~/bin`.
+   ```
+   wget http://tug.org/fonts/getnonfreefonts/install-getnonfreefonts
+   texlua install-getnonfreefonts
+   getnonfreefonts --all
+   ```
  
  * Install [Liberation fonts](https://fedorahosted.org/liberation-fonts/)
-
- * Install [Homebrew](http://brew.sh/)
-
- * Install [TeXLive](https://www.tug.org/texlive/)
-
-   * Plus install non-free fonts:
-
-     ```
-     wget http://tug.org/fonts/getnonfreefonts/install-getnonfreefonts
-     texlua install-getnonfreefonts
-     getnonfreefonts --all
-     ```
+ 
+ * Compile [getTrueName.c](http://hints.macworld.com/dlfiles/getTrueName.txt),
+   and put in `~/bin` so `cd` works with Mac aliases.
