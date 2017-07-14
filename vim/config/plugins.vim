@@ -48,6 +48,9 @@ else
   imap <NUL> <C-R>=SuperTabAlternateCompletion('<C-X><C-O>')<CR>
 endif
 
+" Personal wiki
+Plug 'vimwiki/vimwiki'
+
 " Nicer file system and Git integration
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'

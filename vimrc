@@ -16,7 +16,7 @@ set display+=lastline
 
 " Set default font encoding
 set encoding=utf-8
-setglobal fileencoding=utf-8
+set fileencoding=utf-8
 
 " Searching
 set incsearch " incremental search

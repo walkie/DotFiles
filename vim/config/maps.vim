@@ -2,6 +2,9 @@
 let mapleader = ';'
 let maplocalleader = ','
 
+" Emacs-style movement in command mode
+cnoremap <C-A> <HOME>
+
 " Insert a blank line from normal mode
 nnoremap <S-RETURN> ^i<RETURN><ESC>
 
