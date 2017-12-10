@@ -50,6 +50,8 @@ endif
 
 " Personal wiki
 Plug 'vimwiki/vimwiki'
+let g:vimwiki_use_mouse = 1
+let g:vimwiki_list = [{'path': '~/Documents/Wiki'}]
 
 " Nicer file system and Git integration
 Plug 'tpope/vim-eunuch'
@@ -86,6 +88,7 @@ Plug 'walkie/twelf-vim'
 
 " General utilities
 Plug 'salsifis/vim-transpose'
+Plug 'godlygeek/tabular'
 
 " Initialize plugins
 call plug#end()
