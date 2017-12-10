@@ -25,19 +25,25 @@ export PKG_CONFIG_PATH=/usr/local/opt/libffi/lib/pkgconfig
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/opt/sqlite/bin:$PATH
 
+# Add Cabal and Stack binaries to path
+export PATH=~/.cabal/bin:$PATH
+export PATH=~/.local/bin:$PATH
+
+# Add Agda to path
+export PATH=~/Code/lib/agda/.cabal-sandbox/bin:$PATH
+
 # Add Prolog to path
 # export PATH=/Applications/SWI-Prolog.app/Contents/MacOS:$PATH
 
 # Add Racket to path
 export PATH=/Applications/Racket-v6.3/bin:$PATH
 
-# Add Cabal and Stack binaries to path
-export PATH=~/.cabal/bin:$PATH
-export PATH=~/.local/bin:$PATH
-
 # Add local bin and update path for OS X applications
 export PATH=~/bin:$PATH
 launchctl setenv PATH $PATH
+
+# OPAM configuration
+. /Users/walkie/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
 # Turn on fancy auto-completion.
 # Depends on: brew install bash-completion
