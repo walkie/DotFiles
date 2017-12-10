@@ -1,4 +1,5 @@
 AST
+Agda
 Apel
 Automator
 Axelrod
@@ -27,6 +28,7 @@ LHS
 Milner
 MySQL
 NPC
+OCaml
 Ostermann
 Preprocessor's
 Prolog
@@ -44,6 +46,7 @@ VLC
 Verysdale
 Walkingshaw
 Walkingshaw's
+abductive
 accessor
 annotational
 anonymized
@@ -77,6 +80,7 @@ erwig
 explainability
 explanandum
 explorative
+extensionality
 featureful
 gamification
 generable
@@ -111,6 +115,7 @@ misconfigurations
 monoid
 namespace
 namespaces
+nondeterminism
 omissible
 operationalized
 oregonstate
@@ -122,6 +127,8 @@ plugin
 proactively
 programmatically
 projectional
+prover
+provers
 pseudocode
 quadcopter
 refactor
@@ -132,6 +139,7 @@ repurpose
 repurposed
 restorable
 reusability
+runtimes
 screenshot
 screenshots
 semantician
@@ -143,12 +151,15 @@ subexpression
 subexpressions
 sublanguage
 subsubsection
+subtyping
 summative
 teleportation
 tradeoffs
 transformative
 troublingly
+typings
 unaddressed
+unannotated
 updatable
 variationalization
 von
