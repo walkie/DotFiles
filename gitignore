@@ -1,8 +1,10 @@
 Session.vim
 .DS_Store
 .cabal-sandbox
+.stack-work
 *~
 *.aux
+*.dvi
 *.log
 *.swp
 *.synctex.gz
