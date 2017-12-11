@@ -34,7 +34,7 @@ endfunction
 
 " Maximize the window of the GUI
 function! Maximize()
-  if has("gui_running")
+  if has("gui_macvim")
     set lines=999 columns=9999
   endif
 endfunction
@@ -42,8 +42,12 @@ endfunction
 " Set up the visual style of the GUI for regular editing.
 function! NormalStyle()
   if has("gui_running")
-    set transparency=10
-    set guifont=Liberation_Mono:h12
+    if has ("gui_macvim")
+      set transparency=10
+      set guifont=Liberation_Mono:h12
+    else
+      set guifont=LiberationMono\ 11
+    endif
     colorscheme torte
     highlight clear Search
     highlight Search guibg=gray35
@@ -54,8 +58,12 @@ endfunction
 " Set up the visual style of the GUI for presentations.
 function! PresentationStyle()
   if has("gui_running")
-    set transparency=0
-    set guifont=Liberation_Mono:h24
+    if has("gui_macvim")
+      set transparency=0
+      set guifont=Liberation_Mono:h24
+    else
+      set guifont=LiberationMono\ 24
+    endif
     colorscheme default
     colorscheme default " bug requires loading default scheme twice
     " hide tildes at end of file
