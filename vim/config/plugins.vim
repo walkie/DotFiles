@@ -1,18 +1,20 @@
 " Install vim-plug if not already installed
 "   :PlugUpdate    updates plugins managed by vim-plug
 "   :PlugUpgrade   updates vim-plug itself
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+if empty(glob('$VIMHOME/autoload/plug.vim'))
+  silent !curl -fLo $VIMHOME/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " Specify plugin directory
-call plug#begin('~/.vim/plugins')
+call plug#begin('$VIMHOME/plugins')
 
 " Run asynchronous processes
 " Needed by ghcmod-vim (and maybe others)
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+if has("unix")
+  Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+endif
 
 " Buffer Explorer (B in normal mode to open)
 Plug 'jlanzarotta/bufexplorer'
@@ -35,7 +37,7 @@ nnoremap <S-F> :CtrlP<CR>
 
 " YankRing (:yr to open)
 Plug 'vim-scripts/YankRing.vim'
-let g:yankring_history_dir = '~/.vim'
+let g:yankring_history_dir = '$VIMHOME'
 cabbr yr YRShow
 
 " Tab completion (<Tab> file/text completion, <C-Space> omni-completion)
@@ -57,9 +59,12 @@ let g:vimwiki_list = [{'path': '~/Documents/Wiki'}]
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 
-" Haskell stuff (first: stack install ghc-mod)
-Plug 'eagletmt/ghcmod-vim'
-Plug 'eagletmt/neco-ghc'
+" Haskell stuff
+if has("unix")
+  " Requires ghc-mod (run: stack install ghc-mod)
+  Plug 'eagletmt/ghcmod-vim'
+  Plug 'eagletmt/neco-ghc'
+endif
 Plug 'raichoo/haskell-vim'
 let g:haskell_enable_quantification = 1  " highlight `forall`
 let g:haskell_enable_recursivedo = 1     " highlight `mdo` and `rec`
