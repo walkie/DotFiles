@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+  echo 'usage: mountdrive name'
+  echo '  Mount a Windows drive.'
+  echo 'example: mountdrive d'
+  echo '  Mounts Windows drive D: at /mnt/d'
+  exit
+fi
+
+drivename=`echo $1 | tr '[:upper:]' '[:lower:]'`
+sudo mkdir -p "/mnt/$drivename"
+sudo mount -t drvfs "$drivename:" "/mnt/$drivename"
