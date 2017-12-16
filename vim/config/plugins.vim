@@ -1,4 +1,5 @@
 " Install vim-plug if not already installed
+" (If on Windows, do this step manually...)
 "   :PlugUpdate    updates plugins managed by vim-plug
 "   :PlugUpgrade   updates vim-plug itself
 if empty(glob('$VIMHOME/autoload/plug.vim'))
