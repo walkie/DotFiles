@@ -10,7 +10,7 @@ def non_dots(dir)
 end
 
 # produce lists of the files to link
-$ignore = ["README.md","install.rb","bin"]
+$ignore = ["README.md","install.rb","bin","windows"]
 $files = non_dots(Dir.getwd) - $ignore
 $execs = non_dots("bin").map { |f| File.join("bin", f) }
 
