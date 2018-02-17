@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # start file name with date in YYYY-MM-DD format
 filename=`date "+%Y-%m-%d"`
