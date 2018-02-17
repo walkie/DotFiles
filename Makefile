@@ -6,7 +6,7 @@ setup:
 
 install: setup
 	stow --target=${HOME} home
-	ln -s special/gitignore ${HOME}/.gitignore
+	ln -s $(shell pwd)/special/gitignore ${HOME}/.gitignore
 
 clean:
 	stow --target=${HOME} --delete home
