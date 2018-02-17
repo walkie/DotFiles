@@ -15,6 +15,7 @@ DSELs
 DSLs
 Dagstuhl
 Erwig
+FOSD
 Gort
 Hagl
 Hagl's
@@ -37,6 +38,7 @@ Rendel
 SCM
 SML
 SML's
+SMT
 SPL
 Sheng
 TODO
@@ -116,6 +118,7 @@ monoid
 namespace
 namespaces
 nondeterminism
+nonterminal
 omissible
 operationalized
 oregonstate
@@ -150,6 +153,7 @@ subdomains
 subexpression
 subexpressions
 sublanguage
+subproblems
 subsubsection
 subtyping
 summative
