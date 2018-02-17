@@ -45,6 +45,8 @@ function! NormalStyle()
     if has ("gui_macvim")
       set transparency=10
       set guifont=Liberation_Mono:h12
+    elseif has('win32') || has('win64')
+      set guifont=Consolas:h11
     else
       set guifont=LiberationMono\ 11
     endif
@@ -61,6 +63,8 @@ function! PresentationStyle()
     if has("gui_macvim")
       set transparency=0
       set guifont=Liberation_Mono:h24
+    elseif has('win32') || has('win64')
+      set guifont=Consolas:h20
     else
       set guifont=LiberationMono\ 24
     endif

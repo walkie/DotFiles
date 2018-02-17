@@ -30,19 +30,26 @@ set diffopt+=iwhite " ignore whitespace in diff-mode
 " Add suffixes to ignore when completing files on comand line
 set suffixes+=.aux,.bbl,.blg,.dvi,.log,.pdf,.ps,.synctex.gz,.toc
 
+" Home of vim config files
+if has('win32') || has('win64')
+  let $VIMHOME = $HOME . "/vimfiles"
+else
+  let $VIMHOME = $HOME . "/.vim"
+endif
+
 " Put all swap files in the same directory
-set directory=~/.vim/swap,.
+" set directory=~/.vim/swap,.
 
 " Add my functions and key-mappings, load plugins, configure status line
-source ~/.vim/config/functions.vim
-source ~/.vim/config/maps.vim
-source ~/.vim/config/plugins.vim
-" source ~/.vim/config/airline.vim
-source ~/.vim/config/statusline.vim
+source $VIMHOME/config/functions.vim
+source $VIMHOME/config/maps.vim
+source $VIMHOME/config/plugins.vim
+" source $VIMHOME/config/airline.vim
+source $VIMHOME/config/statusline.vim
 
 " Turn on ftplugin wizardry (vim-plug does this automatically)
 " filetype plugin indent on
 
 " Load my after scripts last
-set runtimepath-=~/.vim/after
-set runtimepath+=~/.vim/after
+set runtimepath-=$VIMHOME/after
+set runtimepath+=$VIMHOME/after
