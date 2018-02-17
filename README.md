@@ -3,7 +3,9 @@
 My configuration files and notes to myself for setting up new machines.
 
 
-## Excluded files
+## Linux and Mac
+
+### Excluded files
 
 These files and directories contain sensitive information and should be copied
 over manually.
@@ -12,29 +14,86 @@ over manually.
  * `.profile.private`
  * `.ssh/`
 
+### Installation
 
-## Installation
+ 1. Install [GNU Stow](https://www.gnu.org/software/stow/)
+ 2. Run `make`
 
-(Most of) the contents of this repository are recursively hard-linked to the
-home directory to share changes between the two and avoid the occasional
-problem caused by sym-links. The script `install.rb` automates this linking.
+The `home` directory contains all the config files I want on every machine.
+Stow will symlink these into the system \$HOME directory.
 
-New config files must be either manually linked into the repository, or else
-copied into the repository followed by re-running the install script.
+It's important that we don't symlink certain directories into this repository
+(e.g. `.stack` and `.vim`) since these will end up containing lots of stuff
+that we don't want under version control. So the Makefile makes sure these root
+directories are already created so that stow will only link the relevant
+contents into them, rather than the whole thing.
 
+By default, stow ignores `.gitignore` files. There's not a convenient way to
+override this, so the Makefile just manually symlinks that file into \$HOME
+from the `special` directory.
 
-## Setting up Vim
+### Vim
 
 Plugins are managed automatically by [vim-plug](https://github.com/junegunn/vim-plug).
 The plugin manager should be automatically installed after launching vim for
 the first time. Run `:PlugUpdate` from within vim to install the plugins.
 
+### Haskell
 
-## Setting up Emacs
+Install [Haskell Stack](https://docs.haskellstack.org/en/stable/README/)
+directly since the packaged versions lag behind.
 
-(I only use Emacs for [Proof General](http://proofgeneral.inf.ed.ac.uk/) and
+Currently I have a global GHC installed directly, which Stack uses. I should
+probably just install GHC through stack and then `alias ghc="stack ghc"`, etc.
+
+### Linux Packages
+
+With the relevant package manager, install at least these packages:
+ * git
+ * pandoc
+ * tex-live
+
+### Mac Packages
+
+ * Install [Homebrew](http://brew.sh/) and at least these packages:
+
+   ```
+   brew install git
+   brew install pandoc
+   brew install curl
+   brew install wget
+   brew tap caskroom/cask
+   brew cask install mactex
+   brew cask install macvim
+   ```
+
+ * Compile [getTrueName.c](http://hints.macworld.com/dlfiles/getTrueName.txt),
+   and put in `~/bin` so `cd` works with Mac aliases.
+
+### Fonts
+
+ * After installing TeX-Live, also install the non-free LaTeX fonts:
+
+   ```
+   wget http://tug.org/fonts/getnonfreefonts/install-getnonfreefonts
+   texlua install-getnonfreefonts
+   getnonfreefonts --all
+   ```
+
+ * Install the [Liberation fonts](https://fedorahosted.org/liberation-fonts/)
+
+
+## Windows
+
+There's a custom PowerShell prompt in `windows` and some WSL-specific stuff in
+`wsl`. Install these manually, if needed.
+
+
+## Emacs (Old)
+
+I only use Emacs for [Proof General](http://proofgeneral.inf.ed.ac.uk/) and
 hack it up to act like Vim, so this is a pretty terrible configuration for most
-people.)
+people.
 
 Install [Aquamacs](http://aquamacs.org/). From within Aquamacs:
 
@@ -48,35 +107,3 @@ Plugins are managed manually:
     git clone https://github.com/emacsmirror/proofgeneral ~/.emacs.d/proofgeneral
 
 Also will need to install [Coq](http://coq.inria.fr/) separately.
-
-
-## Miscellaneous
-
-A few other miscellaneous things that need to be done manually.
-
- * Install [Homebrew](http://brew.sh/) and at least these packages:
-   
-   ```
-   brew install git
-   brew install ghc
-   brew install haskell-stack
-   brew install pandoc
-   brew install curl
-   brew install wget
-   brew tap caskroom/cask
-   brew cask install mactex
-   brew cask install macvim
-   ```
-
- * Install non-free LaTeX fonts:
-
-   ```
-   wget http://tug.org/fonts/getnonfreefonts/install-getnonfreefonts
-   texlua install-getnonfreefonts
-   getnonfreefonts --all
-   ```
- 
- * Install [Liberation fonts](https://fedorahosted.org/liberation-fonts/)
- 
- * Compile [getTrueName.c](http://hints.macworld.com/dlfiles/getTrueName.txt),
-   and put in `~/bin` so `cd` works with Mac aliases.
