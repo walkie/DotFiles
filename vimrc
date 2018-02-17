@@ -28,7 +28,7 @@ highlight Search ctermbg=DarkGray
 set diffopt+=iwhite " ignore whitespace in diff-mode
 
 " Add suffixes to ignore when completing files on comand line
-set suffixes+=.aux,.bbl,.blg,.dvi,.log,.pdf,.ps,.toc
+set suffixes+=.aux,.bbl,.blg,.dvi,.log,.pdf,.ps,.synctex.gz,.toc
 
 " Put all swap files in the same directory
 set directory=~/.vim/swap,.
