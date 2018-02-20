@@ -1,0 +1,11 @@
+# Taskwarrior configuration file.
+#
+# Documentation: man task, task-color, task-sync, or taskrc
+#
+# Use 'task show' to see all variable settings.
+
+# Data store
+data.location=~/Dropbox/Tasks
+
+# Color theme
+include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/dark-256.theme
