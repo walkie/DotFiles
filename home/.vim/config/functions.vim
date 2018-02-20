@@ -97,3 +97,15 @@ function! SymbolMacros()
   imap <buffer> \oplus ⊕
   imap <buffer> \otimes ⊗
 endfunction
+
+" Install Taskwarrior Python bindings (arg comes from VimPlug)
+function! InstallTasklib(info)
+  if has("unix")
+    " Only execute when first installing or on force update
+    if a:info.status == 'installed' || a:info.force
+      !{ type -p pip && pip install --upgrade git+git://github.com/tbabej/tasklib@develop; } ||
+        \ { type -p pip2 && pip2 install --upgrade git+git://github.com/tbabej/tasklib@develop; } ||
+        \ echo 'Install pip then run :PlugInstall! taskwiki'
+    endif
+  endif
+endfunction
