@@ -2,7 +2,7 @@ all: install
 
 setup:
 	mkdir -p ${HOME}/.stack
-	mkdir -p ${HOME}/.vim
+	mkdir -p ${HOME}/.vim/spell
 
 install: setup
 	stow --target=${HOME} home
