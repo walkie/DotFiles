@@ -1,6 +1,7 @@
 all: install
 
 setup:
+	mkdir -p ${HOME}/.emacs.d
 	mkdir -p ${HOME}/.stack
 	mkdir -p ${HOME}/.vim/spell
 
