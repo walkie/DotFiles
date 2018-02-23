@@ -26,13 +26,29 @@
     (setq evil-vsplit-window-right t)
     (setq evil-want-C-u-scroll t) 
   :config
-    (evil-mode 1)
+    (evil-mode 1))
 
-    ;; Make window switching easier.
-
-    ;; Navigate by visual lines.
-    (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
-    (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line))
+;; Define keybindings that integrate nicely with evil.
+(use-package general)
+  :config
+    ;; Normal mode key bindings.
+    (general-define-key
+      :states 'normal
+      ;; Make window switching easier.
+      "H" 'evil-window-left
+      "J" 'evil-window-down
+      "K" 'evil-window-up
+      "L" 'evil-window-right
+      ;; Navigate by visual lines.
+      "j" 'evil-next-visual-line
+      "k" 'evil-previous-visual-line
+      ;; Open buffer switcher.
+      "B" 'buffer-menu)
+    (general-define-key
+      :states '(normal visual insert emacs)
+      :prefix "SPC"
+      :non-normal-prefix "C-SPC"
+      "SPC" (general-simulate-key "M-x" :which-key "execute command (M-x)"))
 
 ;; Discoverable shortcuts. TODO
 (use-package which-key
@@ -43,22 +59,24 @@
 (use-package org)
 (use-package haskell-mode)
 
-
-;;;; Themes
-
 ;; These themes are a bit busier than I'd like but support lots of modes.
-(use-package doom-themes
-  :config
-    (setq doom-themes-enable-bold nil)
-    (setq doom-themes-enable-italic nil))
+; (use-package doom-themes
+;   :config
+;     (setq doom-themes-enable-bold nil)
+;     (setq doom-themes-enable-italic nil))
 
 ;; Support rotating between dark and light theme.
-(use-package theme-looper
+; (use-package theme-looper
+;   :config
+;     (theme-looper-set-theme-set
+;       '(doom-one
+;         doom-tomorrow-day))
+;     (theme-looper-enable-next-theme))
+
+;; A nice light theme with good org-mode support.
+(use-package leuven-theme
   :config
-    (theme-looper-set-theme-set
-      '(doom-one
-        doom-tomorrow-day))
-    (theme-looper-enable-next-theme))
+    (load-theme 'leuven t))
 
 
 ;;;; Settings
@@ -78,6 +96,7 @@
 
 ;; Highlight matching parens.
 (show-paren-mode 1)
+(setq show-paren-delay 0)
 
 ;; Turn off mouse highlighting.
 ; (setq mouse-highlight nil)
