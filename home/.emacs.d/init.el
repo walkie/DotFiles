@@ -29,7 +29,7 @@
     (evil-mode 1))
 
 ;; Define keybindings that integrate nicely with evil.
-(use-package general)
+(use-package general
   :config
     ;; Normal mode key bindings.
     (general-define-key
@@ -48,7 +48,7 @@
       :states '(normal visual insert emacs)
       :prefix "SPC"
       :non-normal-prefix "C-SPC"
-      "SPC" (general-simulate-key "M-x" :which-key "execute command (M-x)"))
+      "SPC" (general-simulate-key "M-x" :which-key "execute command (M-x)")))
 
 ;; Discoverable shortcuts. TODO
 (use-package which-key
@@ -56,22 +56,34 @@
     (which-key-mode)
   :delight)
 
-(use-package org)
+;; Get your shit together.
+(use-package org
+  :init
+    ;; Look for todo items in all files in this directory.
+    (setq org-agenda-files '("~/Dropbox/Org"))
+    ;; Make headings a bit less ugly.
+    (setq org-fontify-whole-heading-line t)
+    ;; Open files in the current buffer.
+    (setq org-link-frame-setup '((file . find-file)))
+    ;; Start with all sections expanded.
+    (setq org-startup-folded nil)
+  :config
+    (general-define-key
+      :states 'normal
+      "<" '(org-metaleft :which-key "decrease heading")
+      ">" '(org-metaright :which-key "increase heading")
+      "t" '(org-todo :which-key "cycle todo state")
+      "TAB" '(org-cycle :which-key "cycle visibility")
+      "RET" '(org-open-at-point :which-key "open link")
+      "DEL" '(org-mark-ring-goto :which-key "return from link"))
+    (general-define-key
+      :states 'normal
+      :prefix "SPC"
+      "o" '(:ignore t :which-key "org")
+      "oa" '(org-agenda :which-key "open agenda")
+      "ol" '(org-insert-link :which-key "edit/insert link")))
+
 (use-package haskell-mode)
-
-;; These themes are a bit busier than I'd like but support lots of modes.
-; (use-package doom-themes
-;   :config
-;     (setq doom-themes-enable-bold nil)
-;     (setq doom-themes-enable-italic nil))
-
-;; Support rotating between dark and light theme.
-; (use-package theme-looper
-;   :config
-;     (theme-looper-set-theme-set
-;       '(doom-one
-;         doom-tomorrow-day))
-;     (theme-looper-enable-next-theme))
 
 ;; A nice light theme with good org-mode support.
 (use-package leuven-theme
@@ -94,6 +106,9 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
+;; Maximize window by default.
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
 ;; Highlight matching parens.
 (show-paren-mode 1)
 (setq show-paren-delay 0)
@@ -101,6 +116,12 @@
 ;; Turn off mouse highlighting.
 ; (setq mouse-highlight nil)
 
+;; Disable "smart" indenting.
+(setq-default electric-indent-inhibit t)
+
 ;; Better buffer name disambiguation.
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
+
+;; Automatically follow symlinks.
+(setq vc-follow-symlinks t)
