@@ -21,7 +21,7 @@
 ;; Enable vim bindings.
 (use-package evil
   :init
-    (setq evil-emacs-state-cursor '("red" box))
+    ; (setq evil-emacs-state-cursor '("red" box))
     (setq evil-split-window-below t)
     (setq evil-vsplit-window-right t)
     (setq evil-want-C-u-scroll t) 
@@ -54,6 +54,21 @@
 (use-package which-key
   :config
     (which-key-mode)
+  :delight)
+
+;; Auto-completion framework.
+(use-package company
+  :init
+    ; Only pop-up when I ask for it.
+    (setq company-idle-delay nil)
+  :config
+    (global-company-mode)
+    ; Configure "tab-n-go", tab and shift-tab to cycle candidates.
+    (company-tng-configure-default)
+    ; Trigger auto-completion with tab.
+    (general-define-key
+      :states 'insert
+      "TAB" 'company-indent-or-complete-common)
   :delight)
 
 ;; Get your shit together.
