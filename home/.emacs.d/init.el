@@ -59,7 +59,9 @@
       :states '(normal visual insert emacs)
       :prefix "SPC"
       :non-normal-prefix "C-SPC"
-      "SPC" (general-simulate-key "M-x" :which-key "execute command (M-x)")))
+      "SPC" (general-simulate-key "M-x" :which-key "execute command (M-x)")
+      "DEL" '(pop-global-mark :which-key "return from jump")))
+
 
 ;; Discoverable shortcuts.
 (use-package which-key
