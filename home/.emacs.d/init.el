@@ -175,6 +175,22 @@ on whether the point proceeds only whitespace or not."
       "fp" '(flycheck-previous-error         :which-key "previous error")))
 
 
+;;;; Elisp
+
+(defun walkie-open-init-file ()
+  "Open my init file."
+  (interactive)
+  (find-file user-init-file))
+
+(general-define-key
+  :states 'normal
+  :prefix "SPC"
+  "e" '(:ignore t :which-key "emacs lisp")
+  "ee" '(eval-last-sexp :which-key "eval last sexp")
+  "ei" '(walkie-open-init-file :which-key "open init file")
+  "e SPC" '(eval-expression :which-key "interactive eval"))
+
+
 ;;;; Org
 
 ;; Enable tab-cycling in any outline mode.
