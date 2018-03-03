@@ -68,14 +68,18 @@
   :delight)
 
 ;; Completion-based search framework.
-(use-package counsel
+(use-package ivy
   :init
     (setq ivy-count-format "")
     (setq ivy-use-virtual-buffers t)
   :config
     (ivy-mode 1)
-    (counsel-mode 1)
   :delight)
+
+;; Use ivy replacements for everything.
+(use-package counsel
+  :config
+    (counsel-mode 1))
 
 
 ;;;; Applications
