@@ -1,4 +1,4 @@
-;;;; Packages
+;;;; Prerequisites
 
 ;; Turn on the built-in package manager, add package repos.
 (require 'package)
@@ -12,16 +12,229 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-;; Install and configure packages that affect global behavior.
-(load (concat user-emacs-directory "init/global"))
+;; String manipulation library.
+(use-package s)
 
-;; Install and configure frameworks used by mode-specific packages.
-(load (concat user-emacs-directory "init/company"))
-(load (concat user-emacs-directory "init/flycheck"))
+;; Support hiding mode indicators.
+(use-package delight)
 
-;; Install and configure specific modes.
-(load (concat user-emacs-directory "init/org"))
-(load (concat user-emacs-directory "init/haskell"))
+;; Navigable editing history.
+(use-package undo-tree :delight)
+
+
+;;;; Global behavior
+
+;; Enable vim bindings.
+(use-package evil
+  :init
+    ;; (setq evil-emacs-state-cursor '("red" box))
+    (setq evil-split-window-below t)
+    (setq evil-vsplit-window-right t)
+    (setq evil-want-C-u-scroll t) 
+  :config
+    (evil-mode 1))
+
+;; Define keybindings that integrate nicely with evil.
+(use-package general
+  :config
+    ;; Normal mode key bindings.
+    (general-define-key
+      :states 'normal
+      ;; Make window switching easier.
+      "H" 'evil-window-left
+      "J" 'evil-window-down
+      "K" 'evil-window-up
+      "L" 'evil-window-right
+      ;; Navigate by visual lines.
+      "j" 'evil-next-visual-line
+      "k" 'evil-previous-visual-line
+      ;; Open buffer switcher.
+      "B" 'buffer-menu)
+    ;; Insert mode key bindings.
+    (general-define-key
+      :states 'insert
+      ;; Continue comment on new line.
+      "<S-return>" 'comment-indent-new-line)
+    (general-define-key
+      :states '(normal visual insert emacs)
+      :prefix "SPC"
+      :non-normal-prefix "C-SPC"
+      "SPC" (general-simulate-key "M-x" :which-key "execute command (M-x)")))
+
+;; Discoverable shortcuts.
+(use-package which-key
+  :config
+    (which-key-mode)
+  :delight)
+
+;; Completion-based search framework.
+(use-package counsel
+  :init
+    (setq ivy-count-format "")
+    (setq ivy-use-virtual-buffers t)
+  :config
+    (ivy-mode 1)
+    (counsel-mode 1)
+  :delight)
+
+
+;;;; Applications
+
+;; Add keybinding category for applications.
+(general-define-key
+  :states '(normal visual insert emacs)
+  :prefix "SPC"
+  :non-normal-prefix "C-SPC"
+  "a" '(:ignore t :which-key "applications"))
+
+;; File browser.
+(use-package ranger
+  :config
+    (ranger-override-dired-mode t)
+    (general-define-key
+      :states '(normal visual insert emacs)
+      :prefix "SPC"
+      :non-normal-prefix "C-SPC"
+      "af" '(deer   :which-key "file browser (deer)")
+      "aF" '(ranger :which-key "file browser (ranger)")))
+
+;; Project navigation and management. TODO
+(use-package projectile
+  :config
+    (projectile-mode)
+    (general-define-key
+      :keymaps 'projectile-mode-map)
+  :delight)
+
+
+;;;; Frameworks used by mode-specific packages
+
+(defun walkie-only-whitespace-before-point ()
+  "Is there only whitespace between the beginning of the line and the
+current point."
+  (interactive)
+  (s-matches?
+    "^\\s-*$"
+    (buffer-substring-no-properties (line-beginning-position) (point))))
+
+(defun walkie-tab-or-complete ()
+  "Simulate a tab key press or trigger company completion, depending
+on whether the point proceeds only whitespace or not."
+  (interactive)
+  (if (walkie-only-whitespace-before-point)
+      (indent-for-tab-command)
+    (company-complete-common)))
+
+;; Completion at point framework.
+(use-package company
+  :init
+    ;; Only pop-up when I ask for it.
+    (setq company-idle-delay nil)
+  :config
+    (global-company-mode)
+    ;; Configure "tab-n-go", tab and shift-tab to cycle candidates.
+    (company-tng-configure-default)
+    ;; Trigger auto-completion with tab.
+    (general-define-key
+      :states 'insert
+      "TAB" 'walkie-tab-or-complete)
+  :delight)
+
+;; Reporting syntax and type errors in-context.
+(use-package flycheck
+  :config
+    (general-define-key
+      :keymaps 'flycheck-mode-map
+      :states 'normal
+      :prefix "SPC"
+      "f" '(:ignore t :which-key "flycheck")
+      "fe" '(flycheck-explain-error-at-point :which-key "explain error")
+      "fn" '(flycheck-next-error             :which-key "next error")
+      "fp" '(flycheck-previous-error         :which-key "previous error")))
+
+
+;;;; Org
+
+;; Enable tab-cycling in any outline mode.
+(general-define-key
+  :keymaps 'outline-minor-mode-map
+  :states 'normal
+  "TAB" '(org-cycle :which-key "cycle visibility"))
+
+(use-package org
+  :init
+    ;; Look for todo items in all files in this directory.
+    (setq org-agenda-files '("~/Dropbox/Org"))
+    ;; Make headings a bit less ugly.
+    (setq org-fontify-whole-heading-line t)
+    ;; Open files in the current buffer.
+    (setq org-link-frame-setup '((file . find-file)))
+    ;; Start with all sections expanded.
+    (setq org-startup-folded nil)
+  :config
+    (general-define-key
+      :keymaps 'org-mode-map
+      :states 'normal
+      "<"   '(org-metaleft       :which-key "decrease heading")
+      ">"   '(org-metaright      :which-key "increase heading")
+      "t"   '(org-todo           :which-key "cycle todo state")
+      "TAB" '(org-cycle          :which-key "cycle visibility")
+      "RET" '(org-open-at-point  :which-key "open link")
+      "DEL" '(org-mark-ring-goto :which-key "return from link"))
+    (general-define-key
+      :keymaps 'org-mode-map
+      :states 'normal
+      :prefix "SPC"
+      "o"  '(:ignore t       :which-key "org")
+      "oa" '(org-agenda      :which-key "open agenda")
+      "ol" '(org-insert-link :which-key "edit/insert link")))
+
+
+;;;; Haskell
+
+(defun walkie-haskell-open-above ()
+  "Create a new line above the current one. Replaces evil-open-above
+in haskell-mode do to annoying indentation bug."
+  (interactive)
+  (evil-previous-line)
+  (evil-append-line nil)
+  (haskell-indentation-newline-and-indent))
+
+(defun walkie-haskell-open-below ()
+  "Create a new line below the current one. Replaces evil-open-below
+in haskell-mode do to annoying indentation bug."
+  (interactive)
+  (evil-append-line nil)
+  (haskell-indentation-newline-and-indent))
+
+(defun walkie-comment-auto-fill ()
+  "Turn on auto-fill for comments only."
+  (setq comment-auto-fill-only-comments t)
+  (auto-fill-mode 1))
+
+(use-package haskell-mode
+  :config
+    (general-define-key
+      :keymaps 'haskell-mode-map
+      :states 'normal
+      "o" 'walkie-haskell-open-below
+      "O" 'walkie-haskell-open-above)
+    (add-hook 'haskell-mode-hook 'walkie-comment-auto-fill))
+
+(use-package intero
+  :config
+    (intero-global-mode 1)
+    (general-define-key
+      :keymaps 'intero-mode-map
+      :states 'normal
+      :prefix "SPC"
+      "h"  '(:ignore t                :which-key "haskell")
+      "hd" '(intero-goto-definition   :which-key "jump to definition")
+      "hi" '(intero-info              :which-key "info at cursor")
+      "hl" '(intero-repl-load         :which-key "load file in REPL")
+      ;; "hk" '(intero-repl-clear-buffer :which-key "clear REPL")
+      "hr" '(intero-repl-restart      :which-key "restart REPL")
+      "ht" '(intero-type-at           :which-key "type at cursor")))
 
 
 ;;;; Theme
@@ -33,9 +246,6 @@
 
 
 ;;;; Settings
-
-
-;;; File handling
 
 ;; Use UTF-8 and unix line endings by default.
 (prefer-coding-system 'utf-8-unix)
@@ -51,17 +261,11 @@
 (setq backup-directory-alist `(("." . ,(concat user-emacs-directory "backup"))))
 (setq backup-by-copying t)
 
-
-;;; Behaviors
-
 ;; Disable "smart" indenting.
 (setq-default electric-indent-inhibit t)
 
 ;; Only a single space to end sentences.
 (setq sentence-end-double-space nil)
-
-
-;;; User interface
 
 ;; Don't show startup screen.
 (setq inhibit-startup-screen t)
@@ -72,9 +276,6 @@
 ;; Highlight matching parens.
 (show-paren-mode 1)
 (setq show-paren-delay 0)
-
-
-;;; GUI-specific
 
 ;; Use a temp file for stuff generated by the GUI customizer.
 (setq custom-file (make-temp-file "emacs-custom.el"))
