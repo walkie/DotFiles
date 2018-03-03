@@ -39,7 +39,7 @@
   :config
     ;; Normal mode key bindings.
     (general-define-key
-      :states 'normal
+      :states '(normal motion)
       ;; Make window switching easier.
       "H" 'evil-window-left
       "J" 'evil-window-down
@@ -79,7 +79,8 @@
 ;; Use ivy replacements for everything.
 (use-package counsel
   :config
-    (counsel-mode 1))
+    (counsel-mode 1)
+  :delight)
 
 
 ;;;; Applications
@@ -102,12 +103,27 @@
       "af" '(deer   :which-key "file browser (deer)")
       "aF" '(ranger :which-key "file browser (ranger)")))
 
-;; Project navigation and management. TODO
-(use-package projectile
+;; Project navigation and management.
+(use-package counsel-projectile
+  :init
+    ;; Get rid of the mode line.
+    (setq projectile-mode-line nil) ; '(:eval (format " P[%s]" (projectile-project-name))))
+    ;; Only grep the files I care about.
+    (setq projectile-use-git-grep t)
   :config
-    (projectile-mode)
+    (counsel-projectile-mode)
     (general-define-key
-      :keymaps 'projectile-mode-map)
+      :states '(normal visual insert emacs)
+      :prefix "SPC"
+      :non-normal-prefix "C-SPC"
+      "p"  '(:ignore t :which-key "project")
+      "pB" '(projectile-compile-project   :which-key "build project")
+      "pR" '(projectile-run-project       :which-key "run project")
+      "pT" '(projectile-test-project      :which-key "run tests")
+      "pf" '(counsel-projectile-find-file :which-key "find file")
+      "pg" '(counsel-projectile-grep      :which-key "git grep")
+      "pt" '(projectile-toggle-between-implementation-and-test :which-key "toggle impl/test")
+      "pp" '(counsel-projectile-switch-project :which-key "switch project"))
   :delight)
 
 
