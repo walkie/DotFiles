@@ -209,6 +209,12 @@ on whether the point proceeds only whitespace or not."
     (setq org-link-frame-setup '((file . find-file)))
     ;; Start with all sections expanded.
     (setq org-startup-folded nil)
+    ;; Set up capture templates.
+    (setq org-capture-templates
+      '(("t" "New task" entry (file+headline "~/Dropbox/Org/Inbox.org" "Tasks")
+         "* TODO %?\n")
+        ("c" "New task with context" entry (file+headline "~/Dropbox/Org/Inbox.org" "Tasks")
+         "* TODO %?\n%a\n")))
   :config
     (general-define-key
       :keymaps 'org-mode-map
@@ -225,7 +231,8 @@ on whether the point proceeds only whitespace or not."
       :prefix "SPC"
       "o"  '(:ignore t       :which-key "org")
       "oa" '(org-agenda      :which-key "open agenda")
-      "ol" '(org-insert-link :which-key "edit/insert link")))
+      "ol" '(org-insert-link :which-key "edit/insert link")
+      "or" '(org-refile      :which-key "refile entry")))
 
 
 ;;;; Haskell
@@ -273,6 +280,28 @@ in haskell-mode do to annoying indentation bug."
       ;; "hk" '(intero-repl-clear-buffer :which-key "clear REPL")
       "hr" '(intero-repl-restart      :which-key "restart REPL")
       "ht" '(intero-type-at           :which-key "type at cursor")))
+
+
+;;;; Latex
+
+;; (use-package tex-site)
+
+
+;;;; Markdown (keybindings: TODO)
+
+(use-package markdown-mode
+  :mode
+    (("README\\.md\\'" . gfm-mode)
+     ("\\.md\\'" . markdown-mode)
+     ("\\.markdown\\'" . markdown-mode))
+  :init
+    (setq markdown-command "pandoc")
+  :config
+    (general-define-key
+      :keymaps 'markdown-mode-map
+      :states 'normal
+      :prefix "SPC"
+      "m"  '(:ignore t :which-key "markdown")))
 
 
 ;;;; Theme
