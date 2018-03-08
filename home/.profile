@@ -97,10 +97,21 @@ alias lla='ls -lah'
 alias view='vim -R'
 alias access='ssh $ACCESS'
 
+# Linux-specific aliases
+if [ $myOS == "Linux" ]; then
+  alias open='xdg-open'
+fi
+
 # Mac-specific aliases
 if [ $myOS == "Mac" ]; then
   alias amacs='aquamacs'
   alias updatedb='sudo /usr/libexec/locate.updatedb'
+fi
+
+# If no system-wide GHC, use stack's
+if ! [ -x "$(command -v ghc)" ]; then
+  alias ghc='stack ghc --'
+  alias ghci='stack ghci --'
 fi
 
 # cd that works with Mac file aliases
