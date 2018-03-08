@@ -62,7 +62,6 @@
       "SPC" (general-simulate-key "M-x" :which-key "execute command (M-x)")
       "DEL" '(pop-global-mark :which-key "return from jump")))
 
-
 ;; Discoverable shortcuts.
 (use-package which-key
   :config
@@ -175,6 +174,11 @@ on whether the point proceeds only whitespace or not."
       "fp" '(flycheck-previous-error         :which-key "previous error")))
 
 
+;;;; Git Integration
+
+(use-package magit)
+
+
 ;;;; Elisp
 
 (defun walkie-open-init-file ()
@@ -239,11 +243,13 @@ on whether the point proceeds only whitespace or not."
 
 (defun walkie-haskell-open-above ()
   "Create a new line above the current one. Replaces evil-open-above
-in haskell-mode do to annoying indentation bug."
+in haskell-mode due to annoying indentation bug."
   (interactive)
-  (evil-previous-line)
-  (evil-append-line nil)
-  (haskell-indentation-newline-and-indent))
+  (if (= (line-number-at-pos) 1)
+      (evil-open-above ())
+    (evil-previous-line)
+    (evil-append-line nil)
+    (haskell-indentation-newline-and-indent)))
 
 (defun walkie-haskell-open-below ()
   "Create a new line below the current one. Replaces evil-open-below
@@ -333,6 +339,12 @@ in haskell-mode do to annoying indentation bug."
 
 ;; Only a single space to end sentences.
 (setq sentence-end-double-space nil)
+
+;; When auto-wrapping, wrap at 79 characters.
+(setq-default fill-column 79)
+
+;; Don't soft wrap long lines by default.
+(setq-default truncate-lines t)
 
 ;; Don't show startup screen.
 (setq inhibit-startup-screen t)
