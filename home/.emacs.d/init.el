@@ -263,6 +263,11 @@ in haskell-mode do to annoying indentation bug."
   (setq comment-auto-fill-only-comments t)
   (auto-fill-mode 1))
 
+(defun walkie-haskell-company-group ()
+  "Setup better completion in Haskell code."
+  (set (make-local-variable 'company-backends)
+       '((intero-company :with company-dabbrev-code))))
+
 (use-package haskell-mode
   :config
     (general-define-key
@@ -270,7 +275,8 @@ in haskell-mode do to annoying indentation bug."
       :states 'normal
       "o" 'walkie-haskell-open-below
       "O" 'walkie-haskell-open-above)
-    (add-hook 'haskell-mode-hook 'walkie-comment-auto-fill))
+    (add-hook 'haskell-mode-hook 'walkie-comment-auto-fill)
+    (add-hook 'haskell-mode-hook 'walkie-haskell-company-group))
 
 (use-package intero
   :config
