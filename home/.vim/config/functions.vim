@@ -48,7 +48,7 @@ function! NormalStyle()
     elseif has('win32') || has('win64')
       set guifont=Consolas:h11
     else
-      set guifont=LiberationMono\ 11
+      set guifont=Liberation\ Mono\ Bold\ 11
     endif
     colorscheme torte
     highlight clear Search
@@ -66,7 +66,7 @@ function! PresentationStyle()
     elseif has('win32') || has('win64')
       set guifont=Consolas:h20
     else
-      set guifont=LiberationMono\ 24
+      set guifont=Liberation\ Mono\ 24
     endif
     colorscheme default
     colorscheme default " bug requires loading default scheme twice
