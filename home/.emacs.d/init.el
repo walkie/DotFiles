@@ -3,25 +3,9 @@
 ;; Turn on the built-in package manager, add package repos.
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-;; (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
 (package-initialize)
 
-;; Bootstrap the straight package manager.
-;; (let ((bootstrap-file (concat user-emacs-directory "straight/repos/straight.el/bootstrap.el"))
-;;       (bootstrap-version 3))
-;;   (unless (file-exists-p bootstrap-file)
-;;     (with-current-buffer
-;;         (url-retrieve-synchronously
-;;          "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
-;;          'silent 'inhibit-cookies)
-;;       (goto-char (point-max))
-;;       (eval-print-last-sexp)))
-;;   (load bootstrap-file nil 'nomessage))
-;; 
-;; (straight-use-package 'use-package)
-;; (setq straight-use-package-by-default t)
-
-;; Boot-strap use-package (comment out if using straight).
+;; Boot-strap the better package manager.
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
@@ -267,27 +251,6 @@ on whether the point proceeds only whitespace or not."
 ;; Better org keybindings. Currently not using the keybindings directly, but
 ;; rather using the corresponding functions in my custom keybindings above.
 (use-package evil-org :after org)
-;;   :config
-;;     (add-hook 'org-mode-hook 'evil-org-mode)
-;;     (add-hook 'evil-org-mode-hook
-;; 	      (lambda ()
-;; 		(evil-org-set-key-theme)))
-;;     (require 'evil-org-agenda)
-;;     (evil-org-agenda-set-keys))
-
-
-;; Google calendar integration
-;; (use-package org-gcal
-;;   :after org
-;;   :config
-;;     (setq org-gcal-client-id "162421205750-e6nar3e5rmln49nnvccr34o4heodm8tu.apps.googleusercontent.com"
-;; 	  org-gcal-client-secret "q4FeWTUa0GC05nfUdYRaAefq"
-;; 	  org-gcal-file-alist '(("walkingshaw.eric@gmail.com"                           . "~/Dropbox/Org/Calendar/Meetings.org")
-;; 				("rsiooq3kcdaimtde9g1170pnr0@group.calendar.google.com" . "~/Dropbox/Org/Calendar/Teaching.org")
-;; 				("9dbg65ou2ouhpe5s8do27281as@group.calendar.google.com" . "~/Dropbox/Org/Calendar/Fun.org")
-;; 				("akpnk7it7ak2d8v7q9epdm0f80@group.calendar.google.com" . "~/Dropbox/Org/Calendar/Travel.org")
-;; 				("nd1mdm7n5j678j1bokfpeupflg@group.calendar.google.com" . "~/Dropbox/Org/Calendar/Birthdays.org")))
-;;     (add-hook 'org-agenda-mode-hook (lambda () (org-gcal-sync))))
 
 
 ;;;; Haskell
@@ -422,6 +385,3 @@ in haskell-mode do to annoying indentation bug."
 ;; Disable tool bar and scroll bars.
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-
-;; Turn off mouse highlighting.
-;; (setq mouse-highlight nil)
