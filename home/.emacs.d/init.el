@@ -229,6 +229,8 @@ on whether the point proceeds only whitespace or not."
     (setq org-link-frame-setup '((file . find-file)))
     ;; Start with all sections expanded.
     (setq org-startup-folded nil)
+    ;; Don't indent after headings.
+    (setq org-startup-indented nil)
     ;; Set up capture templates.
     (setq org-capture-templates
       '(("t" "New task" entry (file+headline "~/Dropbox/Org/Inbox.org" "Tasks")
@@ -238,13 +240,19 @@ on whether the point proceeds only whitespace or not."
   :config
     (general-define-key
       :keymaps 'org-mode-map
+      :states 'insert
+      "RET" '(evil-org-return :which-key "org-aware newline"))
+    (general-define-key
+      :keymaps 'org-mode-map
       :states 'normal
-      "<"   '(org-metaleft       :which-key "decrease heading")
-      ">"   '(org-metaright      :which-key "increase heading")
-      "t"   '(org-todo           :which-key "cycle todo state")
-      "TAB" '(org-cycle          :which-key "cycle visibility")
-      "RET" '(org-open-at-point  :which-key "open link")
-      "DEL" '(org-mark-ring-goto :which-key "return from link"))
+      "<"   '(org-metaleft         :which-key "decrease heading")
+      ">"   '(org-metaright        :which-key "increase heading")
+      "t"   '(org-todo             :which-key "cycle todo state")
+      "o"   '(evil-org-open-below  :which-key "new line below")
+      "O"   '(evil-org-open-above  :which-key "new line above")
+      "TAB" '(org-cycle            :which-key "cycle visibility")
+      "RET" '(org-open-at-point    :which-key "open link")
+      "DEL" '(org-mark-ring-goto   :which-key "return from link"))
     (general-define-key
       :keymaps 'org-mode-map
       :states 'normal
@@ -252,18 +260,20 @@ on whether the point proceeds only whitespace or not."
       "o"  '(:ignore t       :which-key "org")
       "oa" '(org-agenda      :which-key "open agenda")
       "ol" '(org-insert-link :which-key "edit/insert link")
-      "or" '(org-refile      :which-key "refile entry")))
+      "or" '(org-refile      :which-key "refile entry"))
+    (add-hook 'org-mode-hook (lambda () (auto-fill-mode 1)))
+    (add-hook 'org-mode-hook (lambda () (setq-local evil-auto-indent nil))))
 
-;; Better org keybindings.
-(use-package evil-org
-  :after org
-  :config
-    (add-hook 'org-mode-hook 'evil-org-mode)
-    (add-hook 'evil-org-mode-hook
-	      (lambda ()
-		(evil-org-set-key-theme)))
-    (require 'evil-org-agenda)
-    (evil-org-agenda-set-keys))
+;; Better org keybindings. Currently not using the keybindings directly, but
+;; rather using the corresponding functions in my custom keybindings above.
+(use-package evil-org :after org)
+;;   :config
+;;     (add-hook 'org-mode-hook 'evil-org-mode)
+;;     (add-hook 'evil-org-mode-hook
+;; 	      (lambda ()
+;; 		(evil-org-set-key-theme)))
+;;     (require 'evil-org-agenda)
+;;     (evil-org-agenda-set-keys))
 
 
 ;; Google calendar integration
