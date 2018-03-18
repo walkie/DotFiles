@@ -241,10 +241,10 @@ on whether the point proceeds only whitespace or not."
       :keymaps 'org-mode-map
       :states 'normal
       :prefix "SPC"
-      "o"  '(:ignore t       :which-key "org")
-      "oa" '(org-agenda      :which-key "open agenda")
-      "ol" '(org-insert-link :which-key "edit/insert link")
-      "or" '(org-refile      :which-key "refile entry"))
+      "o"   '(:ignore t            :which-key "org")
+      "oa"  '(org-agenda           :which-key "open agenda")
+      "ol"  '(org-insert-link      :which-key "edit/insert link")
+      "or"  '(org-refile           :which-key "refile entry"))
     (add-hook 'org-mode-hook (lambda () (auto-fill-mode 1)))
     (add-hook 'org-mode-hook (lambda () (setq-local evil-auto-indent nil))))
 
