@@ -209,6 +209,8 @@ on whether the point proceeds only whitespace or not."
     (setq org-agenda-files '("~/Dropbox/Org")) ; "~/Dropbox/Org/Calendar"))
     ;; Make headings a bit less ugly.
     (setq org-fontify-whole-heading-line t)
+    ;; Hide formatting indicators in text.
+    (setq org-hide-emphasis-markers t)
     ;; Open files in the current buffer.
     (setq org-link-frame-setup '((file . find-file)))
     ;; Start with all sections expanded.
@@ -364,7 +366,7 @@ in haskell-mode do to annoying indentation bug."
 (setq-default fill-column 79)
 
 ;; Don't soft wrap long lines by default.
-(setq-default truncate-lines t)
+;; (setq-default truncate-lines t)
 
 ;; Don't show startup screen.
 (setq inhibit-startup-screen t)
