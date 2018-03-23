@@ -1,0 +1,19 @@
+/* Required line in userChrome.css. */
+@namespace xul url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+
+/* Hide the annoying blue dot on updated pinned tabs. */
+.tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged] {
+  background-image: none !important;
+}
+
+/* Show Bookmarks on New Tab page only. */
+#main-window #PersonalToolbar {
+  visibility: collapse !important;
+}
+#main-window[title^="Mozilla Firefox"] #PersonalToolbar,
+#main-window[title^="about:newtab"] #PersonalToolbar,
+#main-window[title^="New Tab"] #PersonalToolbar,
+#main-window[title^="Firefox"] #PersonalToolbar,
+#main-window[title^="Nightly"] #PersonalToolbar {
+  visibility: visible !important;
+}
