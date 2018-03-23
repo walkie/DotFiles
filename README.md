@@ -40,8 +40,17 @@ automatically install it. Find the profile directory, as described
 [here](http://kb.mozillazine.org/index.php?title=UserChrome.css), then:
 
 ```
-mv special/userChrome.css ${firefox-profile}/chrome/userChrome.css
+ln -s ${pwd}/special/userChrome.css ${firefox-profile}/chrome/userChrome.css
 ```
+
+
+## Emacs
+
+Plugins are managed by the built-in package manager and will install
+automatically on the first launch. Things are usually weird after this, so
+reboot Emacs after the installs are done.
+
+Run `M-x package-list-packages` then `U x` to update installed packages.
 
 
 ## Vim
@@ -52,15 +61,6 @@ first time.
 
 Run `:PlugUpdate` from within vim to install the plugins for the first time, or
 to update them.
-
-
-## Emacs
-
-Plugins are managed by the built-in package manager and will install
-automatically on the first launch. Things are usually weird after this, so
-reboot Emacs after the installs are done.
-
-Run `M-x package-list-packages` then `U x` to update installed packages.
 
 
 ## Haskell
@@ -83,12 +83,14 @@ versions.
    ```
 
 
-## Fedora
+## Platform-specific stuff
+
+### Fedora
 
  * Add the [RPM Fusion](https://rpmfusion.org/Configuration) repositories
 
 
-## Mac
+### Mac
 
  * Install [Homebrew](http://brew.sh/)
  
@@ -103,7 +105,7 @@ versions.
  * Install the [Liberation fonts](https://fedorahosted.org/liberation-fonts/)
 
 
-## Windows
+### Windows
 
 There's a custom PowerShell prompt in `windows` and some WSL-specific stuff in
 `wsl`. Install these manually, if needed.

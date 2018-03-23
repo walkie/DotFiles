@@ -6,7 +6,7 @@
   background-image: none !important;
 }
 
-/* Show Bookmarks on New Tab page only. */
+/* Show bookmarks bar on New Tab page only. */
 #main-window #PersonalToolbar {
   visibility: collapse !important;
 }
