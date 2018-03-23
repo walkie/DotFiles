@@ -52,23 +52,23 @@ else
 endif
 
 " Setup vimwiki as a vim schlub's org-mode
-if has("unix")
-  " Personal wiki
-  Plug 'vimwiki/vimwiki', { 'branch': 'stable' }
-  let g:vimwiki_use_mouse = 1
-  let g:vimwiki_menu = 'Plugin.Vimwiki'
-  let g:vimwiki_list =
-    \ [{ 'path': "$HOME/Dropbox/Wiki",
-    \    'syntax': 'markdown',
-    \    'ext': '.wiki' }]
-
-  " Integrate vimwiki with Taskwarrior. Original repo is 'tbabej/taskwiki', but
-  " this fork has better markdown support (for now)
-  Plug 'DancingQuanta/taskwiki',
-    \ { 'branch': 'extra-syntaxes',
-    \   'do': function('InstallTasklib') }
-  let g:taskwiki_syntax = 'markdown'
-endif
+" if has("unix")
+"   " Personal wiki
+"   Plug 'vimwiki/vimwiki', { 'branch': 'stable' }
+"   let g:vimwiki_use_mouse = 1
+"   let g:vimwiki_menu = 'Plugin.Vimwiki'
+"   let g:vimwiki_list =
+"     \ [{ 'path': "$HOME/Dropbox/Wiki",
+"     \    'syntax': 'markdown',
+"     \    'ext': '.wiki' }]
+" 
+"   " Integrate vimwiki with Taskwarrior. Original repo is 'tbabej/taskwiki', but
+"   " this fork has better markdown support (for now)
+"   Plug 'DancingQuanta/taskwiki',
+"     \ { 'branch': 'extra-syntaxes',
+"     \   'do': function('InstallTasklib') }
+"   let g:taskwiki_syntax = 'markdown'
+" endif
 
 " Nicer file system and Git integration
 Plug 'tpope/vim-eunuch'
