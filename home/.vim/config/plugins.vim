@@ -37,9 +37,9 @@ nnoremap <S-T> :NERDTreeToggle<CR>
 " Plug 'vim-airline/vim-airline-themes'
 
 " YankRing (:yr to open)
-Plug 'vim-scripts/YankRing.vim'
-let g:yankring_history_dir = '$VIMHOME'
-cabbr yr YRShow
+" Plug 'vim-scripts/YankRing.vim'
+" let g:yankring_history_dir = '$VIMHOME'
+" cabbr yr YRShow
 
 " Tab completion (<Tab> file/text completion, <C-Space> omni-completion)
 Plug 'ervandew/supertab'
