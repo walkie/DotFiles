@@ -48,7 +48,7 @@ function! NormalStyle()
     elseif has('win32') || has('win64')
       set guifont=Consolas:h11
     else
-      set guifont=Liberation\ Mono\ Bold\ 11
+      set guifont=Liberation\ Mono\ Bold\ 14
     endif
     colorscheme torte
     highlight clear Search
