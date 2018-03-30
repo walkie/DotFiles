@@ -103,10 +103,10 @@ versions.
      brew tap caskroom/cask
      ```
 
- * Install MacTeX:
-   ```
-   brew cask install mactex
-   ```
+   * Install MacTeX:
+     ```
+     brew cask install mactex
+     ```
 
  * Compile [getTrueName.c](http://hints.macworld.com/dlfiles/getTrueName.txt),
    and put in `~/bin` so `cd` works with Mac aliases.
