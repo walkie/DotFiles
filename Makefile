@@ -3,6 +3,7 @@ all: install
 setup:
 	mkdir -p ${HOME}/bin
 	mkdir -p ${HOME}/.emacs.d
+	mkdir -p ${HOME}/.profile.d
 	mkdir -p ${HOME}/.stack
 	mkdir -p ${HOME}/.vim/spell
 
