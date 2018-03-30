@@ -9,7 +9,7 @@ These files and directories contain sensitive information and should be copied
 over manually.
 
  * `.gitconfig`
- * `.profile.private`
+ * `.profile.d/private.sh`
  * `.ssh/`
 
 
@@ -74,7 +74,8 @@ versions.
 
 ## Fonts
 
- * After installing TeX-Live, also install the non-free LaTeX fonts:
+ * After installing TeX-Live (see below), also install the non-free LaTeX
+   fonts:
 
    ```
    wget http://tug.org/fonts/getnonfreefonts/install-getnonfreefonts
@@ -87,7 +88,10 @@ versions.
 
 ### Fedora
 
- * Add the [RPM Fusion](https://rpmfusion.org/Configuration) repositories
+ * Add the [RPM Fusion](https://rpmfusion.org/Configuration) repositories.
+
+ * Install [TeX-Live](https://tug.org/texlive/quickinstall.html) directly since
+   Fedora's packaged version omits some non-free bits.
 
 
 ### Mac
@@ -98,6 +102,11 @@ versions.
      ```
      brew tap caskroom/cask
      ```
+
+ * Install MacTeX:
+   ```
+   brew cask install mactex
+   ```
 
  * Compile [getTrueName.c](http://hints.macworld.com/dlfiles/getTrueName.txt),
    and put in `~/bin` so `cd` works with Mac aliases.
