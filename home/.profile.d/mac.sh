@@ -22,9 +22,6 @@ fi
 # Add Racket to path
 # export PATH=/Applications/Racket-v6.3/bin:$PATH
 
-# Update path for OS X applications
-launchctl setenv PATH $PATH
-
 # Colorful ls output
 alias ls='ls -G'
 
