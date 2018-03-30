@@ -1,1 +1,13 @@
+# This file contains default non-project-specific settings for 'stack'.
+# For more information about stack's configuration, see:
+# http://docs.haskellstack.org/en/stable/yaml_configuration/
+
+# Use system GHC, if available
 system-ghc: true
+
+# Default info to use on 'stack new'
+templates:
+  params:
+    author-name: Eric Walkingshaw
+    author-email: eric@walkingshaw.net
+    github-username: walkie
