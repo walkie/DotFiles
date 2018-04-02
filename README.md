@@ -19,7 +19,10 @@ over manually.
  2. Run `make`
 
 The `home` directory contains all the config files I want on every machine.
-Stow will symlink these into the system \$HOME directory.
+Stow will symlink these into the system \$HOME directory. The `bin` directory
+contains scripts to install on every machine. These are managed separately from
+`home` since on some machines my `~/bin` is a symlink and this confuses Stow
+otherwise.
 
 It's important that we don't symlink certain directories into this repository
 (e.g. `.stack` and `.vim`) since these will end up containing lots of stuff
@@ -72,18 +75,6 @@ If no system GHC is found, my bash profile aliases `ghc` and `ghci` to Stack's
 versions.
 
 
-## Fonts
-
- * After installing TeX-Live (see below), also install the non-free LaTeX
-   fonts:
-
-   ```
-   wget http://tug.org/fonts/getnonfreefonts/install-getnonfreefonts
-   texlua install-getnonfreefonts
-   getnonfreefonts --all
-   ```
-
-
 ## Platform-specific stuff
 
 ### Fedora
@@ -93,19 +84,36 @@ versions.
  * Install [TeX-Live](https://tug.org/texlive/quickinstall.html) directly since
    Fedora's packaged version omits some non-free bits.
 
+   * Then install the non-free LaTeX fonts:
+
+     ```
+     wget http://tug.org/fonts/getnonfreefonts/install-getnonfreefonts
+     sudo env "PATH=$PATH" texlua install-getnonfreefonts
+     sudo env "PATH=$PATH" getnonfreefonts --sys --all
+     sudo cp $(kpsewhich -var-value TEXMFSYSVAR)/fonts/conf/texlive-fontconfig.conf /etc/fonts/conf.d/09-texlive.conf
+     sudo fc-cache -fsv
+     ```
 
 ### Mac
 
  * Install [Homebrew](http://brew.sh/)
  
-   * Install Homebrew cask:
+   * Then install Homebrew cask:
      ```
      brew tap caskroom/cask
      ```
 
-   * Install MacTeX:
+ * Install MacTeX:
+   ```
+   brew cask install mactex
+   ```
+
+   * Then install the non-free LaTeX fonts:
+
      ```
-     brew cask install mactex
+     wget http://tug.org/fonts/getnonfreefonts/install-getnonfreefonts
+     texlua install-getnonfreefonts
+     getnonfreefonts --all
      ```
 
  * Compile [getTrueName.c](http://hints.macworld.com/dlfiles/getTrueName.txt),
