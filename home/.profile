@@ -1,13 +1,13 @@
-# Include external variable definitions
-source ~/.profile.d/colors.sh
-source ~/.profile.d/private.sh
-
 # Figure out what OS we're on
 case "$(uname -s)" in
   Darwin) myOS=Mac;;
   Linux)  myOS=Linux;;
   *) echo "Unrecognized operating system: $(uname -s)"
 esac
+
+# Include external variable definitions
+source ~/.profile.d/colors.sh
+source ~/.profile.d/private.sh
 
 # Set prompt and title bar
 export PS1=">> $BLUE\u$NO_COLOR@$BLUE\h $GREEN\t $RED\w$NO_COLOR \n\$ "
