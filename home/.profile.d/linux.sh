@@ -8,8 +8,10 @@ if grep -q Microsoft /proc/version; then
   export LS_COLORS="ow=01;34;40"
 fi
 
-# Open files with default application
-alias open='xdg-open'
+# Silently open files with default application.
+function open {
+  xdg-open "$@" &> /dev/null
+}
 
 # Use vim with X support, if available.
 if [ -x "$(command -v gvim)" ]; then
