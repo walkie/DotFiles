@@ -49,7 +49,9 @@
       "j" 'evil-next-visual-line
       "k" 'evil-previous-visual-line
       ;; Open buffer switcher.
-      "B" 'buffer-menu)
+      "B" 'buffer-menu
+      ;; Refill paragraph or selection.
+      "F" 'fill-paragraph)
     ;; Insert mode key bindings.
     (general-define-key
       :states 'insert
