@@ -165,6 +165,9 @@ on whether the point proceeds only whitespace or not."
 
 ;; Reporting syntax and type errors in-context.
 (use-package flycheck
+  :init
+    ;; Only show errors on save.
+    (setq flycheck-check-syntax-automatically '(mode-enabled save))
   :config
     (general-define-key
       :keymaps 'flycheck-mode-map
