@@ -39,6 +39,15 @@ function! Maximize()
   endif
 endfunction
 
+" Paste from the system clipboard at the current insert-mode cursor position
+function! InsertClipboardPaste()
+  if col('.') == col('$')-1
+    execute 'normal! "+gp'
+  else
+    execute 'normal! "+gP'
+  endif
+endfunction
+
 " Set up the visual style of the GUI for regular editing
 function! NormalStyle()
   if has('gui_running')

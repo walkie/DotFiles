@@ -17,6 +17,12 @@ nnoremap <S-L> <C-W>l
 " Make Y copy to the end of the line
 nnoremap <S-Y> y$
 
+" Copy current selection to system clipboard
+vnoremap <C-C> "+y
+
+" Paste from system clipboard
+inoremap <C-V> <C-O>:call InsertClipboardPaste()<CR>
+
 " Move relative to visual lines
 noremap 0 g0
 noremap $ g$
