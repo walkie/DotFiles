@@ -250,6 +250,7 @@ on whether the point proceeds only whitespace or not."
       "ol"  '(org-insert-link      :which-key "edit/insert link")
       "or"  '(org-refile           :which-key "refile entry"))
     (add-hook 'org-mode-hook (lambda () (auto-fill-mode 1)))
+    (add-hook 'org-mode-hook (lambda () (visual-line-mode 1)))
     (add-hook 'org-mode-hook (lambda () (setq-local evil-auto-indent nil))))
 
 ;; Better org keybindings. Currently not using the keybindings directly, but
