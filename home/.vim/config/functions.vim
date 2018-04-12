@@ -34,15 +34,15 @@ endfunction
 
 " Maximize the window of the GUI
 function! Maximize()
-  if has("gui_macvim")
+  if has('gui_macvim')
     set lines=999 columns=9999
   endif
 endfunction
 
-" Set up the visual style of the GUI for regular editing.
+" Set up the visual style of the GUI for regular editing
 function! NormalStyle()
-  if has("gui_running")
-    if has ("gui_macvim")
+  if has('gui_running')
+    if has ('gui_macvim')
       set transparency=10
       set guifont=Liberation_Mono:h12
     elseif has('win32') || has('win64')
@@ -57,10 +57,10 @@ function! NormalStyle()
   let g:airline_theme='wombat'  " other decent ones: badcat, monochrome
 endfunction
 
-" Set up the visual style of the GUI for presentations.
+" Set up the visual style of the GUI for presentations
 function! PresentationStyle()
-  if has("gui_running")
-    if has("gui_macvim")
+  if has('gui_running')
+    if has('gui_macvim')
       set transparency=0
       set guifont=Liberation_Mono:h24
     elseif has('win32') || has('win64')

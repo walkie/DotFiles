@@ -1,4 +1,4 @@
-if has("gui_macvim")
+if has('gui_macvim')
   set guioptions=egmrt           " remove the toolbar
   set lines=999 columns=9999     " make the window big
 else

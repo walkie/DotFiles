@@ -32,9 +32,9 @@ set suffixes+=.aux,.bbl,.blg,.dvi,.log,.pdf,.ps,.synctex.gz,.toc
 
 " Home of vim config files
 if has('win32') || has('win64')
-  let $VIMHOME = $HOME . "/vimfiles"
+  let $VIMHOME = $HOME . '/vimfiles'
 else
-  let $VIMHOME = $HOME . "/.vim"
+  let $VIMHOME = $HOME . '/.vim'
 endif
 
 " Put all swap files in the same directory

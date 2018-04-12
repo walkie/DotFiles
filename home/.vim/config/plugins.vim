@@ -13,7 +13,7 @@ call plug#begin('$VIMHOME/plugins')
 
 " Run asynchronous processes
 " Needed by ghcmod-vim (and maybe others)
-if has("unix")
+if has('unix')
   Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 endif
 
@@ -45,7 +45,7 @@ nnoremap <S-T> :NERDTreeToggle<CR>
 Plug 'ervandew/supertab'
 let g:SuperTabNoCompleteAfter = ['^\s*']
 let g:SuperTabDefaultCompletionType = 'context'
-if has("gui_running")
+if has('gui_running')
   imap <C-Space> <C-R>=SuperTabAlternateCompletion('<C-X><C-O>')<CR>
 else
   imap <NUL> <C-R>=SuperTabAlternateCompletion('<C-X><C-O>')<CR>
@@ -75,7 +75,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 
 " Haskell stuff
-if has("unix")
+if has('unix')
   " Requires ghc-mod (run: stack install ghc-mod)
   " Plug 'eagletmt/ghcmod-vim'
   " Plug 'eagletmt/neco-ghc'
