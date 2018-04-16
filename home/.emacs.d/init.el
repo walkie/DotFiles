@@ -343,7 +343,12 @@ in haskell-mode do to annoying indentation bug."
 ;; A nice light theme with good org-mode support.
 (use-package leuven-theme
   :config
-    (load-theme 'leuven t))
+    (load-theme 'leuven t)
+    (custom-theme-set-faces
+     'leuven
+     '(org-table   ((t (:foreground "#442266" :background "#F8F0FF"))))
+     '(org-level-4 ((t (:foreground "#664422" :background "#FFF5DA" :weight bold))))
+     ))
 
 
 ;;;; Settings
