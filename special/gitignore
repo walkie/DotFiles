@@ -4,8 +4,11 @@ Session.vim
 .stack-work
 *~
 *.aux
+*.bbl
+*.blg
 *.dvi
 *.log
+*.out
 *.swp
 *.synctex.gz
 .#*
