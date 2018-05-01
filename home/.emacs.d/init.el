@@ -308,6 +308,7 @@ in haskell-mode do to annoying indentation bug."
       :states 'normal
       :prefix "SPC"
       "h"  '(:ignore t                :which-key "haskell")
+      "hR" '(intero-restart           :which-key "restart intero")
       "hd" '(intero-goto-definition   :which-key "jump to definition")
       "hi" '(intero-info              :which-key "info at cursor")
       "hl" '(intero-repl-load         :which-key "load file in REPL")
