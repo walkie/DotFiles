@@ -14,4 +14,4 @@ nmap <LocalLeader>c :GhcModCheck<CR>
 nmap <LocalLeader>l :GhcModLint<CR>
 
 " omni auto-completion via necoghc and ghc-mod
-setlocal omnifunc=necoghc#omnifunc
+" setlocal omnifunc=necoghc#omnifunc
