@@ -10,6 +10,7 @@ setup:
 install: setup
 	stow --target=${HOME} home
 	stow --target=${HOME}/bin bin
+	fc-cache
 	ln -s $(shell pwd)/special/gitignore ${HOME}/.gitignore
 
 clean:

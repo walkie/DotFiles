@@ -329,8 +329,14 @@ in haskell-mode do to annoying indentation bug."
 ;; Extensions to proof general
 (use-package company-coq
   :ensure t
+  :init
+    (setq proof-splash-enable nil)
   :config
     (add-hook 'coq-mode-hook 'company-coq-mode)
+    (set-fontset-font t 'unicode
+      (font-spec :name "Symbola monospacified for Liberation Mono") nil 'prepend)
+    (set-fontset-font t 'greek
+      (font-spec :name "Liberation Mono") nil 'prepend)
     (general-define-key
       :keymaps 'company-coq-mode-map
       :states 'normal
