@@ -316,6 +316,27 @@ in haskell-mode do to annoying indentation bug."
       "hr" '(intero-repl-restart      :which-key "restart REPL")
       "ht" '(intero-type-at           :which-key "type at cursor")))
 
+;;;; Coq
+
+;; Proof General must be installed separately:
+;; > git clone https://github.com/ProofGeneral/PG ~/.emacs.d/lisp/PG
+;; > cd ~/.emacs.d/lisp/PG
+;; > make
+
+;; Enable Proof General for Coq files
+(require 'proof-site "~/.emacs.d/lisp/PG/generic/proof-site")
+
+;; Extensions to proof general
+(use-package company-coq
+  :ensure t
+  :config
+    (add-hook 'coq-mode-hook 'company-coq-mode)
+    (general-define-key
+      :keymaps 'company-coq-mode-map
+      :states 'normal
+      :prefix "SPC"
+      ))
+
 
 ;;;; Latex
 
