@@ -43,8 +43,10 @@ fi
 # Use pyenv for managing multiple Python versions, if installed
 if [ -d ~/.pyenv ]; then
   export PATH=~/.pyenv/bin:$PATH
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
+  # pyenv is super slow all of a sudden, uncomment these lines if needed
+  # or once this issue is fixed: https://github.com/pyenv/pyenv-virtualenv/issues/259
+  # eval "$(pyenv init -)"
+  # eval "$(pyenv virtualenv-init -)"
 fi
 
 # Do platform specific configuration
