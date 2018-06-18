@@ -40,6 +40,13 @@ if ! [ -x "$(command -v ghc)" ]; then
   alias ghci='stack ghci --'
 fi
 
+# Use pyenv for managing multiple Python versions, if installed
+if [ -d ~/.pyenv ]; then
+  export PATH=~/.pyenv/bin:$PATH
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
+
 # Do platform specific configuration
 if [ $myOS == "Linux" ]; then
   source ~/.profile.d/linux.sh
