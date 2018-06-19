@@ -39,7 +39,8 @@
   :config
     ;; Normal mode key bindings.
     (general-define-key
-      :states '(normal motion)
+      :states  '(normal motion)
+      :keymaps 'override
       ;; Make window switching easier.
       "H" 'evil-window-left
       "J" 'evil-window-down
@@ -54,11 +55,16 @@
       "F" 'fill-paragraph)
     ;; Insert mode key bindings.
     (general-define-key
-      :states 'insert
+      :states  'insert
+      :keymaps 'override
       ;; Continue comment on new line.
-      "<S-return>" 'comment-indent-new-line)
+      "<S-return>" 'comment-indent-new-line
+      ;; Perform indentation. Emacs does this by default for TAB, but I'm
+      ;; overloading TAB for company completion too.
+      "<S-iso-lefttab>" 'indent-for-tab-command)
     (general-define-key
-      :states '(normal visual insert emacs)
+      :states  '(normal visual insert emacs)
+      :keymaps 'override
       :prefix "SPC"
       :non-normal-prefix "C-SPC"
       "SPC" (general-simulate-key "M-x" :which-key "execute command (M-x)")
@@ -341,7 +347,14 @@ in haskell-mode do to annoying indentation bug."
       :keymaps 'company-coq-mode-map
       :states 'normal
       :prefix "SPC"
-      ))
+      )
+    ;; Make auto-indenting sort of work.
+    (add-hook 'coq-mode-hook
+	      (lambda ()
+		(setq-local evil-auto-indent nil)
+		(setq-local electric-indent-inhibit nil)
+		(setq-local electric-indent-chars
+			    (append "|:." electric-indent-chars)))))
 
 
 ;;;; Latex
