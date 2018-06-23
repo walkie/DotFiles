@@ -340,7 +340,14 @@ in haskell-mode do to annoying indentation bug."
   :config
     (add-hook 'coq-mode-hook 'company-coq-mode)
     (set-fontset-font t 'unicode
-      (font-spec :name "Symbola monospacified for Liberation Mono") nil 'prepend)
+      ;; (font-spec :name "Asanb Math monospacified for Liberation Mono") nil 'prepend)
+      ;; (font-spec :name "FreeSerif monospacified for Liberation Mono") nil 'prepend)
+      ;; (font-spec :name "Latin Modern Math monospacified for Liberation Mono") nil 'prepend)
+      ;; (font-spec :name "STIY Math monospacified for Liberation Mono") nil 'prepend)
+      ;; (font-spec :name "TeX Gyre Schola Math monospacified for Liberation Mono") nil 'prepend)
+      (font-spec :name "XITS Math monospacified for Liberation Mono") nil 'prepend)
+      ;; (font-spec :name "XITS Math monospacified for Liberation Mono:weight=bold") nil 'prepend)
+      ;; (font-spec :name "Symbola monospacified for Liberation Mono") nil 'prepend)
     (set-fontset-font t 'greek
       (font-spec :name "Liberation Mono") nil 'prepend)
     (general-define-key
