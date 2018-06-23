@@ -28,9 +28,13 @@
 (use-package evil
   :init
     ;; (setq evil-emacs-state-cursor '("red" box))
+    ;; split windows below and to the right
     (setq evil-split-window-below t)
     (setq evil-vsplit-window-right t)
+    ;; use C-u to scroll
     (setq evil-want-C-u-scroll t) 
+    ;; never auto-complete when exiting insert mode
+    (setq evil-want-abbrev-expand-on-insert-exit nil)
   :config
     (evil-mode 1))
 
