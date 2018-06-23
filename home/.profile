@@ -40,6 +40,11 @@ if ! [ -x "$(command -v ghc)" ]; then
   alias ghci='stack ghci --'
 fi
 
+# Rust
+if [ -d ~/.cargo ]; then
+  export PATH=~/.cargo/bin:$PATH
+fi
+
 # Use pyenv for managing multiple Python versions, if installed
 if [ -d ~/.pyenv ]; then
   export PATH=~/.pyenv/bin:$PATH

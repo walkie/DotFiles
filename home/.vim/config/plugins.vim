@@ -96,6 +96,7 @@ let g:cabal_indent_section = 2
 " let g:vim_annotations_offset = '/.liquid/'
 
 " Other language-specific plugins
+Plug 'rust-lang/rust.vim'
 Plug 'idris-hackers/idris-vim'
 Plug 'groenewege/vim-less'
 Plug 'tpope/vim-markdown'
