@@ -340,7 +340,11 @@ in haskell-mode do to annoying indentation bug."
 (use-package company-coq
   :ensure t
   :init
+    ;; Turn off splash screen
     (setq proof-splash-enable nil)
+    ;; Don't move cursor when evaluating previous proof tactic.
+    (setq proof-next-command-insert-space nil)
+    (setq coq-one-command-per-line nil)
   :config
     (add-hook 'coq-mode-hook 'company-coq-mode)
     (set-fontset-font t 'unicode
