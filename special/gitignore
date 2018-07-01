@@ -1,14 +1,21 @@
+# Editor and OS stuff
 Session.vim
 .DS_Store
+.#*
+*~
+
+# Build directories
 .cabal-sandbox
 .stack-work
-*~
+
+# Latex junk
 *.aux
 *.bbl
 *.blg
 *.dvi
+*.fdb_latexmk
+*.fls
 *.log
 *.out
 *.swp
 *.synctex.gz
-.#*
