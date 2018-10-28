@@ -95,6 +95,9 @@ let g:cabal_indent_section = 2
 " Plug 'ucsd-progsys/liquid-types.vim'
 " let g:vim_annotations_offset = '/.liquid/'
 
+" LLVM
+Plug 'llvm-mirror/llvm', { 'rtp': 'utils/vim' }
+
 " Other language-specific plugins
 Plug 'rust-lang/rust.vim'
 Plug 'idris-hackers/idris-vim'
