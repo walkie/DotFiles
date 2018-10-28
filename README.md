@@ -21,16 +21,15 @@ over manually.
 The `home` directory contains all the config files I want on every machine.
 Stow will symlink these into the system \$HOME directory. The `bin` directory
 contains scripts to install on every machine. These are managed separately from
-`home` since on some machines my `~/bin` is a symlink and this confuses Stow
-otherwise.
+`home` since on some machines my `~/bin` is a symlink and this confuses Stow.
 
 It's important that we don't symlink certain directories into this repository
 (e.g. `.stack` and `.vim`) since these will end up containing lots of stuff
 that we don't want under version control. The Makefile makes sure these root
-directories are already created so that stow will only link the relevant
+directories are already created so that Stow will only link the relevant
 contents into them, rather than the whole thing.
 
-By default, stow ignores `.gitignore` files. There's not a convenient way to
+By default, Stow ignores `.gitignore` files. There's not a convenient way to
 override this, so the Makefile just manually symlinks that file into \$HOME
 from the `special` directory.
 
