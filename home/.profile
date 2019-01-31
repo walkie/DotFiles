@@ -42,6 +42,7 @@ if ! [ -x "$(command -v ghc)" ]; then
   alias ghc='stack exec ghc --'
   alias ghci='stack exec ghci --'
   alias ghci-core="stack exec ghci --ghci-options $GHCI_CORE_OPTS --"
+  alias ghc-pkg='stack exec ghc-pkg --'
 else
   alias ghci-core="ghci $GHCI_CORE_OPTS"
 fi
