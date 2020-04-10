@@ -59,6 +59,7 @@ Walkingshaw
 Walkingshaw's
 abductive
 accessor
+affordances
 annotational
 anonymized
 app
@@ -83,6 +84,8 @@ deconstruct
 derivability
 diff
 diffs
+distractor
+distractors
 edu
 eecs
 effectful
@@ -96,7 +99,13 @@ featureful
 gamification
 generable
 genericity
+gradualization
+gradualize
+gradualized
+gradualizes
+gradualizing
 hagl
+hoc
 human's
 idempotence
 idempotency
@@ -131,6 +140,7 @@ namespace
 namespaces
 nondeterminism
 nonterminal
+nonterminals
 omissible
 operationalized
 oregonstate
@@ -151,6 +161,7 @@ quadcopter
 refactor
 refactored
 refactorings
+relatedly
 reorderings
 repurpose
 repurposed
@@ -161,6 +172,8 @@ screenshot
 screenshots
 semantician
 semanticians
+struct
+structs
 subdisciplines
 subdomain
 subdomains
