@@ -5,11 +5,3 @@
 .tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged] {
   background-image: none !important;
 }
-
-/* Show bookmarks bar on New Tab page only. */
-#main-window #PersonalToolbar {
-  visibility: collapse !important;
-}
-#main-window[title^="Mozilla Firefox"] #PersonalToolbar {
-  visibility: visible !important;
-}
