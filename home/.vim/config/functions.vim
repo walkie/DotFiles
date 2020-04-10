@@ -35,7 +35,6 @@ endfunction
 " Unwrap a hard-wrapped file
 function! Unwrap()
   execute 'g/\(\%1l\|^\s*\n.*\S.*$\)/+norm vipJ'
-  execute 'gg'
 endfunction
 
 " Maximize the window of the GUI
