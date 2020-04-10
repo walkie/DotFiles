@@ -68,7 +68,8 @@ elif [ $myOS == "Mac" ]; then
   source ~/.profile.d/mac.sh
 fi
 
-# Add local bins
+# Add local install dirs
+export MANPATH=~/.local/share/man:$MANPATH
 export PATH=~/.local/bin:$PATH
 export PATH=~/bin:$PATH
 

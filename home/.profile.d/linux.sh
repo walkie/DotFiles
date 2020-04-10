@@ -18,6 +18,12 @@ if [ -x "$(command -v gvim)" ]; then
   alias vim='gvim -v'
 fi
 
+# Racket
+PATH=~/Dropbox/Linux/Install/racket/bin:$PATH
+
+# Snap packages
+PATH=/var/lib/snapd/snap/bin:$PATH
+
 # Configure TeX-Live
 export INFOPATH=/usr/local/texlive/2017/texmf-dist/doc/info:$INFOPATH
 export MANPATH=/usr/local/texlive/2017/texmf-dist/doc/man:$MANPATH
