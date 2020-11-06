@@ -3,6 +3,9 @@
 # Colorful ls output
 alias ls='ls --color'
 
+# Restart Gnome Shell
+alias restart-gnome-shell='busctl --user call org.gnome.Shell /org/gnome/Shell org.gnome.Shell Eval s '\''Meta.restart("Restarting Gnome Shell...")'\'
+
 # Coloring fix for weird directory permissions under WSL
 if grep -q Microsoft /proc/version; then
   export LS_COLORS="ow=01;34;40"
@@ -17,6 +20,9 @@ function open {
 if [ -x "$(command -v gvim)" ]; then
   alias vim='gvim -v'
 fi
+
+# Turn off auto-search for command when not found (annoying delay)
+unset command_not_found_handle
 
 # Racket
 PATH=~/Dropbox/Linux/Install/racket/bin:$PATH
