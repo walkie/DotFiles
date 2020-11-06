@@ -20,13 +20,13 @@ endif
 " Buffer Explorer (B in normal mode to open)
 Plug 'jlanzarotta/bufexplorer'
 let g:bufExplorerShowRelativePath = 1
-nmap B <Leader>be
+nnoremap B :BufExplorer<CR>
 
 " NERD tree file explorer (T in normal mode to open)
 Plug 'scrooloose/nerdtree'
 let g:NERDTreeMouseMode=2
 let g:NERDTreeMapOpenInTabSilent="<C-T>"
-nnoremap <S-T> :NERDTreeToggle<CR>
+nnoremap T :NERDTreeToggle<CR>
 
 " Fuzzy file finder
 " Plug 'ctrlpvim/ctrlp.vim'
@@ -62,11 +62,11 @@ endif
 "     \    'syntax': 'markdown',
 "     \    'ext': '.wiki' }]
 " 
-"   " Integrate vimwiki with Taskwarrior. Original repo is 'tbabej/taskwiki', but
-"   " this fork has better markdown support (for now)
-"   Plug 'DancingQuanta/taskwiki',
+"   " Integrate vimwiki with Taskwarrior.
+"   Plug 'tbabej/taskwiki',
 "     \ { 'branch': 'extra-syntaxes',
 "     \   'do': function('InstallTasklib') }
+"   " Use markdown syntax
 "   let g:taskwiki_syntax = 'markdown'
 " endif
 

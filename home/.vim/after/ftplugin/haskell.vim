@@ -2,10 +2,11 @@
 set autoindent
 
 " tell vim about Haskell comments and pragmas
-setlocal comments=f:{-#,s1fl:{-,mb:-,ex:-},:-- commentstring=--\ %s
+setlocal comments=f:{-#,s1fl:{-,mb:\ \ ,ex:-},:-- commentstring=--\ %s
 
 " auto-wrap long comments and auto-insert comment leaders
 setlocal formatoptions=croql
+setlocal textwidth=79
 
 " keyboard shortcuts for ghcmod-vim
 nmap <LocalLeader>t :GhcModType<CR>

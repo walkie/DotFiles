@@ -41,9 +41,9 @@ endif
 " set directory=~/.vim/swap,.
 
 " Add my functions and key-mappings, load plugins, configure status line
+source $VIMHOME/config/plugins.vim
 source $VIMHOME/config/functions.vim
 source $VIMHOME/config/maps.vim
-source $VIMHOME/config/plugins.vim
 " source $VIMHOME/config/airline.vim
 source $VIMHOME/config/statusline.vim
 

@@ -68,7 +68,7 @@ function! NormalStyle()
     highlight clear Search
     highlight Search guibg=gray35
   endif
-  let g:airline_theme='wombat'  " other decent ones: badcat, monochrome
+  " let g:airline_theme='wombat'  " other decent ones: badcat, monochrome
 endfunction
 
 " Set up the visual style of the GUI for presentations
@@ -80,14 +80,14 @@ function! PresentationStyle()
     elseif has('win32') || has('win64')
       set guifont=Consolas:h20
     else
-      set guifont=Liberation\ Mono\ 24
+      set guifont=Liberation\ Mono\ 30
     endif
     colorscheme default
     colorscheme default " bug requires loading default scheme twice
     " hide tildes at end of file
     highlight NonText guifg=bg
   endif
-  let g:airline_theme='aurora'
+  " let g:airline_theme='aurora'
 endfunction
 
 " Latex-style mappings for common mathematical characters
