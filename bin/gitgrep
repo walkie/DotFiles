@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if [ $# -ne 1 ]; then
+  echo 'usage: gitgrep <regexp>'
+  echo '  Search the content (e.g. code) of all commits to the'
+  echo '  current git repository.'
+  exit
+fi
+
+git grep $1 $(git rev-list --all)
