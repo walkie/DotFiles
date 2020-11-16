@@ -13,9 +13,9 @@ call plug#begin('$VIMHOME/plugins')
 
 " Run asynchronous processes
 " Needed by ghcmod-vim (and maybe others)
-if has('unix')
-  Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-endif
+" if has('unix')
+"   Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+" endif
 
 " Buffer Explorer (B in normal mode to open)
 Plug 'jlanzarotta/bufexplorer'
