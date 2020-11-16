@@ -10,7 +10,7 @@ ENDUSAGE
 
 EXAMPLE = <<ENDEXAMPLE
 Example: convert-all -v jpg *.heic
-  Converts all .heic files in the current directory in .jpg files,
+  Converts all .heic files in the current directory into .jpg files,
   printing out the convert commands executed.
 ENDEXAMPLE
 
