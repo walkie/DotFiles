@@ -1,0 +1,63 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+
+USAGE = <<ENDUSAGE
+Usage: convert-all [OPTIONS] NEW-EXT FILES...
+  Use ImageMagick's convert tool to convert several files at once.
+  Converts the files into the file type indicated by NEW-EXT.
+ENDUSAGE
+
+EXAMPLE = <<ENDEXAMPLE
+Example: convert-all -v jpg *.heic
+  Converts all .heic files in the current directory in .jpg files,
+  printing out the convert commands executed.
+ENDEXAMPLE
+
+files    = []
+type     = nil
+dry_run  = false
+verbose  = false
+in_opts  = ""
+out_opts = ""
+
+OptionParser.new do |opts|
+  opts.banner = USAGE + EXAMPLE + "Arguments:"
+  opts.on('-h', '--help', "Show this help message.") do
+    puts opts
+    exit
+  end
+  opts.on('-d', '--dry-run', "Print the commands to be executed but don't run them.") do
+    dry_run = true
+    verbose = true
+  end
+  opts.on('-v', '--verbose', "Print each command before executing.") do
+    verbose = true
+  end
+  opts.on('-i', '--input-options STRING', "Input options to be passed to ImageMagick.") do |s|
+    in_opts = s
+  end
+  opts.on('-o', '--output-options STRING', "Output options to be passed to ImageMagick.") do |s|
+    out_opts = s
+  end
+end.parse!
+
+if ARGV.length < 2 then
+  puts USAGE
+  exit
+end
+
+type  = ARGV[0]
+files = ARGV[1..]
+
+files.each do |old|
+  ext = File.extname(old)
+  new = old.sub(ext, ".#{type}")
+  cmd = "convert #{in_opts} #{old} #{out_opts} #{new}".squeeze(" ")
+  if verbose then
+    puts cmd
+  end
+  unless dry_run then
+    system cmd
+  end
+end
