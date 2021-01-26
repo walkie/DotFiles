@@ -24,6 +24,10 @@ fi
 # Turn off auto-search for command when not found (annoying delay)
 unset command_not_found_handle
 
+# Idris 2
+PATH=~/.idris2/bin:$PATH
+export LD_LIBRARY_PATH=~.idris2/lib:$LD_LIBRARY_PATH
+
 # Racket
 PATH=~/Dropbox/Linux/Install/racket/bin:$PATH
 
