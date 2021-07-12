@@ -35,16 +35,8 @@ alias view='vim -R'
 alias access='ssh $ACCESS'
 
 # Haskell
-GHCI_CORE_OPTS='-ddump-simpl'
-
-# If no system-wide GHC, use stack's
-if ! [ -x "$(command -v ghc)" ]; then
-  alias ghc='stack exec ghc --'
-  alias ghci='stack exec ghci --'
-  alias ghci-core="stack exec ghci --ghci-options $GHCI_CORE_OPTS --"
-  alias ghc-pkg='stack exec ghc-pkg --'
-else
-  alias ghci-core="ghci $GHCI_CORE_OPTS"
+if [ -d ~/.ghcup ]; then
+  source ~/.ghcup/env
 fi
 
 # Rust
