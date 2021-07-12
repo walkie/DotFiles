@@ -16,10 +16,15 @@ function open {
   xdg-open "$@" &> /dev/null
 }
 
-# Use vim with X support, if available.
-if [ -x "$(command -v gvim)" ]; then
-  alias vim='gvim -v'
+# Use neovim, if available.
+if [ -x "$(command -v nvim)" ]; then
+  alias vim='nvim'
 fi
+
+# Use vim with X support, if available.
+# if [ -x "$(command -v gvim)" ]; then
+#   alias vim='gvim -v'
+# fi
 
 # Turn off auto-search for command when not found (annoying delay)
 unset command_not_found_handle

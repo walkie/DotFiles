@@ -10,9 +10,11 @@ Bothell
 CEK
 CESK
 CPP
+CSS
 Campora
 Campuswire
 CoScripter
+Coq
 DFU
 DFUs
 DSEL
@@ -44,6 +46,7 @@ Parisa
 Preprocessor's
 Prolog
 RHS
+Racepoint
 Rendel
 SCM
 SML
@@ -71,6 +74,8 @@ app
 arities
 arity
 bimatrix
+bioinformatician
+bioinformaticians
 bioinformatics
 bitstring
 calculuses
@@ -127,6 +132,7 @@ labelings
 leaderboards
 lede
 ledes
+lexing
 linearize
 matrilineal
 metafunction
@@ -179,6 +185,7 @@ screenshot
 screenshots
 semantician
 semanticians
+shaders
 struct
 structs
 subdisciplines
@@ -188,7 +195,15 @@ subexpression
 subexpressions
 sublanguage
 subproblems
+subqueries
+subquery
+subquery
 subsubsection
+subsumption
+subterm
+subterms
+subtree
+subtrees
 subtyping
 summative
 teleportation
@@ -199,6 +214,7 @@ troublingly
 typings
 unaddressed
 unannotated
+unsatisfiable
 updatable
 variationalization
 von

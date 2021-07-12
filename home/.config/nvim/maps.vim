@@ -2,17 +2,31 @@
 let mapleader = ';'
 let maplocalleader = ','
 
-" Emacs-style movement in command mode
+" Enable Emacs-style line movement
+noremap <C-A> <Home>
+noremap <C-E> <End>
+inoremap <C-A> <Home>
+inoremap <C-E> <End>
 cnoremap <C-A> <HOME>
 
 " Insert a blank line from normal mode
-nnoremap <S-RETURN> ^i<RETURN><ESC>
+nnoremap <C-Space> ^i<RETURN><ESC>
 
 " Make window switching easier
-nnoremap <S-J> <C-W>j
-nnoremap <S-K> <C-W>k
-nnoremap <S-H> <C-W>h
-nnoremap <S-L> <C-W>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+inoremap <C-h> <C-\><C-N><C-w>h
+inoremap <C-j> <C-\><C-N><C-w>j
+inoremap <C-k> <C-\><C-N><C-w>k
+inoremap <C-l> <C-\><C-N><C-w>l
+if has('nvim')
+  tnoremap <C-h> <C-\><C-N><C-w>h
+  tnoremap <C-j> <C-\><C-N><C-w>j
+  tnoremap <C-k> <C-\><C-N><C-w>k
+  tnoremap <C-l> <C-\><C-N><C-w>l
+endif
 
 " Make Y copy to the end of the line
 nnoremap <S-Y> y$
@@ -30,22 +44,13 @@ noremap k gk
 noremap j gj
 noremap <Up> gk
 noremap <Down> gj
-
-vnoremap 0 g0
-vnoremap $ g$
-vnoremap k gk
-vnoremap j gj
-vnoremap <Up> gk
-vnoremap <Down> gj
-
 inoremap <Up> <C-O>gk
 inoremap <Down> <C-O>gj
 
-" Enable Emacs/Mac-style line movement
-noremap <C-A> <Home>
-noremap <C-E> <End>
-inoremap <C-A> <Home>
-inoremap <C-E> <End>
-
 " Use space to remove search highlighting
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
+" Use escape in embedded terminal
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+endif

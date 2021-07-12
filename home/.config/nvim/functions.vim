@@ -7,12 +7,8 @@ function! PlainText()
 
   " Turn on spell checking
   setlocal spell
-  highlight SpellBad ctermfg=DarkRed
-  highlight SpellBad ctermbg=Black
-  highlight SpellBad guisp=Red
-  highlight SpellCap ctermfg=DarkGreen
-  highlight SpellCap ctermbg=Black
-  highlight SpellCap guisp=Green
+  highlight SpellBad ctermbg=Black ctermfg=DarkRed guisp=Red
+  highlight SpellCap ctermbg=Black ctermfg=darkGreen guisp=Green
 
   " Commands to reformat paragraphs
   nmap F mF{gq}`F
@@ -23,8 +19,8 @@ function! PlainText()
 
 endfunction
 
-" Override some options in PlainText()
-" to get soft rather than hard wrapping
+
+" Override some options in PlainText() to get soft wrapping
 function! SoftWrap()
   setlocal textwidth=0  " turn off hard text wrapping
   setlocal wrap         " turn on soft text wrapping
@@ -32,17 +28,12 @@ function! SoftWrap()
   setlocal nolist       " list disables linebreak
 endfunction
 
+
 " Unwrap a hard-wrapped file
 function! Unwrap()
   execute 'g/\(\%1l\|^\s*\n.*\S.*$\)/+norm vipJ'
 endfunction
 
-" Maximize the window of the GUI
-function! Maximize()
-  if has('gui_macvim')
-    set lines=999 columns=9999
-  endif
-endfunction
 
 " Paste from the system clipboard at the current insert-mode cursor position
 function! InsertClipboardPaste()
@@ -53,9 +44,23 @@ function! InsertClipboardPaste()
   endif
 endfunction
 
-" Set up the visual style of the GUI for regular editing
+
+" Set visual style for normal use, typically in my "Dark" terminal profile
 function! NormalStyle()
+
+  " set color scheme
+  colorscheme torte
+  set background=dark
+  highlight Normal guibg=NONE
+
+  " tweak highlighting
+  highlight CursorLine guibg=gray20
+  highlight clear Search
+  highlight Search guibg=gray35
+  
   if has('gui_running')
+    
+    " set font in GUI
     if has ('gui_macvim')
       set transparency=10
       set guifont=Liberation_Mono:h12
@@ -64,16 +69,34 @@ function! NormalStyle()
     else
       set guifont=Liberation\ Mono\ Bold\ 14
     endif
-    colorscheme torte
-    highlight clear Search
-    highlight Search guibg=gray35
+  
+  else
+    
+    " fix terminal colors
+    let g:terminal_color_4 = '#80a0ff'
+  
   endif
-  " let g:airline_theme='wombat'  " other decent ones: badcat, monochrome
+
 endfunction
 
-" Set up the visual style of the GUI for presentations
+
+" Set visual style for presentations
 function! PresentationStyle()
+  
+  " set color scheme
+  colorscheme default
+  set background=light
+  
+  " less obtrusive end of file markers
+  highlight NonText guifg=gray80
+
+  " tweak highlighting
+  highlight clear Search
+  highlight Search guibg=gray75
+
   if has('gui_running')
+    
+    "set font in GUI
     if has('gui_macvim')
       set transparency=0
       set guifont=Liberation_Mono:h24
@@ -82,13 +105,17 @@ function! PresentationStyle()
     else
       set guifont=Liberation\ Mono\ 30
     endif
-    colorscheme default
-    colorscheme default " bug requires loading default scheme twice
-    " hide tildes at end of file
-    highlight NonText guifg=bg
+  
+  else
+
+    " fix terminal colors
+    let g:terminal_color_2 = 'Green'
+    let g:terminal_color_4 = 'Blue'
+  
   endif
-  " let g:airline_theme='aurora'
+
 endfunction
+
 
 " Latex-style mappings for common mathematical characters
 function! SymbolMacros()
@@ -111,15 +138,3 @@ function! SymbolMacros()
   imap <buffer> \oplus ⊕
   imap <buffer> \otimes ⊗
 endfunction
-
-" Install Taskwarrior Python bindings (arg comes from VimPlug)
-" function! InstallTasklib(info)
-"   if has("unix")
-"     " Only execute when first installing or on force update
-"     if a:info.status == 'installed' || a:info.force
-"       !{ type -p pip && pip install --upgrade git+git://github.com/tbabej/tasklib@develop; } ||
-"         \ { type -p pip2 && pip2 install --upgrade git+git://github.com/tbabej/tasklib@develop; } ||
-"         \ echo 'Install pip then run :PlugInstall! taskwiki'
-"     endif
-"   endif
-" endfunction

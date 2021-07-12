@@ -1,21 +1,18 @@
+let $VIMPLUG_DIR = $VIMDATA . '/plugged'
+let $VIMPLUG_EXE = $VIMDATA . '/site/autoload/plug.vim'
+
 " Install vim-plug if not already installed
 " (If on Windows, do this step manually...)
 "   :PlugUpdate    updates plugins managed by vim-plug
 "   :PlugUpgrade   updates vim-plug itself
-if empty(glob('$VIMHOME/autoload/plug.vim'))
-  silent !curl -fLo $VIMHOME/autoload/plug.vim --create-dirs
+if empty($VIMPLUG_EXE)
+  silent !curl -fLo $VIMPLUG_EXE --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " Specify plugin directory
-call plug#begin('$VIMHOME/plugins')
-
-" Run asynchronous processes
-" Needed by ghcmod-vim (and maybe others)
-" if has('unix')
-"   Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-" endif
+call plug#begin($VIMPLUG_DIR)
 
 " Buffer Explorer (B in normal mode to open)
 Plug 'jlanzarotta/bufexplorer'
@@ -23,33 +20,24 @@ let g:bufExplorerShowRelativePath = 1
 nnoremap B :BufExplorer<CR>
 
 " NERD tree file explorer (T in normal mode to open)
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 let g:NERDTreeMouseMode=2
 let g:NERDTreeMapOpenInTabSilent="<C-T>"
 nnoremap T :NERDTreeToggle<CR>
 
 " Fuzzy file finder
-" Plug 'ctrlpvim/ctrlp.vim'
-" nnoremap <S-F> :CtrlP<CR>
-
-" Fancy status line (see config/airline.vim)
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " YankRing (:yr to open)
 " Plug 'vim-scripts/YankRing.vim'
-" let g:yankring_history_dir = '$VIMHOME'
+" let g:yankring_history_dir = '$VIMDATA'
 " cabbr yr YRShow
 
 " Tab completion (<Tab> file/text completion, <C-Space> omni-completion)
 Plug 'ervandew/supertab'
 let g:SuperTabNoCompleteAfter = ['^\s*']
 let g:SuperTabDefaultCompletionType = 'context'
-if has('gui_running')
-  imap <C-Space> <C-R>=SuperTabAlternateCompletion('<C-X><C-O>')<CR>
-else
-  imap <NUL> <C-R>=SuperTabAlternateCompletion('<C-X><C-O>')<CR>
-endif
+imap <C-Space> <C-R>=SuperTabAlternateCompletion('<C-X><C-O>')<CR>
 
 " Setup vimwiki as a vim schlub's org-mode
 " if has("unix")
@@ -74,12 +62,10 @@ endif
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 
+" Language server support
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Haskell stuff
-if has('unix')
-  " Requires ghc-mod (run: stack install ghc-mod)
-  " Plug 'eagletmt/ghcmod-vim'
-  " Plug 'eagletmt/neco-ghc'
-endif
 Plug 'raichoo/haskell-vim'
 let g:haskell_enable_quantification = 1  " highlight `forall`
 let g:haskell_enable_recursivedo = 1     " highlight `mdo` and `rec`
@@ -107,12 +93,18 @@ Plug 'vim-scripts/coq-syntax'
 Plug 'vim-scripts/mips.vim'
 Plug 'derekwyatt/vim-scala'
 Plug 'walkie/twelf-vim'
+Plug 'habamax/vim-godot'
 " Plug 'joaopizani/agda-vim'
 " Plug 'wlangstroth/vim-racket'
 
 " General utilities
 Plug 'salsifis/vim-transpose'
 Plug 'godlygeek/tabular'
+
+" Alternate colorscheme
+" Plug 'morhetz/gruvbox'
+" let g:gruvbox_contrast_dark = 'hard'
+" let g:gruvbox_contrast_light = 'hard'
 
 " Initialize plugins
 call plug#end()

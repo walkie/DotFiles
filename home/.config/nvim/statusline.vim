@@ -14,6 +14,6 @@ set statusline=%f\ %m\ %r
 "   line and column numbers
 "   percentage through file
 set statusline+=%=%{&ft}
-set statusline+=%{(&ff!='unix')?'['.&ff.']':''}
-set statusline+=%{(&fenc!='utf-8')?'['.&fenc.']':''}
+set statusline+=%{&ff!='unix'?'['.&ff.']':''}
+set statusline+=%{(&fenc!='utf-8')?((&fenc!='')?'['.&fenc.']':''):''}
 set statusline+=\ \ %4l:%-3c\ %3p%%
