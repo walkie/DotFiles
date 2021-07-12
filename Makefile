@@ -5,7 +5,6 @@ setup:
 	mkdir -p ${HOME}/.emacs.d
 	mkdir -p ${HOME}/.profile.d
 	mkdir -p ${HOME}/.stack
-	mkdir -p ${HOME}/.vim/spell
 
 install: setup
 	stow --target=${HOME} home
