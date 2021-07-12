@@ -25,6 +25,7 @@ EECS
 Erwig
 FOSD
 FRP
+GHC
 Gort
 Hagl
 Hagl's
@@ -40,6 +41,7 @@ Milner
 MySQL
 NPC
 Nardi
+Neovim
 OCaml
 Ostermann
 Parisa
@@ -163,6 +165,7 @@ parametricity
 parentheticals
 patrilineal
 plugin
+plugins
 proactively
 programmatically
 projectional
