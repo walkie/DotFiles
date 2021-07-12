@@ -55,23 +55,25 @@ reboot Emacs after the installs are done.
 Run `M-x package-list-packages` then `U x` to update installed packages.
 
 
-## Vim
+## (Neo)vim
+
+The configuration is optimized for Neovim but should work for plain vim, gvim,
+and MacVim as well.
 
 Plugins are managed by [vim-plug](https://github.com/junegunn/vim-plug). The
 plugin manager should be automatically installed after launching vim for the
 first time.
 
-Run `:PlugUpdate` from within vim to install the plugins for the first time, or
-to update them.
+Run `:PlugUpdate` from within vim to install the plugins for the first time,
+or to update them.
 
 
-## Haskell
+## Haskell and Rust
 
-Install [Haskell Stack](https://docs.haskellstack.org/en/stable/README/)
-directly since the packaged versions lag behind.
-
-If no system GHC is found, my bash profile aliases `ghc` and `ghci` to Stack's
-versions.
+Install [ghcup](https://www.haskell.org/ghcup/) and
+[rustup](https://www.rust-lang.org/tools/install) to manage the Haskell and
+Rust toolchains, respectively. My Bash profile will extend the PATH
+appropriately.
 
 
 ## Platform-specific stuff
