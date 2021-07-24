@@ -2,6 +2,7 @@ all: install
 
 setup:
 	mkdir -p ${HOME}/bin
+	mkdir -p ${HOME}/.config
 	mkdir -p ${HOME}/.emacs.d
 	mkdir -p ${HOME}/.profile.d
 	mkdir -p ${HOME}/.stack
@@ -9,7 +10,8 @@ setup:
 install: setup
 	stow --target=${HOME} home
 	stow --target=${HOME}/bin bin
-	fc-cache
+	# Need to run this on Linux only
+	# fc-cache
 	ln -s $(shell pwd)/special/gitignore ${HOME}/.gitignore
 
 clean:

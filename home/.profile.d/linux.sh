@@ -16,11 +16,6 @@ function open {
   xdg-open "$@" &> /dev/null
 }
 
-# Use neovim, if available.
-if [ -x "$(command -v nvim)" ]; then
-  alias vim='nvim'
-fi
-
 # Use vim with X support, if available.
 # if [ -x "$(command -v gvim)" ]; then
 #   alias vim='gvim -v'

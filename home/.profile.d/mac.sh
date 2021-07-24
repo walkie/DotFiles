@@ -3,12 +3,15 @@
 # Needed to make some GTK applications work
 export DISPLAY=:0.0
 
+# Yes, I know I'm using bash, please shut up about it
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # Set up LLVM
 export PKG_CONFIG_PATH=/usr/local/opt/libffi/lib/pkgconfig
 
 # Add Homebrew's sbin and sqlite to path
 export PATH=/usr/local/sbin:$PATH
-export PATH=/usr/local/opt/sqlite/bin:$PATH
+# export PATH=/usr/local/opt/sqlite/bin:$PATH
 
 # Turn on fancy auto-completion for Homebrew stuff
 # Depends on: brew install bash-completion
@@ -31,15 +34,15 @@ alias updatedb='sudo /usr/libexec/locate.updatedb'
 
 # cd that works with Mac file aliases
 # from: http://hints.macworld.com/article.php?story=20050828054129701
-function cd {
-  if [ ${#1} == 0 ]; then
-    builtin cd
-  elif [ -d "${1}" ]; then
-    builtin cd "${1}"
-  elif [[ -f "${1}" || -L "${1}" ]]; then
-    path=$(getTrueName "$1")
-    builtin cd "$path"
-  else
-    builtin cd "${1}"
-  fi
-}
+# function cd {
+#   if [ ${#1} == 0 ]; then
+#     builtin cd
+#   elif [ -d "${1}" ]; then
+#     builtin cd "${1}"
+#   elif [[ -f "${1}" || -L "${1}" ]]; then
+#     path=$(getTrueName "$1")
+#     builtin cd "$path"
+#   else
+#     builtin cd "${1}"
+#   fi
+# }

@@ -34,6 +34,11 @@ alias lla='ls -lah'
 alias view='vim -R'
 alias access='ssh $ACCESS'
 
+# Use neovim, if available.
+if [ -x "$(command -v nvim)" ]; then
+  alias vim='nvim'
+fi
+
 # Haskell
 if [ -d ~/.ghcup ]; then
   source ~/.ghcup/env
@@ -58,6 +63,11 @@ if [ $myOS == "Linux" ]; then
   source ~/.profile.d/linux.sh
 elif [ $myOS == "Mac" ]; then
   source ~/.profile.d/mac.sh
+fi
+
+# Load local configuration, if present
+if [ -f ~/.profile.d/local.sh ]; then
+  source ~/.profile.d/local.sh
 fi
 
 # Add local install dirs

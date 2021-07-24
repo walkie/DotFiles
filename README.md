@@ -6,11 +6,15 @@ My configuration files and notes to myself for setting up new machines.
 ## Excluded files
 
 These files and directories contain sensitive information and should be copied
-over manually.
+over manually:
 
  * `.gitconfig`
  * `.profile.d/private.sh`
  * `.ssh/`
+
+This file, if present, contains machine-specific configuration:
+
+ * `.profile.d/local.sh`
 
 
 ## Installation
@@ -74,6 +78,9 @@ Install [ghcup](https://www.haskell.org/ghcup/) and
 [rustup](https://www.rust-lang.org/tools/install) to manage the Haskell and
 Rust toolchains, respectively. My Bash profile will extend the PATH
 appropriately.
+
+Install [rust-analyzer](https://rust-analyzer.github.io/manual.html) for LSP
+support in Neovim.
 
 
 ## Platform-specific stuff
