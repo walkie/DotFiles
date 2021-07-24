@@ -20,6 +20,16 @@ function! PlainText()
 endfunction
 
 
+" Reload the spell files, if needed
+function! ReloadSpellFiles()
+  for f in glob("$SPELLDIR/*.add", 1, 1)
+    if !filereadable(f . '.spl') || getftime(f) > getftime(f . '.spl')
+      exec 'mkspell! ' . fnameescape(f)
+    endif
+  endfor
+endfunction
+
+
 " Override some options in PlainText() to get soft wrapping
 function! SoftWrap()
   setlocal textwidth=0  " turn off hard text wrapping

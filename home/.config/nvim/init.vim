@@ -45,6 +45,11 @@ source $VIMCONFIG/functions.vim
 source $VIMCONFIG/maps.vim
 source $VIMCONFIG/statusline.vim
 
+" Configure spell-checking files
+let $SPELLDIR = $VIMCONFIG . '/spell'
+" set spellfile=$SPELLDIR/en.utf-8.add
+call ReloadSpellFiles()
+
 " Tweak visual stuff
 call NormalStyle()
 
