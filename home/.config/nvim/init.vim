@@ -38,6 +38,9 @@ endif
 
 " Add my functions and key-mappings, load plugins, configure status line
 source $VIMCONFIG/plugins.vim
+
+" Add my commands, functions, and key-mappings
+source $VIMCONFIG/commands.vim
 source $VIMCONFIG/functions.vim
 source $VIMCONFIG/maps.vim
 source $VIMCONFIG/statusline.vim
