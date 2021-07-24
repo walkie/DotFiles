@@ -5,9 +5,8 @@ let $VIMPLUG_EXE = $VIMDATA . '/site/autoload/plug.vim'
 " (If on Windows, do this step manually...)
 "   :PlugUpdate    updates plugins managed by vim-plug
 "   :PlugUpgrade   updates vim-plug itself
-if empty($VIMPLUG_EXE)
-  silent !curl -fLo $VIMPLUG_EXE --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if empty(glob($VIMPLUG_EXE))
+  silent execute '!curl -fLo $VIMPLUG_EXE --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
