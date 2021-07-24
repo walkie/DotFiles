@@ -1,6 +1,6 @@
 " Set the <Leader> and <LocalLeader> keys
-let mapleader = ';'
-let maplocalleader = ','
+let mapleader = '\'
+let maplocalleader = '-'
 
 " Enable Emacs-style line movement
 noremap <C-A> <Home>

@@ -13,8 +13,8 @@ set mouse=a
 set termguicolors  " requires true color terminal
 set cul            " highlight current line
 if has('nvim')
-  set pumblend=15    " transparent pop-up menus
-  set winblend=15    " transparent floating windows
+  " set pumblend=15    " transparent pop-up menus
+  " set winblend=15    " transparent floating windows
 endif
 
 " Ignore whitespace in diff-mode
@@ -36,14 +36,21 @@ else
   let $VIMCONFIG = $HOME . '/.config/nvim'
 endif
 
-" Add my functions and key-mappings, load plugins, configure status line
+" Load plugins
 source $VIMCONFIG/plugins.vim
 
 " Add my commands, functions, and key-mappings
 source $VIMCONFIG/commands.vim
 source $VIMCONFIG/functions.vim
 source $VIMCONFIG/maps.vim
+
+" Configure status line
 source $VIMCONFIG/statusline.vim
+
+" Configure language server protocol support
+if has('nvim')
+  source $VIMCONFIG/lsp.vim
+endif
 
 " Configure spell-checking files
 let $SPELLDIR = $VIMCONFIG . '/spell'

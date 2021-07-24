@@ -63,15 +63,19 @@ function! NormalStyle()
   set background=dark
   highlight Normal guibg=NONE
 
-  " tweak highlighting
-  highlight CursorLine guibg=gray20
+  " tweak colors
   highlight clear Search
-  highlight Search guibg=gray35
+  highlight CursorLine  guibg=gray20
+  highlight Search      guibg=gray35
+  highlight SignColumn  guibg=NONE
+  highlight NormalFloat guibg=gray25
+  highlight Pmenu       guibg=gray10
+  highlight PmenuSel    guibg=gray35
   
   if has('gui_running')
     
     " set font in GUI
-    if has ('gui_macvim')
+    if has('gui_macvim')
       set transparency=10
       set guifont=Liberation_Mono:h12
     elseif has('win32') || has('win64')
@@ -82,8 +86,8 @@ function! NormalStyle()
   
   else
     
-    " fix terminal colors
-    let g:terminal_color_4 = '#80a0ff'
+  " fix terminal colors
+  let g:terminal_color_4 = '#80a0ff'
   
   endif
 
@@ -118,9 +122,9 @@ function! PresentationStyle()
   
   else
 
-    " fix terminal colors
-    let g:terminal_color_2 = 'Green'
-    let g:terminal_color_4 = 'Blue'
+  " fix terminal colors
+  let g:terminal_color_2 = 'Green'
+  let g:terminal_color_4 = 'Blue'
   
   endif
 
