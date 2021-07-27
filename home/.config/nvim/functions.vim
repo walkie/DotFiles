@@ -24,7 +24,7 @@ endfunction
 function! ReloadSpellFiles()
   for f in glob("$SPELLDIR/*.add", 1, 1)
     if !filereadable(f . '.spl') || getftime(f) > getftime(f . '.spl')
-      exec 'mkspell! ' . fnameescape(f)
+      exec 'silent mkspell! ' . fnameescape(f)
     endif
   endfor
 endfunction
