@@ -3,13 +3,19 @@
 # Colorful ls output
 alias ls='ls --color'
 
-# Restart Gnome Shell
-alias restart-gnome-shell='busctl --user call org.gnome.Shell /org/gnome/Shell org.gnome.Shell Eval s '\''Meta.restart("Restarting Gnome Shell...")'\'
-
 # Coloring fix for weird directory permissions under WSL
 if grep -q Microsoft /proc/version; then
   export LS_COLORS="ow=01;34;40"
 fi
+
+# Restart Gnome Shell
+alias restart-gnome-shell='busctl --user call org.gnome.Shell /org/gnome/Shell org.gnome.Shell Eval s '\''Meta.restart("Restarting Gnome Shell...")'\'
+
+# Set title of terminal window/tab
+function title {
+  export PROMPT_COMMAND=
+  echo -ne "\033]0;$@\007"
+}
 
 # Silently open files with default application.
 function open {

@@ -1,5 +1,13 @@
 # Mac-specific configuration
 
+# Colorful ls output
+alias ls='ls -G'
+
+# Set title of terminal window/tab
+function title {
+  echo -ne "\033]0;$@\007"
+}
+
 # Needed to make some GTK applications work
 export DISPLAY=:0.0
 
@@ -24,9 +32,6 @@ fi
 
 # Add Racket to path
 # export PATH=/Applications/Racket-v6.3/bin:$PATH
-
-# Colorful ls output
-alias ls='ls -G'
 
 # Other aliases
 alias updatedb='sudo /usr/libexec/locate.updatedb'

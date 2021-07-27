@@ -9,7 +9,7 @@ esac
 source ~/.profile.d/colors.sh
 source ~/.profile.d/private.sh
 
-# Set prompt and title bar
+# Set prompt
 export PS1=">> $BLUE\u$NO_COLOR@$BLUE\h $GREEN\t $RED\w$NO_COLOR \n\$ "
 # export PROMPT_COMMAND='EXIT_TEMP=$?; if [ $EXIT_TEMP -ne 0 ]; then echo "[Exit code: $EXIT_TEMP]"; fi'
 
