@@ -37,7 +37,7 @@ nnoremap <buffer> <silent> <Leader>S <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <buffer> <silent> <Leader>a <cmd>lua vim.lsp.buf.code_action()<CR>
 
 " Have a fixed column for the diagnostics to appear in
-set signcolumn=yes
+setlocal signcolumn=yes
 
 " Enable type inlay hints
 " autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost <buffer>
