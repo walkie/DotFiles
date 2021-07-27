@@ -92,6 +92,9 @@ Plug 'cespare/vim-toml'     " for cargo
 " LLVM
 Plug 'llvm-mirror/llvm', { 'rtp': 'utils/vim' }
 
+" Docker
+Plug 'ekalinin/Dockerfile.vim'
+
 " Other language-specific plugins
 Plug 'idris-hackers/idris-vim'
 Plug 'groenewege/vim-less'
