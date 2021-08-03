@@ -66,11 +66,11 @@ function! NormalStyle()
   " tweak colors
   highlight clear Search
   highlight CursorLine  guibg=gray20
-  highlight Search      guibg=gray35
+  highlight Search      guibg=gray40
   highlight SignColumn  guibg=NONE
   highlight NormalFloat guibg=gray25
-  highlight Pmenu       guibg=gray10
-  highlight PmenuSel    guibg=gray35
+  highlight Pmenu       guibg=gray25
+  highlight PmenuSel    guibg=gray40
   
   if has('gui_running')
     
