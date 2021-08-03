@@ -5,6 +5,9 @@ Session.vim
 ._*
 *~
 
+# Local scratch directories
+scratch
+
 # Build directories
 .cabal-sandbox
 .stack-work
