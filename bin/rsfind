@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if [ $# -ne 1 ]; then
+  echo 'usage: rsfind <pattern>'
+  echo '  Recursively searches for <pattern> in all *.rs files,'
+  echo '  starting from the current directory.'
+  exit
+fi
+
+find . -name "*.rs" -exec grep -H "$1" {} \;
