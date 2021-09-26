@@ -41,6 +41,6 @@ PATH=~/Dropbox/Linux/Install/racket/bin:$PATH
 PATH=/var/lib/snapd/snap/bin:$PATH
 
 # Configure TeX-Live
-export INFOPATH=/usr/local/texlive/2017/texmf-dist/doc/info:$INFOPATH
-export MANPATH=/usr/local/texlive/2017/texmf-dist/doc/man:$MANPATH
-export PATH=/usr/local/texlive/2017/bin/x86_64-linux:$PATH
+export INFOPATH=/usr/local/texlive/2021/texmf-dist/doc/info:$INFOPATH
+export MANPATH=/usr/local/texlive/2021/texmf-dist/doc/man:$MANPATH
+export PATH=/usr/local/texlive/2021/bin/x86_64-linux:$PATH
