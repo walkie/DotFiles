@@ -38,6 +38,14 @@ let g:SuperTabNoCompleteAfter = ['^\s*']
 let g:SuperTabDefaultCompletionType = 'context'
 imap <C-Space> <C-R>=SuperTabAlternateCompletion('<C-X><C-O>')<CR>
 
+" Automatic window resizing
+" Plug 'camspiers/animate.vim'
+" Plug 'camspiers/lens.vim'
+" let g:lens#disabled_filetypes = ['nerdtree']
+" let g:lens#disable_for_diff = 1
+" let g:lens#width_resize_max = 100
+" let g:lens#width_resize_min = 40
+
 " Setup vimwiki as a vim schlub's org-mode
 " if has("unix")
 "   " Personal wiki
