@@ -69,7 +69,7 @@ if has('nvim')
   " Plug 'nvim-lua/lsp_extensions.nvim'  " add support for inlay hints
 endif
 
-" Haskell stuff
+" Haskell stuff (see also ./lsp.vim)
 Plug 'raichoo/haskell-vim'
 let g:haskell_enable_quantification = 1  " highlight `forall`
 let g:haskell_enable_recursivedo = 1     " highlight `mdo` and `rec`

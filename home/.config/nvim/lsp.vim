@@ -10,7 +10,8 @@ set completeopt=menuone,noinsert,noselect
 set shortmess+=c
 
 " Configure LSP
-" https://github.com/neovim/nvim-lspconfig#rust_analyzer
+" https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#hls
+" https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
 lua <<EOF
 
 -- nvim_lsp object
@@ -21,6 +22,9 @@ local on_attach = function(client, buffer)
   require'completion'.on_attach(client)
   vim.cmd('source $VIMCONFIG/lsp-buffer.vim')
 end
+
+-- Enable haskell-language-server
+nvim_lsp.hls.setup({ on_attach=on_attach })
 
 -- Enable rust_analyzer
 nvim_lsp.rust_analyzer.setup({ on_attach=on_attach })
