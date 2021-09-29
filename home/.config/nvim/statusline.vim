@@ -2,10 +2,11 @@
 set laststatus=2
 
 " on the left:
-"   filename
+"   relative filename
 "   modified flag
 "   read-only flag
-set statusline=%f\ %m\ %r
+set statusline=%{expand('%:~:.')}
+set statusline+=\ %m\ %r
 
 " on the right:
 "   filetype
