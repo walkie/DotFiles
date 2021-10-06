@@ -1,14 +1,5 @@
 " See: https://sharksforarms.dev/posts/neovim-rust/
 
-" Improve completion experience (:help completeopt)
-"  * menuone: popup even when there's only one match
-"  * noinsert: do not insert text until a selection is made
-"  * noselect: do not select, force user to select one from the menu
-set completeopt=menuone,noinsert,noselect
-
-" Avoid showing extra messages when using completion
-set shortmess+=c
-
 " Configure LSP
 " https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#hls
 " https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
@@ -19,7 +10,7 @@ local nvim_lsp = require'lspconfig'
 
 -- Callback that attaches completion and performs buffer-specific configuration
 local on_attach = function(client, buffer)
-  require'completion'.on_attach(client)
+  -- require'completion'.on_attach(client)
   vim.cmd('source $VIMCONFIG/lsp-buffer.vim')
 end
 

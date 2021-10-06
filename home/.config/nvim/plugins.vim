@@ -32,11 +32,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 " let g:yankring_history_dir = '$VIMDATA'
 " cabbr yr YRShow
 
-" Tab completion (<Tab> context-specific completion, <C-Space> omni-completion)
+" Tab completion (configured in ./completion.vim)
 Plug 'ervandew/supertab'
-let g:SuperTabNoCompleteAfter = ['^\s*']
-let g:SuperTabDefaultCompletionType = 'context'
-imap <C-Space> <C-R>=SuperTabAlternateCompletion('<C-X><C-O>')<CR>
 
 " Automatic window resizing
 " Plug 'camspiers/animate.vim'
@@ -69,12 +66,12 @@ imap <C-Space> <C-R>=SuperTabAlternateCompletion('<C-X><C-O>')<CR>
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 
-" Language server protocol support (configured in lsp.vim)
+" Language server protocol support (configured in ./lsp.vim)
 if has('nvim')
   Plug 'neovim/nvim-lspconfig'         " common lsp configuration
   Plug 'folke/lsp-colors.nvim'         " add missing highlight colors
-  Plug 'nvim-lua/completion-nvim'      " auto-completion
-  " Plug 'nvim-lua/lsp_extensions.nvim'  " add support for inlay hints
+  " Plug 'nvim-lua/completion-nvim'      " auto-completion (using supertab+omni instead)
+  " Plug 'nvim-lua/lsp_extensions.nvim'  " add support for inlay hints (too busy)
 endif
 
 " Haskell stuff (see also ./lsp.vim)

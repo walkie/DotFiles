@@ -79,8 +79,9 @@ Install [ghcup](https://www.haskell.org/ghcup/) and
 Rust toolchains, respectively. My Bash profile will extend the PATH
 appropriately.
 
-Install [rust-analyzer](https://rust-analyzer.github.io/manual.html) for LSP
-support in Neovim.
+Install [hls](https://haskell-language-server.readthedocs.io/en/latest/) and
+[rust-analyzer](https://rust-analyzer.github.io/manual.html) for LSP support in
+Neovim.
 
 
 ## Platform-specific stuff

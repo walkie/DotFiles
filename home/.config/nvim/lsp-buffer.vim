@@ -2,13 +2,8 @@
 
 " Configuration to add in an LSP buffer only
 
-" Use <Tab> as completion trigger
-imap <buffer> <Tab> <Plug>(completion_smart_tab)
-imap <buffer> <S-Tab> <Plug>(completion_smart_s_tab)
-
-" Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <buffer> <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <buffer> <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Set omni-completion function
+setlocal omnifunc=v:lua.vim.lsp.omnifunc
 
 " Show hover information
 nnoremap <buffer> <silent> H <cmd>lua vim.lsp.buf.hover()<CR>

@@ -44,6 +44,9 @@ source $VIMCONFIG/commands.vim
 source $VIMCONFIG/functions.vim
 source $VIMCONFIG/maps.vim
 
+" Configure tab-completion
+source $VIMCONFIG/completion.vim
+
 " Configure status line
 source $VIMCONFIG/statusline.vim
 
