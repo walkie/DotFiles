@@ -1,24 +1,23 @@
-" See: https://sharksforarms.dev/posts/neovim-rust/
-
 " Configure LSP
-" https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#hls
-" https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
+" https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 lua <<EOF
 
--- nvim_lsp object
-local nvim_lsp = require'lspconfig'
+local lspconfig = require('lspconfig')
 
--- Callback that attaches completion and performs buffer-specific configuration
-local on_attach = function(client, buffer)
-  -- require'completion'.on_attach(client)
+-- Callback that performs buffer-specific configuration
+local lsp_buffer_config = function(client, buffer)
   vim.cmd('source $VIMCONFIG/lsp-buffer.vim')
 end
 
 -- Enable haskell-language-server
-nvim_lsp.hls.setup({ on_attach=on_attach })
+lspconfig.hls.setup {
+  on_attach = lsp_buffer_config,
+}
 
 -- Enable rust_analyzer
-nvim_lsp.rust_analyzer.setup({ on_attach=on_attach })
+lspconfig.rust_analyzer.setup {
+  on_attach = lsp_buffer_config,
+}
 
 -- Enable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
