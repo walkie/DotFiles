@@ -15,11 +15,16 @@ let g:SuperTabNoCompleteAfter = ['^\s*']
 " If preceding text looks like a filepath, use filepath completion
 let g:SuperTabDefaultCompletionType = 'context'
 
+" SuperTab can't directly call an omnifunc prefixed by 'v:lua', so wrap it
+function! s:OmniWrapper(findstart, base)
+  call &omnifunc(a:findstart, a:base)
+endfunction
+
 " Otherwise, try to do omni-completion; if that fails, fall back on vim's
 " built-in reverse keyword completion
 autocmd FileType *
   \ if &omnifunc != '' |
-  \   call SuperTabChain(&omnifunc, "<c-p>") |
+  \   call SuperTabChain(&s:OmniWrapper, "<c-p>") |
   \ endif
 
 " Shortcut to force use of omni-completion
