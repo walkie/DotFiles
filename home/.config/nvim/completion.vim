@@ -1,15 +1,13 @@
 " Configure tab-completion
 
-" Improve completion experience (:help completeopt)
+" Tweak completion options (:help completeopt)
+"  * menu: use a popup menu
 "  * menuone: popup even when there's only one match
-"  * longest: only insert the longest common text of the matches
-set completeopt=menuone,longest
+"  * noselect: don't automatically select the first match
+set completeopt=menu,menuone,noselect
 
 " Avoid showing extra messages when using completion
 set shortmess+=c
-
-" Make the 'longest' setting work with additional incremental text
-let g:SuperTabLongestEnhanced = 1
 
 " Tab indents if there's only whitespace preceding it
 let g:SuperTabNoCompleteAfter = ['^\s*']
@@ -25,4 +23,4 @@ autocmd FileType *
   \ endif
 
 " Shortcut to force use of omni-completion
-" imap <C-Space> <C-R>=SuperTabAlternateCompletion('<C-X><C-O>')<CR>
+imap <C-Space> <C-R>=SuperTabAlternateCompletion('<C-X><C-O>')<CR>
