@@ -15,17 +15,20 @@ let g:SuperTabNoCompleteAfter = ['^\s*']
 " If preceding text looks like a filepath, use filepath completion
 let g:SuperTabDefaultCompletionType = 'context'
 
-" SuperTab can't directly call an omnifunc prefixed by 'v:lua', so wrap it
-function! s:OmniWrapper(findstart, base)
-  call &omnifunc(a:findstart, a:base)
-endfunction
+" Following works for a while then randomly breaks for unknown reasons...
+" decided to just manually trigger omni-completion for now :-(
 
-" Otherwise, try to do omni-completion; if that fails, fall back on vim's
-" built-in reverse keyword completion
-autocmd FileType *
-  \ if &omnifunc != '' |
-  \   call SuperTabChain(&s:OmniWrapper, "<c-p>") |
-  \ endif
+" SuperTab can't directly call an omnifunc prefixed by 'v:lua', so wrap it
+" function! OmniWrapper(findstart, base)
+"   call &omnifunc(a:findstart, a:base)
+" endfunction
+
+" If contextual mapping doesn't trigger, try to do omni-completion;
+" if that fails, fall back on vim's built-in reverse keyword completion
+" autocmd FileType *
+"   \ if &omnifunc != '' |
+"   \   call SuperTabChain(&OmniWrapper, "<c-p>") |
+"   \ endif
 
 " Shortcut to force use of omni-completion
-imap <C-Space> <C-R>=SuperTabAlternateCompletion('<C-X><C-O>')<CR>
+inoremap <C-Space> <C-R>=SuperTabAlternateCompletion("\<lt>C-X>\<lt>C-O>")<CR>
