@@ -53,7 +53,7 @@ Plug 'ervandew/supertab'
 "     \ [{ 'path': "$HOME/Dropbox/Wiki",
 "     \    'syntax': 'markdown',
 "     \    'ext': '.wiki' }]
-" 
+"
 "   " Integrate vimwiki with Taskwarrior.
 "   Plug 'tbabej/taskwiki',
 "     \ { 'branch': 'extra-syntaxes',
@@ -115,6 +115,16 @@ Plug 'habamax/vim-godot'
 " General utilities
 Plug 'salsifis/vim-transpose'
 Plug 'godlygeek/tabular'
+
+" Highlight and auto-trim trailing whitespace
+" Manually trim with :StripWhitespace
+" See README for excluded filetypes and how to extend that list:
+" https://github.com/ntpeters/vim-better-whitespace
+Plug 'ntpeters/vim-better-whitespace'
+let g:strip_only_modified_lines=1
+let g:strip_whitespace_at_eof=1
+let g:strip_whitespace_confirm=0
+let g:strip_whitespace_on_save=1
 
 " Alternate colorscheme
 " Plug 'morhetz/gruvbox'

@@ -33,6 +33,9 @@ nnoremap <S-Y> y$
 
 " Copy current selection to system clipboard
 vnoremap <C-C> "+y
+if $TERM_PROGRAM == 'iTerm.app'
+  vnoremap <M-c> "+y
+endif
 
 " Paste from system clipboard
 inoremap <C-V> <C-O>:call InsertClipboardPaste()<CR>

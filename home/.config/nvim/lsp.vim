@@ -17,12 +17,19 @@ lspconfig.hls.setup {
 -- Enable rust_analyzer
 lspconfig.rust_analyzer.setup {
   on_attach = lsp_buffer_config,
+  settings = {
+    ["rust-analyzer"] = {
+      checkOnSave = {
+        command = "clippy"  -- default: "check"
+      }
+    }
+  }
 }
 
 -- Enable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
-    severity_sort = true,
+    severity_sort = false,
     signs = true,
     underline = false,
     update_in_insert = false,
@@ -31,8 +38,8 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 EOF
 
-" Configure sign characters for diagnostics
-sign define LspDiagnosticsSignError       text=e
-sign define LspDiagnosticsSignWarning     text=w
-sign define LspDiagnosticsSignInformation text=i
-sign define LspDiagnosticsSignHint        text=h
+  " Configure sign characters for diagnostics
+sign define DiagnosticSignError text=e texthl=DiagnosticSignError
+sign define DiagnosticSignWarn  text=w texthl=DiagnosticSignWarn
+sign define DiagnosticSignInfo  text=i texthl=DiagnosticSignInfo
+sign define DiagnosticSignHint  text=h texthl=DiagnosticSignHint

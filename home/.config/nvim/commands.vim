@@ -7,7 +7,7 @@ function! s:HelpHere(subject) abort
   let l:window_id = win_getid()
   let l:window_width = winwidth(0)
   let l:num_windows = winnr('$')
-  
+
   " open the help window
   execute 'help ' .. a:subject
 

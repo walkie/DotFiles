@@ -8,7 +8,7 @@ function! PlainText()
   " Turn on spell checking
   setlocal spell
   highlight SpellBad ctermbg=Black ctermfg=DarkRed guisp=Red
-  highlight SpellCap ctermbg=Black ctermfg=darkGreen guisp=Green
+  highlight SpellCap ctermbg=Black ctermfg=DarkGreen guisp=Green
 
   " Commands to reformat paragraphs
   nmap F mF{gq}`F
@@ -64,16 +64,24 @@ function! NormalStyle()
   highlight Normal guibg=NONE
 
   " tweak colors
+  highlight clear ExtraWhitespace
   highlight clear Search
-  highlight CursorLine  guibg=gray20
-  highlight Search      guibg=gray40
-  highlight SignColumn  guibg=NONE
-  highlight NormalFloat guibg=gray25
-  highlight Pmenu       guibg=gray25
-  highlight PmenuSel    guibg=gray40
-  
+  highlight CursorLine      guibg=gray20
+  highlight ExtraWhitespace guibg=gray30
+  highlight Search          guibg=gray40
+  highlight SignColumn      guibg=NONE
+
+  highlight NormalFloat     guibg=gray25
+  highlight Pmenu           guibg=gray25
+  highlight PmenuSel        guibg=gray40
+
+  highlight DiagnosticSignError guifg=tomato
+  highlight DiagnosticSignWarn  guifg=orange
+  highlight DiagnosticSignInfo  guifg=DeepSkyBlue
+  highlight DiagnosticSignHint  guifg=LawnGreen
+
   if has('gui_running')
-    
+
     " set font in GUI
     if has('gui_macvim')
       set transparency=10
@@ -83,12 +91,12 @@ function! NormalStyle()
     else
       set guifont=Liberation\ Mono\ Bold\ 14
     endif
-  
+
   else
-    
+
   " fix terminal colors
   let g:terminal_color_4 = '#80a0ff'
-  
+
   endif
 
 endfunction
@@ -96,20 +104,32 @@ endfunction
 
 " Set visual style for presentations
 function! PresentationStyle()
-  
+
   " set color scheme
   colorscheme default
   set background=light
-  
+
   " less obtrusive end of file markers
   highlight NonText guifg=gray80
 
-  " tweak highlighting
+  " tweak colors
+  highlight clear ExtraWhitespace
   highlight clear Search
+  highlight ExtraWhitespace guibg=gray85
   highlight Search guibg=gray75
+  highlight SignColumn      guibg=NONE
+
+  highlight NormalFloat     guibg=gray90
+  highlight Pmenu           guibg=gray90
+  highlight PmenuSel        guibg=gray75
+
+  highlight DiagnosticSignError guifg=tomato
+  highlight DiagnosticSignWarn  guifg=orange
+  highlight DiagnosticSignInfo  guifg=DeepSkyBlue
+  highlight DiagnosticSignHint  guifg=LawnGreen
 
   if has('gui_running')
-    
+
     "set font in GUI
     if has('gui_macvim')
       set transparency=0
@@ -119,13 +139,13 @@ function! PresentationStyle()
     else
       set guifont=Liberation\ Mono\ 30
     endif
-  
+
   else
 
   " fix terminal colors
   let g:terminal_color_2 = 'Green'
   let g:terminal_color_4 = 'Blue'
-  
+
   endif
 
 endfunction
