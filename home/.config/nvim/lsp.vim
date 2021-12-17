@@ -15,30 +15,49 @@ lspconfig.hls.setup {
 }
 
 -- Enable rust_analyzer
-lspconfig.rust_analyzer.setup {
+local rust_analyzer_config = {
   on_attach = lsp_buffer_config,
   settings = {
     ["rust-analyzer"] = {
       checkOnSave = {
-        command = "clippy"  -- default: "check"
+        command = "clippy" -- default: "check"
+      },
+      cmd_env = {
+        RA_LOG = "error" -- try to disable annoying "long loop" warnings
       }
     }
   }
 }
 
--- Enable diagnostics
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    severity_sort = false,
-    signs = true,
-    underline = false,
-    update_in_insert = false,
-    virtual_text = false,
-  }
-)
+local rust_tools_config = {
+  tools = {
+    autoSetHints = false,
+    hover_actions = { border = "rounded" }
+  },
+  server = rust_analyzer_config
+}
+
+require('rust-tools').setup(rust_tools_config)
+
+-- This step is done by rust-tools
+-- lspconfig.rust_analyzer.setup(rust_analyzer_config)
+
+-- Configure diagnostics
+vim.diagnostic.config({
+  -- configure floating window
+  float = {
+    border = "rounded",
+    focusable = false,
+    header = ""
+  },
+  -- use signs rather than underline and floating text
+  signs = true,
+  underline = false,
+  virtual_text = false,
+})
 EOF
 
-  " Configure sign characters for diagnostics
+" Configure sign characters for diagnostics
 sign define DiagnosticSignError text=e texthl=DiagnosticSignError
 sign define DiagnosticSignWarn  text=w texthl=DiagnosticSignWarn
 sign define DiagnosticSignInfo  text=i texthl=DiagnosticSignInfo

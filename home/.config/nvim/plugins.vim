@@ -91,8 +91,15 @@ let g:cabal_indent_section = 2
 " let g:vim_annotations_offset = '/.liquid/'
 
 " Rust stuff (see also ./lsp.vim)
-" Plug 'rust-lang/rust.vim'
-Plug 'cespare/vim-toml'     " for cargo
+if has('nvim')
+  Plug 'simrat39/rust-tools.nvim'
+  " rust-tools dependencies for debugging:
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'mfussenegger/nvim-dap'
+else
+  Plug 'rust-lang/rust.vim'
+endif
+Plug 'cespare/vim-toml'  " for cargo
 
 " LLVM
 Plug 'llvm-mirror/llvm', { 'rtp': 'utils/vim' }

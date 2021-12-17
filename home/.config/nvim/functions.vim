@@ -71,9 +71,10 @@ function! NormalStyle()
   highlight Search          guibg=gray40
   highlight SignColumn      guibg=NONE
 
-  highlight NormalFloat     guibg=gray25
-  highlight Pmenu           guibg=gray25
-  highlight PmenuSel        guibg=gray40
+  highlight FloatBorder     guibg=gray20 guifg=gray50
+  highlight NormalFloat     guibg=gray20
+  highlight Pmenu           guibg=gray20
+  highlight PmenuSel        guibg=gray30
 
   highlight DiagnosticSignError guifg=tomato
   highlight DiagnosticSignWarn  guifg=orange
@@ -119,6 +120,7 @@ function! PresentationStyle()
   highlight Search guibg=gray75
   highlight SignColumn      guibg=NONE
 
+  highlight FloatBorder     guibg=gray90
   highlight NormalFloat     guibg=gray90
   highlight Pmenu           guibg=gray90
   highlight PmenuSel        guibg=gray75
