@@ -68,6 +68,7 @@ function! NormalStyle()
   highlight clear Search
   highlight CursorLine      guibg=gray20
   highlight ExtraWhitespace guibg=gray30
+  highlight NonText         guifg=gray30
   highlight Search          guibg=gray40
   highlight SignColumn      guibg=NONE
 
