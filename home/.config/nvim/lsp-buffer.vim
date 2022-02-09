@@ -14,11 +14,11 @@ nnoremap <buffer> <silent> <Leader>t <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <buffer> <silent> <Leader>d <cmd>lua vim.lsp.buf.definition()<CR>
 
 " Show line diagnostics
-nnoremap <buffer> <silent> <Leader><Leader> <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
+nnoremap <buffer> <silent> <Leader><Leader> <cmd>lua vim.diagnostic.open_float()<CR>
 
 " Go to previous/next diagnostic warning/error
-nnoremap <buffer> <silent> <Leader>[ <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
-nnoremap <buffer> <silent> <Leader>] <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap <buffer> <silent> <Leader>[ <cmd>lua vim.diagnostic.goto_prev()<CR>
+nnoremap <buffer> <silent> <Leader>] <cmd>lua vim.diagnostic.goto_next()<CR>
 
 " Show all references/implementations (quickfix)
 nnoremap <buffer> <silent> <Leader>r <cmd>lua vim.lsp.buf.references()<CR>
