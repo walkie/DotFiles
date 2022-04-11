@@ -57,12 +57,7 @@ endif
 
 " Configure spell-checking files
 let $SPELLDIR = $VIMCONFIG . '/spell'
-" set spellfile=$SPELLDIR/en.utf-8.add
 call ReloadSpellFiles()
-
-" Remove trailing whitespace from these file types
-" autocmd FileType agda,asm,c,cpp,dot,haskell,html,idris,java,rust,xml
-"   \ autocmd BufWritePre <buffer> %s/\s\+$//e
 
 " Tweak visual stuff
 call NormalStyle()
