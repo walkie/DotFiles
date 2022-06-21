@@ -4,7 +4,12 @@ set shiftwidth=2   " smartindent does 2 spaces
 set expandtab      " turn tabs into spaces ...
 set nosmarttab     " and don't try to be clever about it
 set nowrap         " don't wrap long lines
-syntax enable      " turn on syntax highlighting
+
+" Turn on syntax highlighting; this is enabled by default in Neovim, and
+" manually enabling it messes up the order config files are loaded
+if !has('nvim')
+  syntax enable
+endif
 
 " Turn on mouse support
 set mouse=a

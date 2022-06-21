@@ -3,11 +3,6 @@
 # Colorful ls output
 alias ls='ls -G'
 
-# Set title of terminal window/tab
-function title {
-  echo -ne "\033]0;$@\007"
-}
-
 # Needed to make some GTK applications work
 export DISPLAY=:0.0
 
@@ -27,15 +22,29 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
-# OPAM configuration
-# . ~/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+# Enable iTerm2 shell integrations (should be done late in profile)
+ITERM_INTEGRATION="${HOME}/.iterm2_shell_integration.bash"
+test -e $ITERM_INTEGRATION && source $ITERM_INTEGRATION
 
-# Add Racket to path
-# export PATH=/Applications/Racket-v6.3/bin:$PATH
-
-# Other aliases
-alias updatedb='sudo /usr/libexec/locate.updatedb'
-# alias amacs='aquamacs'
+# Function to set title of terminal window/tab
+# > title wut <-- sets the title to "wut"
+# > title     <-- sets the title to $PWD
+function title {
+  local cmd
+  if [ "$1" ]; then
+    # set the title to the argument string
+    echo -ne "\033]0;$@\007"
+  else
+    # set the title to $PWD on each prompt
+    cmd='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
+  fi
+  # Include iTerm2 integration calls, if installed
+  if [ -e $ITERM_INTEGRATION ]; then
+    cmd="${cmd}${cmd:+;}__bp_precmd_invoke_cmd;__iterm2_prompt_command;__bp_interactive_mode"
+  fi
+  export PROMPT_COMMAND=$cmd
+}
+title  # Set the tab title to $PWD initially
 
 # cd that works with Mac file aliases
 # from: http://hints.macworld.com/article.php?story=20050828054129701

@@ -8,8 +8,8 @@ if grep -q Microsoft /proc/version; then
   export LS_COLORS="ow=01;34;40"
 fi
 
-# Restart Gnome Shell
-alias restart-gnome-shell='busctl --user call org.gnome.Shell /org/gnome/Shell org.gnome.Shell Eval s '\''Meta.restart("Restarting Gnome Shell...")'\'
+# Restart Gnome Shell (doesn't work with Wayland)
+# alias restart-gnome-shell='busctl --user call org.gnome.Shell /org/gnome/Shell org.gnome.Shell Eval s '\''Meta.restart("Restarting Gnome Shell...")'\'
 
 # Set title of terminal window/tab
 function title {
