@@ -1,0 +1,25 @@
+window:
+  # Essentially a phantom title bar; the `none` option breaks usual macOS window management
+  decorations: buttonless
+
+key_bindings:
+  # Open a new window, not instance
+  - { key: N, mods: Command, action: CreateNewWindow }
+
+  # Cmd-T to create new tmux window
+  - { key: T, mods: Command, chars: "\x00\x63" }
+
+  # Cmd-{ and Cmd-} to switch to prev/next tmux window
+  - { key: LBracket, mods: Command|Shift, chars: "\x00\x70" }
+  - { key: RBracket, mods: Command|Shift, chars: "\x00\x6e" }
+
+  # Cmd-N to switch to tmux window N
+  - { key: Key1, mods: Command, chars: "\x00\x31" }
+  - { key: Key2, mods: Command, chars: "\x00\x32" }
+  - { key: Key3, mods: Command, chars: "\x00\x33" }
+  - { key: Key4, mods: Command, chars: "\x00\x34" }
+  - { key: Key5, mods: Command, chars: "\x00\x35" }
+  - { key: Key6, mods: Command, chars: "\x00\x36" }
+  - { key: Key7, mods: Command, chars: "\x00\x37" }
+  - { key: Key8, mods: Command, chars: "\x00\x38" }
+  - { key: Key9, mods: Command, chars: "\x00\x39" }

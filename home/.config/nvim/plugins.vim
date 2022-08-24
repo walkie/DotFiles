@@ -35,6 +35,15 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Tab completion (configured in ./completion.vim)
 Plug 'ervandew/supertab'
 
+" Nicer window/pane switching, integrating with tmux
+Plug 'christoomey/vim-tmux-navigator'
+if has('nvim')
+  tnoremap <silent> <C-h> <C-\><C-N>:TmuxNavigateLeft<cr>
+  tnoremap <silent> <C-j> <C-\><C-N>:TmuxNavigateDown<cr>
+  tnoremap <silent> <C-k> <C-\><C-N>:TmuxNavigateUp<cr>
+  tnoremap <silent> <C-l> <C-\><C-N>:TmuxNavigateRight<cr>
+endif
+
 " Automatic window resizing
 " Plug 'camspiers/animate.vim'
 " Plug 'camspiers/lens.vim'

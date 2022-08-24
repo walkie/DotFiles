@@ -10,23 +10,19 @@ inoremap <C-E> <End>
 cnoremap <C-A> <HOME>
 
 " Insert a blank line from normal mode
-nnoremap <C-Space> ^i<RETURN><ESC>
+nnoremap <C-Space> ^i<Return><Esc>
 
-" Make window switching easier
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-inoremap <C-h> <C-\><C-N><C-w>h
-inoremap <C-j> <C-\><C-N><C-w>j
-inoremap <C-k> <C-\><C-N><C-w>k
-inoremap <C-l> <C-\><C-N><C-w>l
-if has('nvim')
-  tnoremap <C-h> <C-\><C-N><C-w>h
-  tnoremap <C-j> <C-\><C-N><C-w>j
-  tnoremap <C-k> <C-\><C-N><C-w>k
-  tnoremap <C-l> <C-\><C-N><C-w>l
-endif
+" Make window switching easier (see: vim-tmux-navigator plugin)
+" nnoremap <C-h> <C-w>h
+" nnoremap <C-j> <C-w>j
+" nnoremap <C-k> <C-w>k
+" nnoremap <C-l> <C-w>l
+" if has('nvim')
+"   tnoremap <C-h> <C-\><C-N><C-w>h
+"   tnoremap <C-j> <C-\><C-N><C-w>j
+"   tnoremap <C-k> <C-\><C-N><C-w>k
+"   tnoremap <C-l> <C-\><C-N><C-w>l
+" endif
 
 " Make Y copy to the end of the line
 nnoremap <S-Y> y$

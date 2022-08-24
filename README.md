@@ -8,9 +8,9 @@ My configuration files and notes to myself for setting up new machines.
 These files and directories contain sensitive information and should be copied
 over manually:
 
- * `.gitconfig`
- * `.profile.d/private.sh`
- * `.ssh/`
+- `.gitconfig`
+- `.profile.d/private.sh`
+- `.ssh/`
 
 This file, if present, contains machine-specific configuration:
 
@@ -19,8 +19,8 @@ This file, if present, contains machine-specific configuration:
 
 ## Installation
 
- 1. Install [GNU Stow](https://www.gnu.org/software/stow/)
- 2. Run `make`
+1. Install [GNU Stow](https://www.gnu.org/software/stow/)
+2. Run `make`
 
 The `home` directory contains all the config files I want on every machine.
 Stow will symlink these into the system \$HOME directory. The `bin` directory
@@ -38,6 +38,32 @@ override this, so the Makefile just manually symlinks that file into \$HOME
 from the `special` directory.
 
 
+## Terminal environment
+
+Install [Alacritty](https://alacritty.org/) and [tmux](https://github.com/tmux/tmux)
+using the relevant package manager.
+
+Install the [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm):
+```
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+Install plugins within tmux with `Ctrl-Space I`.
+
+
+## (Neo)vim
+
+The configuration is optimized for Neovim but should (not tested in a long
+time, so probably not anymore!) work for plain vim, gvim, and MacVim as well.
+
+Plugins are managed by [vim-plug](https://github.com/junegunn/vim-plug). The
+plugin manager should be automatically installed after launching vim for the
+first time.
+
+Run `:PlugUpdate` from within vim to install the plugins for the first time,
+or to update them.
+
+
 ## Firefox
 
 There are Firefox customizations in `special/userChrome.css`. Unfortunately,
@@ -49,7 +75,6 @@ automatically install it. Find the profile directory, as described
 ln -s ${pwd}/special/userChrome.css ${firefox-profile}/chrome/userChrome.css
 ```
 
-
 ## Emacs
 
 Plugins are managed by the built-in package manager and will install
@@ -57,19 +82,6 @@ automatically on the first launch. Things are usually weird after this, so
 reboot Emacs after the installs are done.
 
 Run `M-x package-list-packages` then `U x` to update installed packages.
-
-
-## (Neo)vim
-
-The configuration is optimized for Neovim but should work for plain vim, gvim,
-and MacVim as well.
-
-Plugins are managed by [vim-plug](https://github.com/junegunn/vim-plug). The
-plugin manager should be automatically installed after launching vim for the
-first time.
-
-Run `:PlugUpdate` from within vim to install the plugins for the first time,
-or to update them.
 
 
 ## Haskell and Rust
@@ -125,8 +137,10 @@ Neovim.
      getnonfreefonts --all
      ```
 
+ <!--
  * Compile [getTrueName.c](http://hints.macworld.com/dlfiles/getTrueName.txt),
    and put in `~/bin` so `cd` works with Mac aliases.
+ -->
 
  * Install the [Liberation fonts](https://fedorahosted.org/liberation-fonts/)
 

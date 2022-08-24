@@ -1,0 +1,38 @@
+# Defaults and docs: https://github.com/alacritty/alacritty/blob/master/alacritty.yml
+# Copied locally as ./defaults.yml for convenience.
+
+# Load platform specific config
+import:
+  - ~/.config/alacritty/mac.yml
+
+# Window settings (some require restart)
+window:
+  dynamic_padding: true
+  opacity: 0.85
+  startup_mode: Maximized
+
+# Tweak colors
+colors:
+  primary:
+    background: '#000000'
+    foreground: '#c5c5c5'
+  normal:
+    black:   '#000000'
+    red:     '#ec2424'
+    green:   '#00d400'
+    yellow:  '#d4d400'
+    blue:    '#80a0ff'
+    magenta: '#e236e2'
+    cyan:    '#00d4d4'
+    white:   '#c5c5c5'
+  bright:
+    black:   '#666666'
+    red:     '#ff7070'
+    green:   '#60fa60'
+    yellow:  '#fffb68'
+    blue:    '#7ebdff'
+    magenta: '#ff96eb'
+    cyan:    '#60ffff'
+    white:   '#eaeaea'
+  # Only the background is transparent, not set background colors; bit easier to read
+  transparent_background_colors: false

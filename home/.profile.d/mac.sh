@@ -23,8 +23,8 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 # Enable iTerm2 shell integrations (should be done late in profile)
-ITERM_INTEGRATION="${HOME}/.iterm2_shell_integration.bash"
-test -e $ITERM_INTEGRATION && source $ITERM_INTEGRATION
+# ITERM_INTEGRATION="${HOME}/.iterm2_shell_integration.bash"
+# test -e $ITERM_INTEGRATION && source $ITERM_INTEGRATION
 
 # Function to set title of terminal window/tab
 # > title wut <-- sets the title to "wut"
@@ -39,9 +39,9 @@ function title {
     cmd='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
   fi
   # Include iTerm2 integration calls, if installed
-  if [ -e $ITERM_INTEGRATION ]; then
-    cmd="${cmd}${cmd:+;}__bp_precmd_invoke_cmd;__iterm2_prompt_command;__bp_interactive_mode"
-  fi
+  # if [ -e $ITERM_INTEGRATION ]; then
+  #   cmd="${cmd}${cmd:+;}__bp_precmd_invoke_cmd;__iterm2_prompt_command;__bp_interactive_mode"
+  # fi
   export PROMPT_COMMAND=$cmd
 }
 title  # Set the tab title to $PWD initially
