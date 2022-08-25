@@ -31,7 +31,10 @@ local rust_analyzer_config = {
 
 local rust_tools_config = {
   tools = {
-    autoSetHints = false,
+    inlay_hints = {
+      show_parameter_hints = false,
+      highlight = "NonText",
+    },
     hover_actions = { border = "rounded" }
   },
   server = rust_analyzer_config
