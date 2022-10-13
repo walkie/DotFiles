@@ -75,7 +75,7 @@ function! NormalStyle()
   highlight FloatBorder     guibg=gray20 guifg=gray50
   highlight NormalFloat     guibg=gray20
   highlight Pmenu           guibg=gray20
-  highlight PmenuSel        guibg=gray30
+  highlight PmenuSel        guibg=gray30 guifg=0
 
   highlight DiagnosticSignError guifg=tomato
   highlight DiagnosticSignWarn  guifg=orange
