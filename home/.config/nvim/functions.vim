@@ -65,18 +65,23 @@ function! NormalStyle()
 
   " tweak colors
   highlight clear ExtraWhitespace
+  highlight CursorLine          guibg=gray20
+  highlight ExtraWhitespace     guibg=gray30 guifg=NONE
+  highlight NonText             guifg=gray30
+
   highlight clear Search
-  highlight CursorLine      guibg=gray20
-  highlight ExtraWhitespace guibg=gray30
-  highlight NonText         guifg=gray30
-  highlight Search          guibg=gray40
-  highlight SignColumn      guibg=NONE
+  highlight clear IncSearch
+  highlight IncSearch           gui=reverse
+  highlight Search              guibg=gray40 guifg=NONE
+  highlight CurSearch           guibg=gray50 guifg=NONE
+  highlight Visual              guibg=gray50 guifg=NONE
 
-  highlight FloatBorder     guibg=gray20 guifg=gray50
-  highlight NormalFloat     guibg=gray20
-  highlight Pmenu           guibg=gray20
-  highlight PmenuSel        guibg=gray30 guifg=0
+  highlight FloatBorder         guibg=gray20 guifg=gray50
+  highlight NormalFloat         guibg=gray20
+  highlight Pmenu               guibg=gray20
+  highlight PmenuSel            guibg=gray30 guifg=0
 
+  highlight SignColumn          guibg=NONE
   highlight DiagnosticSignError guifg=tomato
   highlight DiagnosticSignWarn  guifg=orange
   highlight DiagnosticSignInfo  guifg=DeepSkyBlue
