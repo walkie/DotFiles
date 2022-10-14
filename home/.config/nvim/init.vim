@@ -14,6 +14,9 @@ endif
 " Turn on mouse support
 set mouse=a
 
+" Update gutters and write to swap more frequently (100 ms)
+set updatetime=100
+
 " Set default colors and color scheme
 set termguicolors  " requires true color terminal
 set cul            " highlight current line

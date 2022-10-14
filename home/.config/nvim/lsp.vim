@@ -54,6 +54,7 @@ vim.diagnostic.config({
     header = ""
   },
   -- use signs rather than underline and floating text
+  severity_sort = true,
   signs = true,
   underline = false,
   virtual_text = false,

@@ -69,6 +69,7 @@ function! NormalStyle()
   highlight ExtraWhitespace     guibg=gray30 guifg=NONE
   highlight NonText             guifg=gray30
 
+  " search colors
   highlight clear Search
   highlight clear IncSearch
   highlight IncSearch           gui=reverse
@@ -76,16 +77,21 @@ function! NormalStyle()
   highlight CurSearch           guibg=gray50 guifg=NONE
   highlight Visual              guibg=gray50 guifg=NONE
 
+  " floating menus
   highlight FloatBorder         guibg=gray20 guifg=gray50
   highlight NormalFloat         guibg=gray20
   highlight Pmenu               guibg=gray20
   highlight PmenuSel            guibg=gray30 guifg=0
 
+  " sign column
   highlight SignColumn          guibg=NONE
   highlight DiagnosticSignError guifg=tomato
   highlight DiagnosticSignWarn  guifg=orange
   highlight DiagnosticSignInfo  guifg=DeepSkyBlue
   highlight DiagnosticSignHint  guifg=LawnGreen
+  highlight SignifySignAdd      guibg=NONE guifg=ForestGreen
+  highlight SignifySignChange   guibg=NONE guifg=ForestGreen
+  highlight SignifySignDelete   guibg=NONE guifg=chocolate
 
   if has('gui_running')
 

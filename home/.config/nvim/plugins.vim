@@ -74,6 +74,8 @@ endif
 " Nicer file system and Git integration
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
+Plug 'mhinz/vim-signify'
+let g:signify_priority = 1
 
 " Language server protocol support (configured in ./lsp.vim)
 if has('nvim')
