@@ -1,19 +1,21 @@
+# Mac-specific settings
+
 window:
   # Essentially a phantom title bar; the `none` option breaks usual macOS window management
   decorations: buttonless
 
 key_bindings:
-  # Open a new window, not instance
+  # Open a new window
   - { key: N, mods: Command, action: CreateNewWindow }
 
-  # Cmd-T to create new tmux window
+  # Create new tmux window
   - { key: T, mods: Command, chars: "\x00\x63" }
 
-  # Cmd-{ and Cmd-} to switch to prev/next tmux window
+  # Switch to prev/next tmux window
   - { key: LBracket, mods: Command|Shift, chars: "\x00\x70" }
   - { key: RBracket, mods: Command|Shift, chars: "\x00\x6e" }
 
-  # Cmd-N to switch to tmux window N
+  # Switch to tmux window N
   - { key: Key1, mods: Command, chars: "\x00\x31" }
   - { key: Key2, mods: Command, chars: "\x00\x32" }
   - { key: Key3, mods: Command, chars: "\x00\x33" }

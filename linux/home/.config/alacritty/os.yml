@@ -1,0 +1,27 @@
+# Linux-specific settings
+
+window:
+  # No borders or title bar
+  decorations: none
+
+key_bindings:
+  # Open a new window
+  - { key: N, mods: Control|Shift, action: CreateNewWindow }
+
+  # Create a new tmux window
+  - { key: T, mods: Control|Shift, chars: "\x00\x63" }
+
+  # Switch to prev/next tmux window
+  - { key: PageUp, mods: Control, chars: "\x00\x70" }
+  - { key: PageDown, mods: Control, chars: "\x00\x6e" }
+
+  # Switch to tmux window N
+  - { key: Key1, mods: Control, chars: "\x00\x31" }
+  - { key: Key2, mods: Control, chars: "\x00\x32" }
+  - { key: Key3, mods: Control, chars: "\x00\x33" }
+  - { key: Key4, mods: Control, chars: "\x00\x34" }
+  - { key: Key5, mods: Control, chars: "\x00\x35" }
+  - { key: Key6, mods: Control, chars: "\x00\x36" }
+  - { key: Key7, mods: Control, chars: "\x00\x37" }
+  - { key: Key8, mods: Control, chars: "\x00\x38" }
+  - { key: Key9, mods: Control, chars: "\x00\x39" }

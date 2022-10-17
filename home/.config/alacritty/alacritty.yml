@@ -1,9 +1,8 @@
 # Defaults and docs: https://github.com/alacritty/alacritty/blob/master/alacritty.yml
-# Copied locally as ./defaults.yml for convenience.
 
-# Load platform specific config
+# Load OS-specific config
 import:
-  - ~/.config/alacritty/mac.yml
+  - ~/.config/alacritty/os.yml
 
 # Window settings (some require restart)
 window:
