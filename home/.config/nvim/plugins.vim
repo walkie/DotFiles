@@ -76,6 +76,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
 let g:signify_priority = 1
+let g:signify_sign_show_count = 0
 
 " Language server protocol support (configured in ./lsp.vim)
 if has('nvim')

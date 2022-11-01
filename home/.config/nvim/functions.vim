@@ -91,7 +91,7 @@ function! NormalStyle()
   highlight DiagnosticSignHint  guifg=LawnGreen
   highlight SignifySignAdd      guibg=NONE guifg=ForestGreen
   highlight SignifySignChange   guibg=NONE guifg=ForestGreen
-  highlight SignifySignDelete   guibg=NONE guifg=chocolate
+  highlight SignifySignDelete   guibg=NONE guifg=SaddleBrown
 
   if has('gui_running')
 
