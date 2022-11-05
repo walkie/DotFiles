@@ -140,8 +140,8 @@ Plug 'godlygeek/tabular'
 " See README for excluded filetypes and how to extend that list:
 " https://github.com/ntpeters/vim-better-whitespace
 Plug 'ntpeters/vim-better-whitespace'
-let g:strip_only_modified_lines=1
-let g:strip_whitespace_at_eof=1
+let g:strip_only_modified_lines=0
+let g:strip_whitelines_at_eof=1
 let g:strip_whitespace_confirm=0
 let g:strip_whitespace_on_save=1
 
