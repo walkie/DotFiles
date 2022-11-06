@@ -5,11 +5,14 @@ window:
   decorations: buttonless
 
 key_bindings:
-  # Open a new window
+  # Open a new alacritty window
   - { key: N, mods: Command, action: CreateNewWindow }
 
   # Create new tmux window
   - { key: T, mods: Command, chars: "\x00\x63" }
+
+  # Kill/close a tmux pane
+  - { key: W, mods: Command, chars: "\x00\x78" }
 
   # Switch to prev/next tmux window
   - { key: LBracket, mods: Command|Shift, chars: "\x00\x70" }
