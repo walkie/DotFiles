@@ -1,0 +1,9 @@
+# skhd grammar: <https://github.com/koekeishiya/skhd>
+
+# open a new alacritty window from alacritty
+cmd - n [
+  "alacritty" : alacritty msg create-window
+]
+
+# open a new alacritty window from anywhere
+ctrl + shift - x : alacritty msg create-window
