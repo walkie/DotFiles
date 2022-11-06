@@ -6,4 +6,4 @@ cmd - n [
 ]
 
 # open a new alacritty window from anywhere
-ctrl + shift - x : alacritty msg create-window
+ctrl + shift - x : alacritty msg create-window || open -a Alacritty
