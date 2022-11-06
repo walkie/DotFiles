@@ -22,8 +22,14 @@ endif
 	ln -s $(shell pwd)/special/gitignore ${HOME}/.gitignore
 
 clean:
+	test -L ${HOME}/.gitignore && rm ${HOME}/.gitignore || :
 	stow --target=${HOME} --delete home
 	stow --target=${HOME}/bin --delete bin
-	test -L ${HOME}/.gitignore && rm ${HOME}/.gitignore
+ifeq ($(OS), Darwin)
+	stow --dir=mac --target=${HOME} --delete home
+endif
+ifeq ($(OS), Linux)
+	stow --dir=linux --target=${HOME} --delete home
+endif
 
 reinstall: clean install
