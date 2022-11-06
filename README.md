@@ -14,7 +14,7 @@ over manually:
 
 This file, if present, contains machine-specific configuration:
 
- * `.profile.d/local.sh`
+- `.profile.d/local.sh`
 
 
 ## Installation
@@ -22,16 +22,18 @@ This file, if present, contains machine-specific configuration:
 1. Install [GNU Stow](https://www.gnu.org/software/stow/)
 2. Run `make`
 
-The `home` directory contains all the config files I want on every machine.
-Stow will symlink these into the system \$HOME directory. The `bin` directory
-contains scripts to install on every machine. These are managed separately from
-`home` since on some machines my `~/bin` is a symlink and this confuses Stow.
+The `home` directory contains all the config files I want on every machine. The
+`linux/home` and `mac/home` directories contain config files specific to the
+relevant platform. The Makefile uses Stow to symlink all of these files into
+the system \$HOME directory.
 
-It's important that we don't symlink certain directories into this repository
-(e.g. `.stack` and `.vim`) since these will end up containing lots of stuff
-that we don't want under version control. The Makefile makes sure these root
-directories are already created so that Stow will only link the relevant
-contents into them, rather than the whole thing.
+If a directory doesn't already exist in \$HOME, Stow will link the whole
+directory into this repository. However, that's sometimes undesirable, such as
+when the contents of a directory come from multiple Stow locations or when the
+directory will also contain things that we don't want under version control
+(e.g. `stack`). The Makefile ensures that these directories are already created
+so that Stow will only link the relevant contents into them, rather than
+linking the directory itself.
 
 By default, Stow ignores `.gitignore` files. There's not a convenient way to
 override this, so the Makefile just manually symlinks that file into \$HOME
@@ -64,17 +66,6 @@ Run `:PlugUpdate` from within vim to install the plugins for the first time,
 or to update them.
 
 
-## Firefox
-
-There are Firefox customizations in `special/userChrome.css`. Unfortunately,
-Firefox's profile path includes a random string, so it's not easy to
-automatically install it. Find the profile directory, as described
-[here](http://kb.mozillazine.org/index.php?title=UserChrome.css), then:
-
-```
-ln -s ${pwd}/special/userChrome.css ${firefox-profile}/chrome/userChrome.css
-```
-
 ## Emacs
 
 Plugins are managed by the built-in package manager and will install
@@ -84,68 +75,74 @@ reboot Emacs after the installs are done.
 Run `M-x package-list-packages` then `U x` to update installed packages.
 
 
-## Haskell and Rust
+## Haskell
 
-Install [ghcup](https://www.haskell.org/ghcup/) and
-[rustup](https://www.rust-lang.org/tools/install) to manage the Haskell and
-Rust toolchains, respectively. My Bash profile will extend the PATH
-appropriately.
+Install [ghcup](https://www.haskell.org/ghcup/). Select the following options:
+- Don't update path.
+- Install HLS for LSP support.
+- Enable better integration with `stack`.
 
-Install [hls](https://haskell-language-server.readthedocs.io/en/latest/) and
-[rust-analyzer](https://rust-analyzer.github.io/manual.html) for LSP support in
-Neovim.
+
+# Rust
+
+Install [rustup](https://www.rust-lang.org/tools/install). Customize the
+installation to not update the PATH since my profile already does that.
+
+Run `rustup component add rust-analyzer` to install LSP support.
 
 
 ## Platform-specific stuff
 
 ### Fedora
 
- * Add the [RPM Fusion](https://rpmfusion.org/Configuration) repositories.
+- Add the [RPM Fusion](https://rpmfusion.org/Configuration) repositories.
 
- * Install [TeX-Live](https://tug.org/texlive/quickinstall.html) directly since
-   Fedora's packaged version omits some non-free bits.
+- Install [TeX-Live](https://tug.org/texlive/quickinstall.html) directly since
+  Fedora's packaged version omits some non-free bits.
 
-   * Then install the non-free LaTeX fonts:
+	- Install non-free LaTeX fonts:
+	  ```
+	  wget http://tug.org/fonts/getnonfreefonts/install-getnonfreefonts
+	  sudo env "PATH=$PATH" texlua install-getnonfreefonts
+	  sudo env "PATH=$PATH" getnonfreefonts --sys --all
+	  sudo cp $(kpsewhich -var-value TEXMFSYSVAR)/fonts/conf/texlive-fontconfig.conf /etc/fonts/conf.d/09-texlive.conf
+	  sudo fc-cache -fsv
+	  ```
 
-     ```
-     wget http://tug.org/fonts/getnonfreefonts/install-getnonfreefonts
-     sudo env "PATH=$PATH" texlua install-getnonfreefonts
-     sudo env "PATH=$PATH" getnonfreefonts --sys --all
-     sudo cp $(kpsewhich -var-value TEXMFSYSVAR)/fonts/conf/texlive-fontconfig.conf /etc/fonts/conf.d/09-texlive.conf
-     sudo fc-cache -fsv
-     ```
 
 ### Mac
 
- * Install [Homebrew](http://brew.sh/)
+- Install [Homebrew](http://brew.sh/).
  
-   * Then install Homebrew cask:
-     ```
-     brew tap caskroom/cask
-     ```
+- Install updated bash and follow instructions to make it the default shell:
+  ```
+  brew install bash
+  ```
 
- * Install MacTeX:
-   ```
-   brew cask install mactex
-   ```
+- Install bash completion framework for updated bash (do this early or you'll
+  have to reinstall other packages) and follow instructions to set it up:
+  ```
+  brew install bash-completion@2
+  ```
 
-   * Then install the non-free LaTeX fonts:
+- Install fonts:
+  ```
+  brew tap homebrew/cask-fonts
+  brew install font-liberation font-fira-code font-inconsolata
+  ```
 
-     ```
-     wget http://tug.org/fonts/getnonfreefonts/install-getnonfreefonts
-     texlua install-getnonfreefonts
-     getnonfreefonts --all
-     ```
+- Install core tools:
+  ```
+  brew install firefox alacritty tmux neovim git github mactex
+  ```
 
- <!--
- * Compile [getTrueName.c](http://hints.macworld.com/dlfiles/getTrueName.txt),
-   and put in `~/bin` so `cd` works with Mac aliases.
- -->
-
- * Install the [Liberation fonts](https://fedorahosted.org/liberation-fonts/)
-
+- Install and start [skhd](https://github.com/koekeishiya/skhd):
+  ```
+  brew install skhd
+  brew services start skhd
+  ```
 
 ### Windows
 
 There's a custom PowerShell prompt in `windows` and some WSL-specific stuff in
-`wsl`. Install these manually, if needed.
+`windows/wsl`. Install these manually, if needed.
