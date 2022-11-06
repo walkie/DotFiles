@@ -12,7 +12,6 @@ setup:
 
 install: setup
 	stow -v --target=${HOME} home
-	stow -v --target=${HOME}/bin bin
 ifeq ($(OS), Darwin)
 	stow -v --dir=mac --target=${HOME} home
 endif
@@ -24,7 +23,6 @@ endif
 clean:
 	test -L ${HOME}/.gitignore && rm ${HOME}/.gitignore || :
 	stow -v --target=${HOME} --delete home
-	stow -v --target=${HOME}/bin --delete bin
 ifeq ($(OS), Darwin)
 	stow -v --dir=mac --target=${HOME} --delete home
 endif
