@@ -46,7 +46,7 @@ fi
 
 # Rust
 if [ -d ~/.cargo ]; then
-  export PATH=~/.cargo/bin:$PATH
+  source ~/.cargo/env
 fi
 
 # Use pyenv for managing multiple Python versions, if installed
