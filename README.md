@@ -88,7 +88,11 @@ Install [ghcup](https://www.haskell.org/ghcup/). Select the following options:
 Install [rustup](https://www.rust-lang.org/tools/install). Customize the
 installation to not update the PATH since my profile already does that.
 
-Run `rustup component add rust-analyzer` to install LSP support.
+Install `rust-analyzer` for LSP support:
+```
+rustup component add rust-analyzer
+rustup component add rust-src
+```
 
 
 ## Platform-specific stuff

@@ -1,7 +1,14 @@
 " Configure LSP
 " https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
-lua <<EOF
 
+" Extend system path to include `rust-analyzer`:
+let rust_analyzer_exec = system('rustup which rust-analyzer')
+if v:shell_error == 0
+  let rust_analyzer_path = substitute(rust_analyzer_exec, '/rust-analyzer\n', '', '')
+  let $PATH = rust_analyzer_path . ':' . $PATH
+endif
+
+lua <<EOF
 local lspconfig = require('lspconfig')
 
 -- Callback that performs buffer-specific configuration
