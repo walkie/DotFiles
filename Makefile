@@ -4,6 +4,7 @@ all: install
 
 setup:
 	mkdir -p ${HOME}/bin
+	mkdir -p ${HOME}/.cabal
 	mkdir -p ${HOME}/.config
 	mkdir -p ${HOME}/.config/alacritty
 	mkdir -p ${HOME}/.emacs.d
