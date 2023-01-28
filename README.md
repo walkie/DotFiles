@@ -132,7 +132,9 @@ rustup component add rust-src
 - Install fonts:
   ```
   brew tap homebrew/cask-fonts
-  brew install font-liberation font-fira-code font-inconsolata
+  brew install font-liberation font-liberation-nerd-font
+	brew install font-fira-code font-fira-code-nerd-font
+	brew install font-inconsolata font-inconsolata-nerd-font
   ```
 
 - Install core tools:
