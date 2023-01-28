@@ -5,3 +5,5 @@ call PlainText()
 " don't forget
 setlocal noexpandtab
 setlocal list
+setlocal tabstop=2
+setlocal softtabstop=2
