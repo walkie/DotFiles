@@ -58,9 +58,10 @@ source $VIMCONFIG/completion.vim
 " Configure status line
 source $VIMCONFIG/statusline.vim
 
-" Configure language server protocol support
+" Configure Neovim-specific plugins
 if has('nvim')
   source $VIMCONFIG/lsp.vim
+  source $VIMCONFIG/nvim-tree.lua
 endif
 
 " Configure spell-checking files

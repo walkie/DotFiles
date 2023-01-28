@@ -1,6 +1,10 @@
 let $VIMPLUG_DIR = $VIMDATA . '/plugged'
 let $VIMPLUG_EXE = $VIMDATA . '/site/autoload/plug.vim'
 
+" Disable built-in in file browser plugin (using nvim-tree instead)
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+
 " Install vim-plug if not already installed
 " (If on Windows, do this step manually...)
 "   :PlugUpdate    updates plugins managed by vim-plug
@@ -18,11 +22,19 @@ Plug 'jlanzarotta/bufexplorer'
 let g:bufExplorerShowRelativePath = 1
 nnoremap B :BufExplorer<CR>
 
-" NERD tree file explorer (T in normal mode to open)
-Plug 'preservim/nerdtree'
-let g:NERDTreeMouseMode=2
-let g:NERDTreeMapOpenInTabSilent="<C-T>"
-nnoremap T :NERDTreeToggle<CR>
+" File tree explorer (T in normal mode to open)
+if has('nvim')
+  " Fancier file tree for neovim (configured in ./nvim-tree.lua)
+  Plug 'nvim-tree/nvim-web-devicons'
+  Plug 'nvim-tree/nvim-tree.lua'
+  nnoremap T :NvimTreeToggle<CR>
+else
+  Plug 'preservim/nerdtree'
+  let g:NERDTreeMouseMode=2
+  let g:NERDTreeMapOpenInTabSilent="<C-T>"
+  nnoremap T :NERDTreeToggle<CR>
+endif
+
 
 " Fuzzy file finder
 Plug 'ctrlpvim/ctrlp.vim'

@@ -93,6 +93,15 @@ function! NormalStyle()
   highlight SignifySignChange   guibg=NONE guifg=ForestGreen
   highlight SignifySignDelete   guibg=NONE guifg=SaddleBrown
 
+  " pop-up file tree
+  if has('nvim')
+    highlight NvimTreeExecFile   guifg=tomato gui=NONE
+    highlight NvimTreeGitDirty   guifg=orange
+    highlight NvimTreeGitRenamed guifg=orange
+    highlight NvimTreeGitStaged  guifg=ForestGreen
+    highlight NvimTreeGitNew     guifg=DeepSkyBlue
+  endif
+
   if has('gui_running')
 
     " set font in GUI
