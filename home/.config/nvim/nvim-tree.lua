@@ -7,7 +7,7 @@ local function change_root_to_directory(node)
 end
 
 local MAX_WIDTH = 50
-local MAX_HEIGHT = 30
+local MAX_HEIGHT = 40
 require('nvim-tree').setup({
   sync_root_with_cwd = true,
   hijack_cursor = true,
@@ -50,6 +50,10 @@ require('nvim-tree').setup({
         }
       }
     }
+  },
+  git = {
+    ignore = false,
+    show_on_open_dirs = false,
   },
   renderer = {
     special_files = {},
