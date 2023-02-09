@@ -32,30 +32,27 @@ opt.suffixes:append({ ".aux", ".bbl", ".blg", ".dvi", ".log", ".pdf", ".ps", ".s
 -- Load plugins
 require("walkie/plugins")
 
+-- Helper function to source my vimscript files
+function require_vim (name)
+  vim.cmd("source " .. vim.fn.stdpath("config") .. "/vimscript/" .. name .. ".vim")
+end
+
+-- Add my key-mappings, vim commands, and vim functions
 require("walkie/maps")
+require_vim("commands")
+require_vim("functions")
 
-vim.cmd([[
-  let $VIMDATA = stdpath('data')
-  let $VIMCONFIG = stdpath('config')
+-- Configure status line
+require_vim("statusline")
 
+-- Configure spell-checking files
+vim.env.SPELLDIR = vim.fn.stdpath("config") .. "/spell"
+vim.fn.ReloadSpellFiles()
 
-  " Add my commands, functions, and key-mappings
-  source $VIMCONFIG/commands.vim
-  source $VIMCONFIG/functions.vim
+-- Apply my visual customizations
+vim.fn.NormalStyle()
 
-  " Configure status line
-  source $VIMCONFIG/statusline.vim
-
-  " Configure spell-checking files
-  let $SPELLDIR = $VIMCONFIG . '/spell'
-  call ReloadSpellFiles()
-
-  " Tweak visual stuff
-  call NormalStyle()
-
-]])
-
--- Load my after scripts last
+-- Load my after scripts very last
 local after_path = vim.fn.stdpath("config") .. "/after"
 opt.runtimepath:remove(after_path)
 opt.runtimepath:append(after_path)
