@@ -9,22 +9,22 @@ key_bindings:
   - { key: N, mods: Command, action: CreateNewWindow }
 
   # Create new tmux window
-  - { key: T, mods: Command, chars: "\x00\x63" }
+  - { key: T, mods: Command, chars: "\x14\x63" }
 
   # Kill/close a tmux pane
-  - { key: W, mods: Command, chars: "\x00\x78" }
+  - { key: W, mods: Command, chars: "\x14\x78" }
 
   # Switch to prev/next tmux window
-  - { key: LBracket, mods: Command|Shift, chars: "\x00\x70" }
-  - { key: RBracket, mods: Command|Shift, chars: "\x00\x6e" }
+  - { key: LBracket, mods: Command|Shift, chars: "\x14\x70" }
+  - { key: RBracket, mods: Command|Shift, chars: "\x14\x6e" }
 
   # Switch to tmux window N
-  - { key: Key1, mods: Command, chars: "\x00\x31" }
-  - { key: Key2, mods: Command, chars: "\x00\x32" }
-  - { key: Key3, mods: Command, chars: "\x00\x33" }
-  - { key: Key4, mods: Command, chars: "\x00\x34" }
-  - { key: Key5, mods: Command, chars: "\x00\x35" }
-  - { key: Key6, mods: Command, chars: "\x00\x36" }
-  - { key: Key7, mods: Command, chars: "\x00\x37" }
-  - { key: Key8, mods: Command, chars: "\x00\x38" }
-  - { key: Key9, mods: Command, chars: "\x00\x39" }
+  - { key: Key1, mods: Command, chars: "\x14\x31" }
+  - { key: Key2, mods: Command, chars: "\x14\x32" }
+  - { key: Key3, mods: Command, chars: "\x14\x33" }
+  - { key: Key4, mods: Command, chars: "\x14\x34" }
+  - { key: Key5, mods: Command, chars: "\x14\x35" }
+  - { key: Key6, mods: Command, chars: "\x14\x36" }
+  - { key: Key7, mods: Command, chars: "\x14\x37" }
+  - { key: Key8, mods: Command, chars: "\x14\x38" }
+  - { key: Key9, mods: Command, chars: "\x14\x39" }
