@@ -20,3 +20,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 if [[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]]; then
   source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
 fi
+
+# Add Scala (managed with Coursier)
+if [ -x "$(command -v cs)" ]; then
+  export PATH="$PATH:/Users/walkie/Library/Application Support/Coursier/bin"
+  export JAVA_HOME="$(cs java-home)"
+fi

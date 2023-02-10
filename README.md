@@ -53,17 +53,13 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 Install plugins within tmux with `Ctrl-Space I`.
 
 
-## (Neo)vim
+## Neovim
 
-The configuration is optimized for Neovim but should (not tested in a long
-time, so probably not anymore!) work for plain vim, gvim, and MacVim as well.
+Plugins are managed by [lazy.nvim](https://github.com/folke/lazy.nvim). The
+plugin manager and all plugins should be automatically installed when launching
+nvim for the first time.
 
-Plugins are managed by [vim-plug](https://github.com/junegunn/vim-plug). The
-plugin manager should be automatically installed after launching vim for the
-first time.
-
-Run `:PlugUpdate` from within vim to install the plugins for the first time,
-or to update them.
+Run `:Lazy` from within nvim for the UI to update plugins as needed.
 
 
 ## Emacs
@@ -93,6 +89,18 @@ Install `rust-analyzer` for LSP support:
 rustup component add rust-analyzer
 rustup component add rust-src
 ```
+
+
+# Scala
+
+Install [Coursier](https://docs.scala-lang.org/getting-started/index.html).
+
+Select the following options:
+- Don't update path.
+- Don't add `JAVA_HOME`.
+
+These are done in a more generic way already in `profile.d/mac.sh` but will
+need to be ported to other platforms, if needed.
 
 
 ## Platform-specific stuff
