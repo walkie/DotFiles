@@ -79,5 +79,5 @@ export PATH=~/bin:$PATH
 
 # Update path for OS X applications
 if [ $myOS == "Mac" ]; then
-  launchctl setenv PATH $PATH
+  launchctl setenv PATH "$PATH"
 fi

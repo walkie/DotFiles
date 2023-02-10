@@ -78,7 +78,7 @@ local plugins = {
     config = function()
       require("walkie/plugin/nvim-lspconfig")
     end,
-    ft = { "haskell", "rust" },
+    ft = { "haskell", "rust" }, -- NOTE: scala via nvim-metals doesn't use lspconfig
   },
 
   -- Haskell (install HLS with ghcup)
@@ -114,6 +114,14 @@ local plugins = {
       "mfussenegger/nvim-dap"
     },
     ft = "rust",
+  },
+
+  -- Scala (install coursier)
+  { "scalameta/nvim-metals",
+    dependencies = {
+      "nvim-lua/plenary.nvim"
+    },
+    ft = "scala",
   },
 
   -- Other language-specific plugins
