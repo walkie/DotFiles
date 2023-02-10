@@ -16,9 +16,14 @@ local lsp_buffer_config = function(client, buffer)
 end
 
 -- Enable haskell-language-server
-lspconfig.hls.setup {
+lspconfig.hls.setup({
   on_attach = lsp_buffer_config,
-}
+})
+
+-- Enable lua-language-server
+-- lspconfig.sumneko_lua.setup({
+--   on_attach = lsp_buffer_config,
+-- })
 
 -- Enable rust_analyzer
 local rust_analyzer_config = {

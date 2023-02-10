@@ -81,7 +81,13 @@ local plugins = {
     ft = { "haskell", "rust" },
   },
 
-  -- Haskell
+  -- Haskell (install HLS with ghcup)
+  { "mrcjkb/haskell-tools.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim"
+    },
+    ft = "haskell",
+  },
   { "raichoo/haskell-vim",
     config = function()
       vim.g.haskell_enable_quantification = 1  -- highlight `forall`
@@ -93,7 +99,15 @@ local plugins = {
     ft = "haskell",
   },
 
-  -- Rust
+  -- Neovim Lua (not working... possibly due to symlinked directory)
+  -- { "folke/neodev.nvim",
+  --   priority = 100, -- higher than nvim-lspconfig
+  --   config = function()
+  --     require("neodev").setup({})
+  --   end,
+  -- },
+
+  -- Rust (install rust-analyzer with rustup)
   { "simrat39/rust-tools.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
