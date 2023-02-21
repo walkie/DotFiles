@@ -121,7 +121,10 @@ local plugins = {
     dependencies = {
       "nvim-lua/plenary.nvim"
     },
-    ft = "scala",
+    config = function()
+      require("walkie/plugin/nvim-metals")
+    end,
+    ft = { "scala", "sbt.scala", "java" },
   },
 
   -- Other language-specific plugins
