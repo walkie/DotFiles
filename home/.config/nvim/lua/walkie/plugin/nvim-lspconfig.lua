@@ -10,7 +10,7 @@ end
 
 local lspconfig = require("lspconfig")
 
--- Callback that performs buffer-specific configuration
+-- Callback that performs LSP-buffer-specific configuration
 local lsp_buffer_config = function(client, buffer)
   require("walkie/lsp-buffer")
 end

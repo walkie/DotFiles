@@ -1,6 +1,6 @@
 local km = vim.keymap
 
--- Set the <Leader> and <LocalLeader> keys
+-- Set the <leader> and <localleader> keys
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = "-"
 

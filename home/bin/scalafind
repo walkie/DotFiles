@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if [ $# -ne 1 ]; then
+  echo 'usage: scalafind <pattern>'
+  echo '  Recursively searches for <pattern> in all *.scala files,'
+  echo '  starting from the current directory.'
+  exit
+fi
+
+find . -name "*.scala" -exec grep -H "$1" {} \;

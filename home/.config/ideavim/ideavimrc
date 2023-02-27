@@ -1,0 +1,20 @@
+# Be quiet
+set visualbell
+
+# Set the <leader> key
+let mapleader="\\"
+
+# Easier left-right pane switching
+sethandler <c-h> a:vim
+sethandler <c-l> a:vim
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+# Using these for switching tabs within a pane (TabSwitchPlus)
+# sethandler <c-j> a:vim
+# sethandler <c-k> a:vim
+# nnoremap <c-j> <c-w>j
+# nnoremap <c-k> <c-w>k
+
+# Zen mode
+nmap <leader>z <Action>(ToggleDistractionFreeMode)
