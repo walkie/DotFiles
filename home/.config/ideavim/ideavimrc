@@ -17,4 +17,4 @@ nnoremap <c-l> <c-w>l
 # nnoremap <c-k> <c-w>k
 
 # Zen mode
-nnoremap <leader>z :action ToggleDistractionFreeMode<cr>
+nmap <leader>z <Action>(ToggleDistractionFreeMode)
