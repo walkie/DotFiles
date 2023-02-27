@@ -23,6 +23,6 @@ fi
 
 # Add Scala (managed with Coursier)
 if [ -x "$(command -v cs)" ]; then
-  export PATH="$PATH:/Users/walkie/Library/Application Support/Coursier/bin"
+  export PATH="$PATH:$HOME/Library/Application Support/Coursier/bin"
   export JAVA_HOME="$(cs java-home --jvm 11)"
 fi
