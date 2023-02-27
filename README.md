@@ -50,7 +50,7 @@ Install the [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm):
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
-Install plugins within tmux with `Ctrl-Space I`.
+Install plugins within tmux with `Ctrl-t I`.
 
 
 ## Neovim
@@ -125,7 +125,7 @@ need to be ported to other platforms, if needed.
 ### Mac
 
 - Install [Homebrew](http://brew.sh/).
- 
+
 - Install updated bash and follow instructions to make it the default shell:
   ```
   brew install bash
@@ -141,19 +141,24 @@ need to be ported to other platforms, if needed.
   ```
   brew tap homebrew/cask-fonts
   brew install font-liberation font-liberation-nerd-font
-	brew install font-fira-code font-fira-code-nerd-font
-	brew install font-inconsolata font-inconsolata-nerd-font
+  brew install font-fira-code font-fira-code-nerd-font
+  brew install font-inconsolata font-inconsolata-nerd-font
   ```
 
 - Install core tools:
   ```
-  brew install firefox alacritty tmux neovim git github mactex
+  brew install firefox alacritty tmux neovim git github keepassxc dropbox
   ```
 
 - Install and start [skhd](https://github.com/koekeishiya/skhd):
   ```
-  brew install skhd
+  brew install koekeishiya/formulae/skhd
   brew services start skhd
+  ```
+
+- Install MacTeX:
+  ```
+  brew install mactex
   ```
 
 ### Windows
