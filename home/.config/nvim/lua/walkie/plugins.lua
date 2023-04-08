@@ -69,6 +69,7 @@ local plugins = {
     config = function()
       vim.g.signify_priority = 1
       vim.g.signify_sign_show_count = 0
+      vim.opt.signcolumn = "yes"
     end
   },
 
@@ -110,6 +111,7 @@ local plugins = {
   -- Rust (install rust-analyzer with rustup)
   { "simrat39/rust-tools.nvim",
     dependencies = {
+      "neovim/nvim-lspconfig",
       "nvim-lua/plenary.nvim",
       "mfussenegger/nvim-dap"
     },

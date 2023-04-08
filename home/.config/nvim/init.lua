@@ -24,7 +24,6 @@ opt.cul = true            -- highlight current line
 -- Ignore whitespace in diff-mode
 opt.diffopt:append({ iwhite = true })
 
-
 -- Adjust list of suffixes to ignore for file completion
 opt.suffixes:remove({ ".h", ".info"})
 opt.suffixes:append({ ".aux", ".bbl", ".blg", ".dvi", ".log", ".pdf", ".ps", ".synctex.gz", ".toc" })
