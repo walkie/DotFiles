@@ -1,6 +1,9 @@
 # Be quiet
 set visualbell
 
+# Don't use vim mode in dialogues
+set ideavimsupport=
+
 # Set the <leader> key
 let mapleader="\\"
 
@@ -18,3 +21,7 @@ nnoremap <c-l> <c-w>l
 
 # Zen mode
 nmap <leader>z <Action>(ToggleDistractionFreeMode)
+
+# Pinned tabs
+nmap <d-s-t> <Action>(PinActiveTabToggle)
+nmap <d-s-w> <Action>(CloseAllUnpinnedEditors)
