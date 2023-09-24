@@ -34,7 +34,7 @@ km.set("i", "<up>",   "<c-o>gk", { desc = "Move to previous visual line" })
 -- Copying
 km.set("n", "Y", "y$",
   { desc = "Copy to the end of the line" })
-km.set("v", "<c-c>", "+y",
+km.set("v", "<c-c>", "\"+y",
   { desc = "Copy selection to system clipboard" })
 
 -- Misc
