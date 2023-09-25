@@ -46,7 +46,7 @@ local plugins = {
   },
 
   -- Fuzzy file finder
-  "ctrlpvim/ctrlp.vim",
+  -- "ctrlpvim/ctrlp.vim",
 
   -- Tab completion
   { "ervandew/supertab",
@@ -79,12 +79,13 @@ local plugins = {
     config = function()
       require("walkie/plugin/nvim-lspconfig")
     end,
-    ft = { "haskell", "rust" }, -- NOTE: scala via nvim-metals doesn't use lspconfig
+    ft = { "haskell", "lua", "rust" }, -- NOTE: scala via nvim-metals doesn't use lspconfig
   },
 
   -- Haskell (install HLS with ghcup)
   { "mrcjkb/haskell-tools.nvim",
     dependencies = {
+      "neovim/nvim-lspconfig",
       "nvim-lua/plenary.nvim"
     },
     ft = "haskell",
@@ -102,6 +103,10 @@ local plugins = {
 
   -- Neovim Lua (not working... possibly due to symlinked directory)
   -- { "folke/neodev.nvim",
+  --   dependencies = {
+  --     "neovim/nvim-lspconfig",
+  --     "nvim-lua/plenary.nvim"
+  --   },
   --   priority = 100, -- higher than nvim-lspconfig
   --   config = function()
   --     require("neodev").setup({})

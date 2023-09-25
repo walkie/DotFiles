@@ -103,6 +103,11 @@ These are done in a more generic way already in `profile.d/mac.sh` but will
 need to be ported to other platforms, if needed.
 
 
+# Lua
+
+Install `lua-language-server` for LSP support.
+
+
 ## Platform-specific stuff
 
 ### Fedora

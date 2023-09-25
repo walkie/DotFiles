@@ -70,9 +70,27 @@ lspconfig.hls.setup({
 -- ** Lua **
 
 -- Enable lua-language-server
--- lspconfig.sumneko_lua.setup({
---   on_attach = lsp_buffer_config,
--- })
+lspconfig.lua_ls.setup({
+  on_attach = lsp_buffer,
+
+  -- Adapted from: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
+  on_init = function(client)
+    local path = client.workspace_folders[1].name
+    if not vim.loop.fs_stat(path.."/.luarc.json") and not vim.loop.fs_stat(path.."/.luarc.jsonc") then
+      client.config.settings = vim.tbl_deep_extend("force", client.config.settings, {
+        Lua = {
+          runtime = { version = "LuaJIT" },
+          workspace = {
+            checkThirdParty = false,
+            library = vim.api.nvim_get_runtime_file("", true)
+          }
+        }
+      })
+      client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+    end
+    return true
+  end
+})
 
 
 -- ** Rust **
