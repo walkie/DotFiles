@@ -13,6 +13,10 @@ sethandler <c-l> a:vim
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+# Don't care about tag hopping so let the IDE use these
+sethandler <c-g> a:ide
+sethandler <c-t> a:ide
+
 # Using these for switching tabs within a pane (TabSwitchPlus)
 # sethandler <c-j> a:vim
 # sethandler <c-k> a:vim
