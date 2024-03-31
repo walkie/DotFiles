@@ -17,6 +17,15 @@ nnoremap <c-l> <c-w>l
 sethandler <c-g> a:ide
 sethandler <c-t> a:ide
 
+# Enable incremental search highlighting, <space> to clear it
+set hlsearch
+set incsearch
+nmap <space> :nohlsearch<bar>:echo<cr>
+
+# I have not idea what this does, but disabling it fixes highlighting of
+# substitutions with the "confirm" flag set
+set nousenewregex
+
 # Using these for switching tabs within a pane (TabSwitchPlus)
 # sethandler <c-j> a:vim
 # sethandler <c-k> a:vim
