@@ -62,9 +62,9 @@ vim.cmd([[
 -- ** Haskell **
 
 -- Enable haskell-language-server
-lspconfig.hls.setup({
-  on_attach = lsp_buffer,
-})
+-- lspconfig.hls.setup({
+--   on_attach = lsp_buffer,
+-- })
 
 
 -- ** Lua **

@@ -79,17 +79,17 @@ local plugins = {
     config = function()
       require("walkie/plugin/nvim-lspconfig")
     end,
-    ft = { "haskell", "lua", "rust" }, -- NOTE: scala via nvim-metals doesn't use lspconfig
+    ft = { "rust" }, -- NOTE: scala via nvim-metals doesn't use lspconfig
   },
 
   -- Haskell (install HLS with ghcup)
-  { "mrcjkb/haskell-tools.nvim",
-    dependencies = {
-      "neovim/nvim-lspconfig",
-      "nvim-lua/plenary.nvim"
-    },
-    ft = "haskell",
-  },
+  -- { "mrcjkb/haskell-tools.nvim",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim"
+  --   },
+  --   version = '^2',
+  --   ft = { 'haskell', 'lhaskell', 'cabal', 'cabalproject' },
+  -- },
   { "raichoo/haskell-vim",
     config = function()
       vim.g.haskell_enable_quantification = 1  -- highlight `forall`
