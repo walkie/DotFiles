@@ -1,0 +1,30 @@
+[window]
+# Essentially a phantom title bar; the `none` option breaks usual macOS window management
+decorations = "buttonless"
+
+[keyboard]
+bindings = [
+  # Open a new alacritty window
+  { key = "N", mods = "Command", action = "CreateNewWindow" },
+
+  # Create new tmux window
+  { key = "T", mods = "Command", chars = "\u0014c" },
+
+  # Kill/close a tmux pane
+  { key = "W", mods = "Command", chars = "\u0014x" },
+
+  # Switch to prev/next tmux window
+  { key = "{", mods = "Command|Shift", chars = "\u0014p" },
+  { key = "}", mods = "Command|Shift", chars = "\u0014n" },
+
+  # Switch to tmux window N
+  { key = "Key1", mods = "Command", chars = "\u00141" },
+  { key = "Key2", mods = "Command", chars = "\u00142" },
+  { key = "Key3", mods = "Command", chars = "\u00143" },
+  { key = "Key4", mods = "Command", chars = "\u00144" },
+  { key = "Key5", mods = "Command", chars = "\u00145" },
+  { key = "Key6", mods = "Command", chars = "\u00146" },
+  { key = "Key7", mods = "Command", chars = "\u00147" },
+  { key = "Key8", mods = "Command", chars = "\u00148" },
+  { key = "Key9", mods = "Command", chars = "\u00149" },
+]

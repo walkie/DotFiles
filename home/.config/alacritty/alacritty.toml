@@ -1,0 +1,48 @@
+# Defaults and docs: https://github.com/alacritty/alacritty/blob/master/alacritty.toml
+
+# Load OS-specific config
+import = ["~/.config/alacritty/os.toml"]
+
+[colors]
+draw_bold_text_with_bright_colors = true
+# Only the background is transparent, not set background colors; bit easier to read
+transparent_background_colors = false
+
+[colors.bright]
+black = "#666666"
+blue = "#7ebdff"
+cyan = "#60ffff"
+green = "#60fa60"
+magenta = "#ff96eb"
+red = "#ff7070"
+white = "#e0e0e0"
+yellow = "#fffb68"
+
+[colors.normal]
+black = "#000000"
+blue = "#80a0ff"
+cyan = "#00d4d4"
+green = "#00d400"
+magenta = "#e236e2"
+red = "#ec2424"
+white = "#c5c5c5"
+yellow = "#d4d400"
+
+[colors.primary]
+background = "#000000"
+bright_foreground = "#e0e0e0"
+dim_foreground = "#a0a0a0"
+foreground = "#c5c5c5"
+
+[font]
+size = 14.0
+
+# Set font to modified Liberation Mono
+[font.normal]
+family = "LiterationMono Nerd Font"
+
+# Window settings (some require restart)
+[window]
+dynamic_padding = true
+opacity = 0.85
+startup_mode = "Maximized"
