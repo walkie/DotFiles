@@ -49,17 +49,6 @@ if [ -d ~/.cargo ]; then
   source ~/.cargo/env
 fi
 
-# Use pyenv for managing multiple Python versions, if installed
-if [ -d ~/.pyenv ]; then
-  export PYENV_ROOT=~/.pyenv
-  export PATH=$PYENV_ROOT/bin:$PATH
-  eval "$(pyenv init --path)"
-  eval "$(pyenv init -)"
-  # pyenv virtualenv is super slow all of a sudden, uncomment these lines if needed
-  # or once this issue is fixed: https://github.com/pyenv/pyenv-virtualenv/issues/259
-  # eval "$(pyenv virtualenv-init -)"
-fi
-
 # Do platform specific configuration
 if [ $myOS == "Linux" ]; then
   source ~/.profile.d/linux.sh
@@ -70,6 +59,24 @@ fi
 # Load local configuration, if present
 if [ -f ~/.profile.d/local.sh ]; then
   source ~/.profile.d/local.sh
+fi
+
+# Use pyenv for managing multiple Python versions, if installed (must be after Mac-specific config)
+if [ -d ~/.pyenv ]; then
+  export PYENV_ROOT=~/.pyenv
+  export PATH=$PYENV_ROOT/bin:$PATH
+  if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+  fi
+
+  if [ $myOS == "Mac" ]; then
+    # Make sure we don't link brew-installed projects against pyenv versions of Python
+    alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+  fi
+
+  # pyenv virtualenv is super slow all of a sudden, uncomment these lines if needed
+  # or once this issue is fixed: https://github.com/pyenv/pyenv-virtualenv/issues/259
+  # eval "$(pyenv virtualenv-init -)"
 fi
 
 # Add local install dirs
