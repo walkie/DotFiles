@@ -1,6 +1,7 @@
 # Editor and OS stuff
 Session.vim
 .DS_Store
+.idea
 .#*
 ._*
 *~
