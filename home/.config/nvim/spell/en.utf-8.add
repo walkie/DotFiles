@@ -94,6 +94,7 @@ composability
 composable
 compositionality
 concatenative
+config
 counterfactual
 counterfactually
 counterfactuals
@@ -225,6 +226,8 @@ subtree
 subtrees
 subtyping
 summative
+syscall
+syscalls
 teleportation
 timestamp
 tradeoff
