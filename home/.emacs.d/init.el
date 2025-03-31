@@ -27,16 +27,27 @@
 ;; Enable vim bindings.
 (use-package evil
   :init
+    ;; This setting is required for evil-collection.
+    (setq evil-want-keybinding nil)
     ;; (setq evil-emacs-state-cursor '("red" box))
-    ;; split windows below and to the right
+    ;; Split windows below and to the right.
     (setq evil-split-window-below t)
     (setq evil-vsplit-window-right t)
-    ;; use C-u to scroll
-    (setq evil-want-C-u-scroll t) 
-    ;; never auto-complete when exiting insert mode
+    ;; Use C-u to scroll.
+    (setq evil-want-C-u-scroll t)
+    ;; Never auto-complete when exiting insert mode.
     (setq evil-want-abbrev-expand-on-insert-exit nil)
   :config
+    ;; Enable C-r to redo.
+    (evil-set-undo-system 'undo-redo)
+    ;; Turn it on.
     (evil-mode 1))
+
+;; Support evil keybindings in more places.
+(use-package evil-collection
+  :after evil
+  :init
+    (evil-collection-init))
 
 ;; Define keybindings that integrate nicely with evil.
 (use-package general
@@ -46,10 +57,10 @@
       :states  '(normal motion)
       :keymaps 'override
       ;; Make window switching easier.
-      "H" 'evil-window-left
-      "J" 'evil-window-down
-      "K" 'evil-window-up
-      "L" 'evil-window-right
+      "C-H" 'evil-window-left
+      "C-J" 'evil-window-down
+      "C-K" 'evil-window-up
+      "C-L" 'evil-window-right
       ;; Navigate by visual lines.
       "j" 'evil-next-visual-line
       "k" 'evil-previous-visual-line
@@ -268,63 +279,63 @@ on whether the point proceeds only whitespace or not."
 
 ;; Better org keybindings. Currently not using the keybindings directly, but
 ;; rather using the corresponding functions in my custom keybindings above.
-(use-package evil-org :after org)
+;; (use-package evil-org :after org)
 
 
 ;;;; Haskell
 
-(defun walkie-haskell-open-above ()
-  "Create a new line above the current one. Replaces evil-open-above
-in haskell-mode due to annoying indentation bug."
-  (interactive)
-  (if (= (line-number-at-pos) 1)
-      (evil-open-above ())
-    (evil-previous-line)
-    (evil-append-line nil)
-    (haskell-indentation-newline-and-indent)))
-
-(defun walkie-haskell-open-below ()
-  "Create a new line below the current one. Replaces evil-open-below
-in haskell-mode do to annoying indentation bug."
-  (interactive)
-  (evil-append-line nil)
-  (haskell-indentation-newline-and-indent))
-
-(defun walkie-comment-auto-fill ()
-  "Turn on auto-fill for comments only."
-  (setq comment-auto-fill-only-comments t)
-  (auto-fill-mode 1))
-
-(defun walkie-haskell-company-group ()
-  "Setup better completion in Haskell code."
-  (set (make-local-variable 'company-backends)
-       '((intero-company :with company-dabbrev-code))))
-
-(use-package haskell-mode
-  :config
-    (general-define-key
-      :keymaps 'haskell-mode-map
-      :states 'normal
-      "o" 'walkie-haskell-open-below
-      "O" 'walkie-haskell-open-above)
-    (add-hook 'haskell-mode-hook 'walkie-comment-auto-fill)
-    (add-hook 'haskell-mode-hook 'walkie-haskell-company-group))
-
-(use-package intero
-  :config
-    (intero-global-mode 1)
-    (general-define-key
-      :keymaps 'intero-mode-map
-      :states 'normal
-      :prefix "SPC"
-      "h"  '(:ignore t                :which-key "haskell")
-      "hR" '(intero-restart           :which-key "restart intero")
-      "hd" '(intero-goto-definition   :which-key "jump to definition")
-      "hi" '(intero-info              :which-key "info at cursor")
-      "hl" '(intero-repl-load         :which-key "load file in REPL")
-      ;; "hk" '(intero-repl-clear-buffer :which-key "clear REPL")
-      "hr" '(intero-repl-restart      :which-key "restart REPL")
-      "ht" '(intero-type-at           :which-key "type at cursor")))
+;; (defun walkie-haskell-open-above ()
+;;   "Create a new line above the current one. Replaces evil-open-above
+;; in haskell-mode due to annoying indentation bug."
+;;   (interactive)
+;;   (if (= (line-number-at-pos) 1)
+;;       (evil-open-above ())
+;;     (evil-previous-line)
+;;     (evil-append-line nil)
+;;     (haskell-indentation-newline-and-indent)))
+;;
+;; (defun walkie-haskell-open-below ()
+;;   "Create a new line below the current one. Replaces evil-open-below
+;; in haskell-mode do to annoying indentation bug."
+;;   (interactive)
+;;   (evil-append-line nil)
+;;   (haskell-indentation-newline-and-indent))
+;;
+;; (defun walkie-comment-auto-fill ()
+;;   "Turn on auto-fill for comments only."
+;;   (setq comment-auto-fill-only-comments t)
+;;   (auto-fill-mode 1))
+;;
+;; (defun walkie-haskell-company-group ()
+;;   "Setup better completion in Haskell code."
+;;   (set (make-local-variable 'company-backends)
+;;        '((intero-company :with company-dabbrev-code))))
+;;
+;; (use-package haskell-mode
+;;   :config
+;;     (general-define-key
+;;       :keymaps 'haskell-mode-map
+;;       :states 'normal
+;;       "o" 'walkie-haskell-open-below
+;;       "O" 'walkie-haskell-open-above)
+;;     (add-hook 'haskell-mode-hook 'walkie-comment-auto-fill)
+;;     (add-hook 'haskell-mode-hook 'walkie-haskell-company-group))
+;;
+;; (use-package intero
+;;   :config
+;;     (intero-global-mode 1)
+;;     (general-define-key
+;;       :keymaps 'intero-mode-map
+;;       :states 'normal
+;;       :prefix "SPC"
+;;       "h"  '(:ignore t                :which-key "haskell")
+;;       "hR" '(intero-restart           :which-key "restart intero")
+;;       "hd" '(intero-goto-definition   :which-key "jump to definition")
+;;       "hi" '(intero-info              :which-key "info at cursor")
+;;       "hl" '(intero-repl-load         :which-key "load file in REPL")
+;;       ;; "hk" '(intero-repl-clear-buffer :which-key "clear REPL")
+;;       "hr" '(intero-repl-restart      :which-key "restart REPL")
+;;       "ht" '(intero-type-at           :which-key "type at cursor")))
 
 ;;;; Coq
 
@@ -334,7 +345,9 @@ in haskell-mode do to annoying indentation bug."
 ;; > make
 
 ;; Enable Proof General for Coq files
-(require 'proof-site "~/.emacs.d/lisp/PG/generic/proof-site")
+; (require 'proof-site "~/.emacs.d/lisp/PG/generic/proof-site")
+
+(use-package proof-general)
 
 ;; Extensions to proof general
 (use-package company-coq
