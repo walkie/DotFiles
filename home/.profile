@@ -49,29 +49,12 @@ if [ -d ~/.cargo ]; then
   source ~/.cargo/env
 fi
 
-# Do platform specific configuration
-if [ $myOS == "Linux" ]; then
-  source ~/.profile.d/linux.sh
-elif [ $myOS == "Mac" ]; then
-  source ~/.profile.d/mac.sh
-fi
-
-# Load local configuration, if present
-if [ -f ~/.profile.d/local.sh ]; then
-  source ~/.profile.d/local.sh
-fi
-
-# Use pyenv for managing multiple Python versions, if installed (must be after Mac-specific config)
+# Use pyenv for managing multiple Python versions, if installed
 if [ -d ~/.pyenv ]; then
   export PYENV_ROOT=~/.pyenv
   export PATH=$PYENV_ROOT/bin:$PATH
   if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)"
-  fi
-
-  if [ $myOS == "Mac" ]; then
-    # Make sure we don't link brew-installed projects against pyenv versions of Python
-    alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
   fi
 
   # pyenv virtualenv is super slow all of a sudden, uncomment these lines if needed
@@ -84,7 +67,19 @@ export MANPATH=~/.local/share/man:$MANPATH
 export PATH=~/.local/bin:$PATH
 export PATH=~/bin:$PATH
 
-# Update path for OS X applications
+# Do platform specific configuration
+if [ $myOS == "Linux" ]; then
+  source ~/.profile.d/linux.sh
+elif [ $myOS == "Mac" ]; then
+  source ~/.profile.d/mac.sh
+fi
+
+# Load local configuration last, if present
+if [ -f ~/.profile.d/local.sh ]; then
+  source ~/.profile.d/local.sh
+fi
+
+# Update path for OS X applications (must come after all updates to $PATH)
 if [ $myOS == "Mac" ]; then
   launchctl setenv PATH "$PATH"
 fi

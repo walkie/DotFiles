@@ -14,6 +14,8 @@ alias vault='encfs -o volname=Vault ~/Dropbox/.encrypted ~/Vault'
 
 # Update paths to include Homebrew stuff
 eval "$(/opt/homebrew/bin/brew shellenv)"
+export LIBRARY_PATH=$LIBRARY_PATH:/opt/homebrew/lib
+export INCLUDE_PATH=$INCLUDE_PATH:/opt/homebrew/include
 
 # Load bash completions for Homebrew stuff
 # Depends on: brew install bash-completion@2 (and updated bash shell)
@@ -25,4 +27,9 @@ fi
 if [ -x "$(command -v cs)" ]; then
   export PATH="$PATH:$HOME/Library/Application Support/Coursier/bin"
   export JAVA_HOME="$(cs java-home --jvm 11)"
+fi
+
+# Make sure we don't link brew-installed projects against pyenv versions of Python
+if [ -d ~/.pyenv ]; then
+  alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 fi
