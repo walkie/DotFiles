@@ -2,6 +2,7 @@
 -- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 
 local lspconfig = require("lspconfig")
+local configs = require('lspconfig.configs')
 
 -- Configuration to apply to every LSP-powered buffer
 function lsp_buffer(client, buffer)
@@ -138,3 +139,19 @@ require("rust-tools").setup(rust_tools_config)
 
 -- This step is done by rust-tools
 -- lspconfig.rust_analyzer.setup(rust_analyzer_config)
+
+
+-- ** Ott **
+
+-- Install: https://github.com/SergioBenitez/ott-lsp
+-- configs.ott_lsp = {
+--     default_config = {
+--         cmd = { 'ott-lsp' },
+--         filetypes = { 'ott' },
+--         root_dir = function()
+--             return vim.fn.getcwd()
+--         end,
+--         single_file_support = true,
+--     },
+-- }
+-- configs.ott_lsp.setup()

@@ -79,7 +79,11 @@ local plugins = {
     config = function()
       require("walkie/plugin/nvim-lspconfig")
     end,
-    ft = { "rust" }, -- NOTE: scala via nvim-metals doesn't use lspconfig
+    -- NOTE: scala via nvim-metals doesn't use lspconfig
+    ft = {
+      -- "ott",
+      "rust"
+    },
   },
 
   -- Haskell (install HLS with ghcup)
@@ -141,6 +145,7 @@ local plugins = {
   { "groenewege/vim-less",     ft = "less" },
   { "tpope/vim-markdown",      ft = "markdown" },
   { "vim-scripts/mips.vim",    ft = "mips" },
+  { "tsung-ju/ott-vim",        ft = "ott" },
   { "derekwyatt/vim-scala",    ft = "scala" },
   { "cespare/vim-toml",        ft = "toml" },
   { "walkie/twelf-vim",        ft = "twelf" },
