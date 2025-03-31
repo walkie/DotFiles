@@ -2,6 +2,7 @@
 Session.vim
 .DS_Store
 .idea
+.vscode
 .#*
 ._*
 *~
