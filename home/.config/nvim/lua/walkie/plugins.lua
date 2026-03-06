@@ -73,12 +73,12 @@ local plugins = {
   -- Nicer file system and Git integration
   "tpope/vim-eunuch",
   "tpope/vim-fugitive",
-  { "mhinz/vim-signify",
+  { "lewis6991/gitsigns.nvim",
+    dependencies = "nvim-lua/plenary.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
-      vim.g.signify_priority = 1
-      vim.g.signify_sign_show_count = 0
-      vim.opt.signcolumn = "yes"
-    end
+      require("walkie/plugin/gitsigns")
+    end,
   },
 
   -- Configure and extend built-in LSP support

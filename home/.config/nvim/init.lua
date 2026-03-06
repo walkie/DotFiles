@@ -27,6 +27,7 @@ opt.mouse = 'a'
 
 -- Update gutters and write to swap more frequently (100 ms)
 opt.updatetime = 100
+opt.signcolumn = "yes"
 
 -- Colors
 opt.termguicolors = true  -- requires true color terminal

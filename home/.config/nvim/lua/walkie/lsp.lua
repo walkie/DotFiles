@@ -2,6 +2,15 @@ local M = {}
 
 local did_setup = false
 
+local function buffer_supports_inlay_hints(bufnr)
+  for _, client in ipairs(vim.lsp.get_clients({ bufnr = bufnr })) do
+    if client:supports_method("textDocument/inlayHint", bufnr) then
+      return true
+    end
+  end
+  return false
+end
+
 function M.setup()
   if did_setup then
     return
@@ -31,6 +40,16 @@ function M.setup()
     sign define DiagnosticSignHint  text=h texthl=DiagnosticSignHint
   ]])
 
+  vim.api.nvim_create_user_command("Format", function()
+    local bufnr = 0
+    local clients = vim.lsp.get_clients({ bufnr = bufnr })
+    if #clients == 0 then
+      vim.notify("No LSP client attached to this buffer", vim.log.levels.WARN)
+      return
+    end
+    vim.lsp.buf.format({ async = true })
+  end, { desc = "Format current buffer via LSP" })
+
   local group = vim.api.nvim_create_augroup("walkie-lsp", { clear = true })
   vim.api.nvim_create_autocmd("LspAttach", {
     group = group,
@@ -55,17 +74,20 @@ function M.setup()
       km("]d", vim.diagnostic.goto_next, "Go to next diagnostic entry")
       km("<leader>S", vim.lsp.buf.workspace_symbol, "Workspace symbol search")
 
-      local client = args.data and vim.lsp.get_client_by_id(args.data.client_id) or nil
-      if
-        client
-        and vim.bo[bufnr].filetype == "rust"
-        and client:supports_method("textDocument/inlayHint", bufnr)
-      then
-        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+      if not vim.b[bufnr].walkie_inlay_hint_map then
+        vim.b[bufnr].walkie_inlay_hint_map = true
         km("<leader>uh", function()
+          if not buffer_supports_inlay_hints(bufnr) then
+            vim.notify("Inlay hints not supported for this buffer", vim.log.levels.WARN)
+            return
+          end
           local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr })
           vim.lsp.inlay_hint.enable(not enabled, { bufnr = bufnr })
         end, "Toggle inlay hints")
+      end
+
+      if vim.bo[bufnr].filetype == "rust" and buffer_supports_inlay_hints(bufnr) then
+        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
       end
     end,
   })

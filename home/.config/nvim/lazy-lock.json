@@ -1,6 +1,7 @@
 {
   "Coqtail": { "branch": "main", "commit": "d470fff7591bf826ca10090a14ccf2e1dc8199db" },
   "bufexplorer": { "branch": "master", "commit": "b96d275811b92e86ee52be3112e1de735ba08fb9" },
+  "gitsigns.nvim": { "branch": "main", "commit": "7c4faa3540d0781a28588cafbd4dd187a28ac6e3" },
   "haskell-vim": { "branch": "master", "commit": "b1ac46807835423c4a4dd063df6d5b613d89c731" },
   "idris-vim": { "branch": "master", "commit": "091ed6b267749927777423160eeab520109dd9c1" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
@@ -10,6 +11,7 @@
   "nvim-tree.lua": { "branch": "master", "commit": "4b30847c91d498446cb8440c03031359b045e050" },
   "nvim-web-devicons": { "branch": "master", "commit": "737cf6c657898d0c697311d79d361288a1343d50" },
   "ott-vim": { "branch": "master", "commit": "911c930743357f9419869def1839257a4814e53b" },
+  "plenary.nvim": { "branch": "master", "commit": "b9fd5226c2f76c951fc8ed5923d85e4de065e509" },
   "supertab": { "branch": "main", "commit": "8705ae0e43b34339c06328fa6dab24ecaf21aab6" },
   "tabular": { "branch": "master", "commit": "12437cd1b53488e24936ec4b091c9324cafee311" },
   "twelf-vim": { "branch": "master", "commit": "340788bcd051f35b166e6ac660417c4cb882fba0" },
@@ -20,7 +22,6 @@
   "vim-less": { "branch": "master", "commit": "6e818d5614d5fc18d95a48c92b89e6db39f9e3d6" },
   "vim-markdown": { "branch": "master", "commit": "f9f845f28f4da33a7655accb22f4ad21f7d9fb66" },
   "vim-scala": { "branch": "master", "commit": "7657218f14837395a4e6759f15289bad6febd1b4" },
-  "vim-signify": { "branch": "master", "commit": "9ec7989ef5f92c5073de26abb46fc6a998b75ef8" },
   "vim-tmux-navigator": { "branch": "master", "commit": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432" },
   "vim-toml": { "branch": "main", "commit": "da051b7c23bad3c52d18886203c594739780ec09" },
   "vim-transpose": { "branch": "master", "commit": "e1245c0c0ff8cab3706df3b2fee120aadc08809a" },
