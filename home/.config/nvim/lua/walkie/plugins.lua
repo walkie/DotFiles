@@ -132,7 +132,14 @@ local plugins = {
   -- },
 
   -- Other language-specific plugins
-  { "vim-scripts/coq-syntax",  ft = "coq" },
+  -- Coqtail includes its own ftdetect/syntax/indent for Rocq/Coq.
+  { "whonore/Coqtail",
+    ft = "coq",
+    build = ":UpdateRemotePlugins",
+    init = function()
+      require("walkie/plugin/coqtail").init()
+    end,
+  },
   { "habamax/vim-godot",       ft = "gdscript" },
   { "idris-hackers/idris-vim", ft = "idris" },
   { "groenewege/vim-less",     ft = "less" },

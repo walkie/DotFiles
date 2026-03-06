@@ -61,6 +61,35 @@ nvim for the first time.
 
 Run `:Lazy` from within nvim for the UI to update plugins as needed.
 
+### Rocq/Coq (Coqtail)
+
+This config uses [Coqtail](https://github.com/whonore/Coqtail) for editing
+Rocq/Coq (`*.v`) files.
+
+- Ensure Neovim has a working Python provider: `:checkhealth provider`
+  - If `pip install` fails with `externally-managed-environment` (Homebrew
+    Python / PEP 668), use a dedicated venv for Neovim’s python provider:
+    ```
+    python3 -m venv ~/.local/share/nvim/venv
+    ~/.local/share/nvim/venv/bin/python -m pip install -U pip pynvim
+    ```
+    This config will automatically use that venv if present.
+  - Alternative (less recommended): `python3 -m pip install --user --break-system-packages pynvim`
+- Coqtail is a remote plugin. If it isn’t working after install/update, run
+  `:UpdateRemotePlugins` then restart Neovim.
+- Start the prover integration with `:RocqStart`.
+- Coqtail mappings are under `<leader>c` (this config sets `<leader>` to Space):
+  - Next / undo / to-line: `<leader>cj`, `<leader>ck`, `<leader>c<Enter>`
+  - Interrupt: `<leader>ci`
+
+If you use Rocq/Coq via `opam`:
+
+- `:OpamSwitch` selects an opam switch via a menu and updates Neovim’s
+  environment (PATH, OPAMSWITCH, etc).
+- `:OpamSwitchAuto` tries to auto-select a local switch based on the current
+  file’s directory by looking for an `_opam/` directory upward.
+  - This works best with opam “local switches” (created with `opam switch create .`).
+
 
 ## Emacs
 

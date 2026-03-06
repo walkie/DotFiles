@@ -1,4 +1,17 @@
+-- Define leaders early (before plugins/mappings).
+vim.g.mapleader = " "
+vim.g.maplocalleader = "-"
+
 local opt = vim.opt
+
+-- Python provider (for remote plugins like Coqtail).
+-- If a dedicated venv exists, prefer it (helps with Homebrew Python / PEP 668).
+if not vim.g.python3_host_prog then
+  local venv_python = vim.fn.expand("~/.local/share/nvim/venv/bin/python")
+  if vim.uv.fs_stat(venv_python) then
+    vim.g.python3_host_prog = venv_python
+  end
+end
 
 -- Tabs and indenting
 opt.tabstop = 2       -- tabs show up as 2 spaces

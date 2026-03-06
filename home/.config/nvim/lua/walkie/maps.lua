@@ -1,9 +1,5 @@
 local km = vim.keymap
 
--- Set the <leader> and <localleader> keys
-vim.g.mapleader = "\\"
-vim.g.maplocalleader = "-"
-
 -- Emacs-style line movement
 km.set({"n", "i", "c"}, "<c-a>", "<home>",
   { desc = "Move cursor to start of line" })
@@ -40,7 +36,7 @@ km.set("v", "<c-c>", "\"+y",
 -- Misc
 km.set("n", "<c-space>", "^i<return><esc>",
   { desc = "Insert a blank line" })
-km.set("n", "<space>", ":nohlsearch<bar>:echo<cr>",
+km.set("n", "<leader><space>", ":nohlsearch<bar>:echo<cr>",
   { desc = "Clear search highlighting", silent = true})
 km.set("t", "<esc>", "<c-\\><c-n>",
   { desc = "Exit insert mode in embedded in terminal" })
