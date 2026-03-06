@@ -339,14 +339,6 @@ on whether the point proceeds only whitespace or not."
 
 ;;;; Coq
 
-;; Proof General must be installed separately:
-;; > git clone https://github.com/ProofGeneral/PG ~/.emacs.d/lisp/PG
-;; > cd ~/.emacs.d/lisp/PG
-;; > make
-
-;; Enable Proof General for Coq files
-; (require 'proof-site "~/.emacs.d/lisp/PG/generic/proof-site")
-
 (use-package proof-general)
 
 ;; Extensions to proof general
@@ -358,6 +350,10 @@ on whether the point proceeds only whitespace or not."
     ;; Don't move cursor when evaluating previous proof tactic.
     (setq proof-next-command-insert-space nil)
     (setq coq-one-command-per-line nil)
+    ;; Append to response buffer, don't replace it.
+    ;; (setq proof-tidy-response nil)
+    ;; Keep response history.
+    (setq proof-keep-response-history t)
   :config
     (add-hook 'coq-mode-hook 'company-coq-mode)
     (set-fontset-font t 'unicode
@@ -372,10 +368,18 @@ on whether the point proceeds only whitespace or not."
     (set-fontset-font t 'greek
       (font-spec :name "Liberation Mono") nil 'prepend)
     (general-define-key
-      :keymaps 'company-coq-mode-map
       :states 'normal
+      :keymaps 'company-coq-mode-map
       :prefix "SPC"
       )
+    (general-define-key
+      :states '(normal motion)
+      :keymaps 'override
+      "<" 'bufhist-prev
+      ">" 'bufhist-next
+      )
+    ;; Disable code folding.
+    (setq company-coq-disabled-features '(code-folding))
     ;; Make auto-indenting sort of work.
     (add-hook 'coq-mode-hook
 	      (lambda ()
