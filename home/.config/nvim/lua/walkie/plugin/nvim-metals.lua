@@ -1,4 +1,5 @@
 local config = require("metals").bare_config()
+require("walkie/lsp").setup()
 
 config.settings = {
   showImplicitArguments = true
@@ -9,7 +10,7 @@ config.settings = {
 
 -- Callback that performs LSP-buffer-specific configuration
 config.on_attach = function(client, buffer)
-  require("walkie/lsp-buffer")
+  -- Buffer-local keymaps / diagnostics are handled by `walkie/lsp` via `LspAttach`.
   -- require("metals").setup_dap()
 end
 

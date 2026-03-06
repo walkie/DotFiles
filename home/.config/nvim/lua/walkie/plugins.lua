@@ -74,16 +74,17 @@ local plugins = {
   },
 
   -- Configure and extend built-in LSP support
-  "folke/lsp-colors.nvim",
+  { "folke/lsp-colors.nvim",
+    event = "LspAttach",
+    config = function()
+      require("lsp-colors").setup({})
+    end,
+  },
   { "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("walkie/plugin/nvim-lspconfig")
     end,
-    -- NOTE: scala via nvim-metals doesn't use lspconfig
-    ft = {
-      -- "ott",
-      "rust"
-    },
   },
 
   -- Haskell (install HLS with ghcup)
@@ -117,15 +118,7 @@ local plugins = {
   --   end,
   -- },
 
-  -- Rust (install rust-analyzer with rustup)
-  { "simrat39/rust-tools.nvim",
-    dependencies = {
-      "neovim/nvim-lspconfig",
-      "nvim-lua/plenary.nvim",
-      "mfussenegger/nvim-dap"
-    },
-    ft = "rust",
-  },
+  -- Rust is configured via built-in LSP (see `walkie/plugin/nvim-lspconfig.lua`).
 
   -- Scala (install coursier)
   -- { "scalameta/nvim-metals",
