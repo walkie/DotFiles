@@ -384,6 +384,12 @@ on whether the point proceeds only whitespace or not."
 		(setq-local electric-indent-chars
 			    (append "|:." electric-indent-chars)))))
 
+;; Add the ability to set the opam switch for an Emacs session.
+;; https://github.com/ProofGeneral/opam-switch-mode
+(use-package opam-switch-mode
+  :ensure t
+  :hook
+  ((coq-mode tuareg-mode) . opam-switch-mode))
 
 ;;;; Latex
 
