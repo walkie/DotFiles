@@ -62,6 +62,14 @@ local plugins = {
     end
   },
 
+  -- Keybinding popup (press `<leader>` / Space)
+  { "folke/which-key.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("walkie/plugin/which-key")
+    end,
+  },
+
   -- Nicer file system and Git integration
   "tpope/vim-eunuch",
   "tpope/vim-fugitive",

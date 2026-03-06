@@ -23,5 +23,6 @@
   "vim-signify": { "branch": "master", "commit": "9ec7989ef5f92c5073de26abb46fc6a998b75ef8" },
   "vim-tmux-navigator": { "branch": "master", "commit": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432" },
   "vim-toml": { "branch": "main", "commit": "da051b7c23bad3c52d18886203c594739780ec09" },
-  "vim-transpose": { "branch": "master", "commit": "e1245c0c0ff8cab3706df3b2fee120aadc08809a" }
+  "vim-transpose": { "branch": "master", "commit": "e1245c0c0ff8cab3706df3b2fee120aadc08809a" },
+  "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" }
 }
