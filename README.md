@@ -64,6 +64,9 @@ Run `:Lazy` from within nvim for the UI to update plugins as needed.
 This config also uses [which-key.nvim](https://github.com/folke/which-key.nvim)
 to show a keybinding popup after pressing `<leader>` (Space).
 
+This config also uses [snacks.nvim](https://github.com/folke/snacks.nvim) for
+lightweight UI/QoL (picker, `vim.ui` input/select, notifications, indent guides).
+
 ### Rocq/Coq (Coqtail)
 
 This config uses [Coqtail](https://github.com/whonore/Coqtail) for editing

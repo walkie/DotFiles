@@ -8,6 +8,7 @@ wk.setup({})
 wk.add({
   { "<leader><space>", desc = "Clear search highlighting" },
   { "<leader>S", desc = "Workspace symbol search (LSP)" },
+  { "<leader>f", group = "Find" },
 })
 
 local group = vim.api.nvim_create_augroup("walkie-which-key", { clear = true })

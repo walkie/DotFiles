@@ -62,6 +62,15 @@ local plugins = {
     end
   },
 
+  -- QoL collection (picker, ui.input/select, notifications, indent guides)
+  { "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    config = function()
+      require("walkie/plugin/snacks")
+    end,
+  },
+
   -- Keybinding popup (press `<leader>` / Space)
   { "folke/which-key.nvim",
     event = "VeryLazy",
