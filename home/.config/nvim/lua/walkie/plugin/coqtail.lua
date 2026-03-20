@@ -10,8 +10,8 @@ function M.init()
   -- Prefer normal-mode mappings only: insert-mode mappings tend to be surprising while editing.
   vim.g.coqtail_noimap = 1
 
-  -- Use `<leader>c` for Coqtail mappings (with your global leader set to Space).
-  vim.g.coqtail_map_prefix = "<leader>c"
+  -- Use `<localleader>` as prefix for Coqtail mappings instead of `<leader>c`
+  vim.g.coqtail_map_prefix = "<localleader>"
 
   require("walkie/opam").setup({ auto = true, filetypes = { "coq" } })
   set_coqtail_highlights()
@@ -29,8 +29,8 @@ function M.init()
       silent! nunmap <buffer> <C-c>
       silent! vunmap <buffer> <C-c>
       silent! iunmap <buffer> <C-c>
-      nmap <buffer> <silent> <leader>ci <Plug>RocqInterrupt
-      nmap <buffer> <silent> <leader>c<CR> <Plug>RocqToLine
+      nmap <buffer> <silent> <localleader>i <Plug>RocqInterrupt
+      nmap <buffer> <silent> <localleader><CR> <Plug>RocqToLine
     endfunction
   ]])
 end
