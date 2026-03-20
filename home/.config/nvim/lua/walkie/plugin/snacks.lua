@@ -11,7 +11,7 @@ Snacks.setup({
   picker = { enabled = true },
   notifier = { enabled = true },
   indent = {
-    enabled = true,
+    enabled = false,
     animate = { enabled = false },
   },
 })
