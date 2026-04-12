@@ -60,22 +60,14 @@ function M.setup()
         })
       end
 
-      -- Prefer Neovim 0.11+ built-in LSP keymaps (see `:help lsp-defaults`).
-      -- Keep a minimal set of add-ons that follow common conventions.
       km("gd", vim.lsp.buf.definition, "Go to definition")
       km("gD", vim.lsp.buf.declaration, "Go to declaration")
       km("gl", vim.diagnostic.open_float, "Show line diagnostics")
       km("<leader>S", vim.lsp.buf.workspace_symbol, "Workspace symbol search")
-      km("[d", function()
-        vim.diagnostic.jump({ count = -1 })
-      end, "Go to previous diagnostic entry")
-      km("]d", function()
-        vim.diagnostic.jump({ count = 1 })
-      end, "Go to next diagnostic entry")
 
       if not vim.b[bufnr].walkie_inlay_hint_map then
         vim.b[bufnr].walkie_inlay_hint_map = true
-        km("<leader>uh", function()
+        km("<leader>H", function()
           if not buffer_supports_inlay_hints(bufnr) then
             vim.notify("Inlay hints not supported for this buffer", vim.log.levels.WARN)
             return
@@ -83,10 +75,6 @@ function M.setup()
           local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr })
           vim.lsp.inlay_hint.enable(not enabled, { bufnr = bufnr })
         end, "Toggle inlay hints")
-      end
-
-      if vim.bo[bufnr].filetype == "rust" and buffer_supports_inlay_hints(bufnr) then
-        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
       end
     end,
   })
