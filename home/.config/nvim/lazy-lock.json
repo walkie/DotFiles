@@ -1,5 +1,6 @@
 {
   "Coqtail": { "branch": "main", "commit": "e509843fcd41e0bf507283a32fa1316b4fcf92e1" },
+  "blink.cmp": { "branch": "main", "commit": "78336bc89ee5365633bcf754d93df01678b5c08f" },
   "bufexplorer": { "branch": "master", "commit": "77d7aa8dd388a777a547410023927c78762c5060" },
   "gitsigns.nvim": { "branch": "main", "commit": "8d82c240f190fc33723d48c308ccc1ed8baad69d" },
   "haskell-vim": { "branch": "master", "commit": "b1ac46807835423c4a4dd063df6d5b613d89c731" },
@@ -13,7 +14,6 @@
   "ott-vim": { "branch": "master", "commit": "911c930743357f9419869def1839257a4814e53b" },
   "plenary.nvim": { "branch": "master", "commit": "74b06c6c75e4eeb3108ec01852001636d85a932b" },
   "snacks.nvim": { "branch": "main", "commit": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e" },
-  "supertab": { "branch": "main", "commit": "8705ae0e43b34339c06328fa6dab24ecaf21aab6" },
   "tabular": { "branch": "master", "commit": "12437cd1b53488e24936ec4b091c9324cafee311" },
   "twelf-vim": { "branch": "master", "commit": "340788bcd051f35b166e6ac660417c4cb882fba0" },
   "vim-better-whitespace": { "branch": "master", "commit": "de99b55a6fe8c96a69f9376f16b1d5d627a56e81" },

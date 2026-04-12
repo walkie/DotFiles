@@ -51,11 +51,12 @@ local plugins = {
   -- Fuzzy file finder
   -- "ctrlpvim/ctrlp.vim",
 
-  -- Tab completion
-  { "ervandew/supertab",
+  -- Manual completion with visible sources (LSP, path, buffer)
+  { "saghen/blink.cmp",
+    version = "1.*",
     config = function()
-      require("walkie/plugin/supertab")
-    end
+      require("walkie/plugin/blink")
+    end,
   },
 
   -- Nicer window/pane switching, integrating with tmux
@@ -101,6 +102,7 @@ local plugins = {
     end,
   },
   { "neovim/nvim-lspconfig",
+    dependencies = { "saghen/blink.cmp" },
     event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("walkie/plugin/nvim-lspconfig")

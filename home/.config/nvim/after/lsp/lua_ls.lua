@@ -1,4 +1,5 @@
 return {
+  capabilities = require("blink.cmp").get_lsp_capabilities(),
   on_init = function(client)
     local root = client.root_dir
     if not root or root == "" then

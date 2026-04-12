@@ -10,6 +10,7 @@ if rust_analyzer == "" then
 end
 
 return {
+  capabilities = require("blink.cmp").get_lsp_capabilities(),
   cmd = { rust_analyzer ~= "" and rust_analyzer or "rust-analyzer" },
   cmd_env = {
     RA_LOG = "warn",
