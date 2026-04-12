@@ -19,26 +19,21 @@ function M.setup()
 
   vim.diagnostic.config({
     float = {
-      border = "rounded",
       focusable = false,
       header = "",
     },
     severity_sort = true,
-    signs = true,
+    signs = {
+      text = {
+        [vim.diagnostic.severity.ERROR] = "e",
+        [vim.diagnostic.severity.WARN] = "w",
+        [vim.diagnostic.severity.INFO] = "i",
+        [vim.diagnostic.severity.HINT] = "h",
+      },
+    },
     underline = false,
     virtual_text = false,
   })
-
-  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-  vim.lsp.handlers["textDocument/signatureHelp"] =
-    vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
-
-  vim.cmd([[
-    sign define DiagnosticSignError text=e texthl=DiagnosticSignError
-    sign define DiagnosticSignWarn  text=w texthl=DiagnosticSignWarn
-    sign define DiagnosticSignInfo  text=i texthl=DiagnosticSignInfo
-    sign define DiagnosticSignHint  text=h texthl=DiagnosticSignHint
-  ]])
 
   vim.api.nvim_create_user_command("Format", function()
     local bufnr = 0
@@ -70,9 +65,13 @@ function M.setup()
       km("gd", vim.lsp.buf.definition, "Go to definition")
       km("gD", vim.lsp.buf.declaration, "Go to declaration")
       km("gl", vim.diagnostic.open_float, "Show line diagnostics")
-      km("[d", vim.diagnostic.goto_prev, "Go to previous diagnostic entry")
-      km("]d", vim.diagnostic.goto_next, "Go to next diagnostic entry")
       km("<leader>S", vim.lsp.buf.workspace_symbol, "Workspace symbol search")
+      km("[d", function()
+        vim.diagnostic.jump({ count = -1 })
+      end, "Go to previous diagnostic entry")
+      km("]d", function()
+        vim.diagnostic.jump({ count = 1 })
+      end, "Go to next diagnostic entry")
 
       if not vim.b[bufnr].walkie_inlay_hint_map then
         vim.b[bufnr].walkie_inlay_hint_map = true

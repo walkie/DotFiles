@@ -32,6 +32,7 @@ opt.signcolumn = "yes"
 -- Colors
 opt.termguicolors = true  -- requires true color terminal
 opt.cul = true            -- highlight current line
+opt.winborder = "rounded" -- default border style for floating windows
 -- opt.pumblend = 25  -- transparent pop-up menus
 -- opt.winblend = 25  -- transparent floating windows
 
