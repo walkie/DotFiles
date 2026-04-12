@@ -5,14 +5,17 @@ vim.g.loaded_netrwPlugin = 1
 -- Bootstrap plugin manager (https://github.com/folke/lazy.nvim)
 local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.uv.fs_stat(lazy_path) then
-  vim.fn.system({
+  local result = vim.system({
     "git",
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
     "--branch=stable", -- latest stable release
     lazy_path,
-  })
+  }, { text = true }):wait()
+  if result.code ~= 0 then
+    error("Failed to clone lazy.nvim: " .. vim.trim(result.stderr or result.stdout or "unknown error"))
+  end
 end
 vim.opt.runtimepath:prepend(lazy_path)
 

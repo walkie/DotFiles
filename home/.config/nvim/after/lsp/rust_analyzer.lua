@@ -1,8 +1,11 @@
 local rust_analyzer = vim.fn.exepath("rust-analyzer")
 if rust_analyzer == "" then
-  local from_rustup = vim.fn.systemlist({ "rustup", "which", "rust-analyzer" })[1]
-  if from_rustup and from_rustup ~= "" then
-    rust_analyzer = from_rustup
+  local result = vim.system({ "rustup", "which", "rust-analyzer" }, { text = true }):wait()
+  if result.code == 0 then
+    local from_rustup = vim.trim(result.stdout or "")
+    if from_rustup ~= "" then
+      rust_analyzer = from_rustup
+    end
   end
 end
 
