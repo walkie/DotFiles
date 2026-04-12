@@ -61,40 +61,24 @@ nvim for the first time.
 
 Run `:Lazy` from within nvim for the UI to update plugins as needed.
 
-This config also uses [which-key.nvim](https://github.com/folke/which-key.nvim)
-to show a keybinding popup after pressing `<leader>` (Space).
 
-This config also uses [snacks.nvim](https://github.com/folke/snacks.nvim) for
-lightweight UI/QoL (picker, `vim.ui` input/select, notifications, indent guides).
+### Coqtail
 
-### Rocq/Coq (Coqtail)
+The [Coqtail](https://github.com/whonore/Coqtail) plugin for Rocq requires a
+working Python provider.
 
-This config uses [Coqtail](https://github.com/whonore/Coqtail) for editing
-Rocq/Coq (`*.v`) files.
+Install the provider in a dedicated virtual environment:
+```
+python3 -m venv ~/.local/share/nvim/venv
+~/.local/share/nvim/venv/bin/python -m pip install -U pip pynvim
+```
 
-- Ensure Neovim has a working Python provider: `:checkhealth provider`
-  - If `pip install` fails with `externally-managed-environment` (Homebrew
-    Python / PEP 668), use a dedicated venv for Neovim’s python provider:
-    ```
-    python3 -m venv ~/.local/share/nvim/venv
-    ~/.local/share/nvim/venv/bin/python -m pip install -U pip pynvim
-    ```
-    This config will automatically use that venv if present.
-  - Alternative (less recommended): `python3 -m pip install --user --break-system-packages pynvim`
-- Coqtail is a remote plugin. If it isn’t working after install/update, run
-  `:UpdateRemotePlugins` then restart Neovim.
-- Start the prover integration with `:RocqStart`.
-- Coqtail mappings are under `<leader>c` (this config sets `<leader>` to Space):
-  - Next / undo / to-line: `<leader>cj`, `<leader>ck`, `<leader>c<Enter>`
-  - Interrupt: `<leader>ci`
+If Coqtail isn't working after install/update, run `:UpdateRemovePlugins` and
+restart Neovim.
 
-If you use Rocq/Coq via `opam`:
-
-- `:OpamSwitch` selects an opam switch via a menu and updates Neovim’s
-  environment (PATH, OPAMSWITCH, etc).
-- `:OpamSwitchAuto` tries to auto-select a local switch based on the current
-  file’s directory by looking for an `_opam/` directory upward.
-  - This works best with opam “local switches” (created with `opam switch create .`).
+There is a bunch of custom config (mostly AI-generated) to make Coqtail work
+with opam switches in `home/.config/nvim/lua/walkie/opam.lua`. Hopefully it
+just works, but if not, see that file for details.
 
 
 ## Emacs
@@ -114,7 +98,7 @@ Install [ghcup](https://www.haskell.org/ghcup/). Select the following options:
 - Enable better integration with `stack`.
 
 
-# Rust
+## Rust
 
 Install [rustup](https://www.rust-lang.org/tools/install). Customize the
 installation to not update the PATH since my profile already does that.
@@ -126,7 +110,7 @@ rustup component add rust-src
 ```
 
 
-# Scala
+## Scala
 
 Install [Coursier](https://docs.scala-lang.org/getting-started/index.html).
 
@@ -138,7 +122,7 @@ These are done in a more generic way already in `profile.d/mac.sh` but will
 need to be ported to other platforms, if needed.
 
 
-# Lua
+## Lua
 
 Install `lua-language-server` for LSP support.
 
