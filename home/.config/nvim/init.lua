@@ -2,6 +2,11 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "-"
 
+-- Treat otherwise-ambiguous .tex files as LaTeX and disable syntax-error
+-- highlighting, which is unreliable with custom macros.
+vim.g.tex_flavor = "latex"
+vim.g.tex_no_error = 1
+
 local opt = vim.opt
 
 -- Python provider (for remote plugins like Coqtail).
@@ -66,8 +71,3 @@ vim.fn.ReloadSpellFiles()
 
 -- Apply my visual customizations
 vim.fn.NormalStyle()
-
--- Load my after scripts very last
-local after_path = vim.fn.stdpath("config") .. "/after"
-opt.runtimepath:remove(after_path)
-opt.runtimepath:append(after_path)

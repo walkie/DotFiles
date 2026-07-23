@@ -73,7 +73,7 @@ python3 -m venv ~/.local/share/nvim/venv
 ~/.local/share/nvim/venv/bin/python -m pip install -U pip pynvim
 ```
 
-If Coqtail isn't working after install/update, run `:UpdateRemovePlugins` and
+If Coqtail isn't working after install/update, run `:UpdateRemotePlugins` and
 restart Neovim.
 
 There is a bunch of custom config (mostly AI-generated) to make Coqtail work
@@ -94,7 +94,6 @@ Run `M-x package-list-packages` then `U x` to update installed packages.
 
 Install [ghcup](https://www.haskell.org/ghcup/). Select the following options:
 - Don't update path.
-- Install HLS for LSP support.
 - Enable better integration with `stack`.
 
 
@@ -108,18 +107,6 @@ Install `rust-analyzer` for LSP support:
 rustup component add rust-analyzer
 rustup component add rust-src
 ```
-
-
-## Scala
-
-Install [Coursier](https://docs.scala-lang.org/getting-started/index.html).
-
-Select the following options:
-- Don't update path.
-- Don't add `JAVA_HOME`.
-
-These are done in a more generic way already in `profile.d/mac.sh` but will
-need to be ported to other platforms, if needed.
 
 
 ## Lua

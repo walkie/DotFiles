@@ -26,9 +26,10 @@ function M.init()
   -- We use that hook to avoid hijacking `<C-c>` and provide a non-intrusive alternative.
   vim.cmd([[
     function! CoqtailHookDefineMappings() abort
-      silent! nunmap <buffer> <C-c>
-      silent! vunmap <buffer> <C-c>
-      silent! iunmap <buffer> <C-c>
+      let l:interrupt_map = maparg('<C-c>', 'n', 0, 1)
+      if get(l:interrupt_map, 'buffer', 0)
+        nunmap <buffer> <C-c>
+      endif
       nmap <buffer> <silent> <localleader>i <Plug>RocqInterrupt
       nmap <buffer> <silent> <localleader><CR> <Plug>RocqToLine
     endfunction

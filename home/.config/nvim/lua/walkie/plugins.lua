@@ -20,25 +20,25 @@ end
 vim.opt.runtimepath:prepend(lazy_path)
 
 local lazy_opts = {
+  -- None of the configured plugins use LuaRocks.
+  rocks = { enabled = false },
+
   -- Disable some of the less useful built-in plugins
-  disabled_plugins = {
-    "gzip",
-    "netrwPlugin", -- clashes with nvim-tree
-    "tarPlugin",
-    "tohtml",
-    "tutor",
-    "zipPlugin",
-  }
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        "gzip",
+        "netrwPlugin", -- clashes with nvim-tree
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
+      },
+    },
+  },
 }
 
 local plugins = {
-  -- Buffer explorer (B in normal mode to open)
-  { "jlanzarotta/bufexplorer",
-    config = function()
-      require("walkie/plugin/bufexplorer")
-    end
-  },
-
   -- File tree explorer (T in normal mode to open)
   { "nvim-tree/nvim-tree.lua",
     dependencies = "nvim-tree/nvim-web-devicons",
@@ -61,12 +61,15 @@ local plugins = {
 
   -- Nicer window/pane switching, integrating with tmux
   { "christoomey/vim-tmux-navigator",
+    init = function()
+      vim.g.tmux_navigator_no_mappings = 1
+    end,
     config = function()
       require("walkie/plugin/vim-tmux-navigator")
     end
   },
 
-  -- QoL collection (picker, ui.input/select, notifications, indent guides)
+  -- QoL collection (picker, ui.input/select, notifications)
   { "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
@@ -87,20 +90,11 @@ local plugins = {
   "tpope/vim-eunuch",
   "tpope/vim-fugitive",
   { "lewis6991/gitsigns.nvim",
-    dependencies = "nvim-lua/plenary.nvim",
     event = { "BufReadPre", "BufNewFile" },
-    config = function()
-      require("walkie/plugin/gitsigns")
-    end,
+    opts = {},
   },
 
   -- Configure and extend built-in LSP support
-  { "folke/lsp-colors.nvim",
-    event = "LspAttach",
-    config = function()
-      require("lsp-colors").setup({})
-    end,
-  },
   { "neovim/nvim-lspconfig",
     dependencies = { "saghen/blink.cmp" },
     event = { "BufReadPre", "BufNewFile" },
@@ -109,14 +103,7 @@ local plugins = {
     end,
   },
 
-  -- Haskell (install HLS with ghcup)
-  -- { "mrcjkb/haskell-tools.nvim",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim"
-  --   },
-  --   version = '^2',
-  --   ft = { 'haskell', 'lhaskell', 'cabal', 'cabalproject' },
-  -- },
+  -- Haskell syntax highlighting
   { "raichoo/haskell-vim",
     config = function()
       vim.g.haskell_enable_quantification = 1  -- highlight `forall`
@@ -128,30 +115,7 @@ local plugins = {
     ft = "haskell",
   },
 
-  -- Neovim Lua (not working... possibly due to symlinked directory)
-  -- { "folke/neodev.nvim",
-  --   dependencies = {
-  --     "neovim/nvim-lspconfig",
-  --     "nvim-lua/plenary.nvim"
-  --   },
-  --   priority = 100, -- higher than nvim-lspconfig
-  --   config = function()
-  --     require("neodev").setup({})
-  --   end,
-  -- },
-
   -- Rust is configured via built-in LSP (see `walkie/plugin/nvim-lspconfig.lua`).
-
-  -- Scala (install coursier)
-  -- { "scalameta/nvim-metals",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim"
-  --   },
-  --   config = function()
-  --     require("walkie/plugin/nvim-metals")
-  --   end,
-  --   ft = { "scala", "sbt.scala", "java" },
-  -- },
 
   -- Other language-specific plugins
   -- Coqtail includes its own ftdetect/syntax/indent for Rocq/Coq.
@@ -164,12 +128,8 @@ local plugins = {
   },
   { "habamax/vim-godot",       ft = "gdscript" },
   { "idris-hackers/idris-vim", ft = "idris" },
-  { "groenewege/vim-less",     ft = "less" },
-  { "tpope/vim-markdown",      ft = "markdown" },
   { "vim-scripts/mips.vim",    ft = "mips" },
   { "tsung-ju/ott-vim",        ft = "ott" },
-  { "derekwyatt/vim-scala",    ft = "scala" },
-  { "cespare/vim-toml",        ft = "toml" },
   { "walkie/twelf-vim",        ft = "twelf" },
 
   -- General utilities

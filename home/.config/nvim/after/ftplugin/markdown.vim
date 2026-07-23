@@ -1,7 +1,7 @@
 call PlainText()
 " call SymbolMacros()
 
-set textwidth=100
+setlocal textwidth=100
 
 " Use tabs for better compatibility with Obsidian and highlight them so I
 " don't forget

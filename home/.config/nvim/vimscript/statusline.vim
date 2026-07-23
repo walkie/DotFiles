@@ -1,6 +1,3 @@
-" Always show the status line
-set laststatus=2
-
 " on the left:
 "   relative filename
 "   modified flag

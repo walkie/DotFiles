@@ -1,34 +1,40 @@
 local Snacks = require("snacks")
 
-local function set_snacks_indent_highlights()
-  -- Snacks defaults `SnacksIndentScope` to `Special`, which is often too loud.
-  -- Make the current-scope guide only slightly more visible than regular indent guides.
-  vim.api.nvim_set_hl(0, "SnacksIndentScope", { link = "LineNr" })
-end
-
 Snacks.setup({
   input = { enabled = true },
   picker = { enabled = true },
   notifier = { enabled = true },
-  indent = {
-    enabled = false,
-    animate = { enabled = false },
-  },
 })
 
-set_snacks_indent_highlights()
+local function set_picker_highlights()
+  vim.api.nvim_set_hl(0, "SnacksPicker", { link = "Normal" })
+  vim.api.nvim_set_hl(0, "SnacksPickerBorder", { link = "Normal" })
+  vim.api.nvim_set_hl(0, "SnacksPickerDelim", { link = "NonText" })
+  vim.api.nvim_set_hl(0, "SnacksPickerRow", { link = "NonText" })
+end
+
+set_picker_highlights()
 vim.api.nvim_create_autocmd("ColorScheme", {
   group = vim.api.nvim_create_augroup("walkie-snacks-highlights", { clear = true }),
-  callback = set_snacks_indent_highlights,
+  callback = set_picker_highlights,
 })
 
 vim.keymap.set("n", "<leader>ff", function()
   Snacks.picker.files()
 end, { desc = "Find files" })
 
-vim.keymap.set("n", "<leader>fb", function()
-  Snacks.picker.buffers()
-end, { desc = "Find buffers" })
+local function find_buffers()
+  Snacks.picker.buffers({
+    focus = "list",
+    jump = { reuse_win = false },
+    win = {
+      list = { keys = { ["<C-l>"] = "focus_preview" } },
+    },
+  })
+end
+
+vim.keymap.set("n", "B", find_buffers, { desc = "Find buffers" })
+vim.keymap.set("n", "<leader>fb", find_buffers, { desc = "Find buffers" })
 
 vim.keymap.set("n", "<leader>fg", function()
   Snacks.picker.grep()

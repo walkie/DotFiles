@@ -11,8 +11,8 @@ function! PlainText()
   highlight SpellCap ctermbg=Black ctermfg=DarkGreen guisp=Green
 
   " Commands to reformat paragraphs
-  nmap F mF{gq}`F
-  nmap <Leader>F mF{jvipJ`F
+  nnoremap <buffer> F mz{gq}`z
+  nnoremap <buffer> <Leader>F mz{jvipJ`z
 
   " Use one space after periods on reformat
   setlocal nojoinspaces
@@ -67,7 +67,7 @@ function! NormalStyle()
   highlight clear ExtraWhitespace
   highlight CursorLine          guibg=gray20
   highlight ExtraWhitespace     guibg=gray30 guifg=NONE
-  highlight NonText             guifg=gray30
+  highlight NonText             guifg=gray40
 
   " search colors
   highlight clear Search
@@ -89,10 +89,6 @@ function! NormalStyle()
   highlight DiagnosticSignWarn  guifg=orange
   highlight DiagnosticSignInfo  guifg=DeepSkyBlue
   highlight DiagnosticSignHint  guifg=LawnGreen
-  highlight SignifySignAdd      guibg=NONE guifg=ForestGreen
-  highlight SignifySignChange   guibg=NONE guifg=ForestGreen
-  highlight SignifySignDelete   guibg=NONE guifg=SaddleBrown
-
   " pop-up file tree
   if has('nvim')
     highlight NvimTreeExecFile   guifg=tomato gui=NONE

@@ -1,11 +1,5 @@
 -- Config for the nvim-tree.lua file tree plugin
 
-local function change_root_to_directory(node)
-  local api = require("nvim-tree.api")
-  api.tree.change_root_to_node(node)
-  api.node.navigate.parent()
-end
-
 local MAX_WIDTH = 50
 local MAX_HEIGHT = 40
 require('nvim-tree').setup({
@@ -38,18 +32,6 @@ require('nvim-tree').setup({
     width = function()
       return math.min(vim.opt.columns:get() - 4, MAX_WIDTH)
     end,
-    mappings = {
-      list = {
-        -- remove edit in place (not good with floating window)
-        { key = "<C-e>", action = "" },
-        -- add 'u' for
-        -- change root to directory
-        { key = "O",
-          action = "change root to the directory under the cursor",
-          action_cb = change_root_to_directory,
-        }
-      }
-    }
   },
   git = {
     ignore = false,
