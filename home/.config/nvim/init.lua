@@ -55,6 +55,7 @@ end
 require("walkie/maps")
 require_vim("commands")
 require_vim("functions")
+require_vim("symbols")
 
 -- Configure status line
 require_vim("statusline")

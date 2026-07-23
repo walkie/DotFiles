@@ -172,26 +172,3 @@ function! PresentationStyle()
   endif
 
 endfunction
-
-
-" Latex-style mappings for common mathematical characters
-function! SymbolMacros()
-  imap <buffer> \forall ∀
-  imap <buffer> \exists ∃
-  imap <buffer> \notexists ∄
-  imap <buffer> \in ∈
-  imap <buffer> \notin ∉
-  imap <buffer> \epsilon ε
-  imap <buffer> \Lambda Λ
-  imap <buffer> \lambda λ
-  imap <buffer> \mu µ
-  imap <buffer> \Sigma Σ
-  imap <buffer> \Pi ∏
-  imap <buffer> \Gamma Γ
-  imap <buffer> \gamma γ
-  imap <buffer> \to →
-  imap <buffer> \equiv ≡
-  imap <buffer> \bot ⊥
-  imap <buffer> \oplus ⊕
-  imap <buffer> \otimes ⊗
-endfunction
