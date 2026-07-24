@@ -27,6 +27,7 @@ local function find_buffers()
   Snacks.picker.buffers({
     focus = "list",
     jump = { reuse_win = false },
+    formatters = { file = { filename_first = true } },
     format = function(item, picker)
       local display_item = vim.tbl_extend("force", {}, item)
       display_item.pos = nil
