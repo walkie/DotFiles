@@ -27,6 +27,17 @@ local function find_buffers()
   Snacks.picker.buffers({
     focus = "list",
     jump = { reuse_win = false },
+    format = function(item, picker)
+      local display_item = vim.tbl_extend("force", {}, item)
+      display_item.pos = nil
+      return Snacks.picker.format.buffer(display_item, picker)
+    end,
+    confirm = function(picker, item, action)
+      if item then
+        item.pos = nil
+      end
+      Snacks.picker.actions.jump(picker, item, action)
+    end,
     win = {
       list = { keys = { ["<C-l>"] = "focus_preview" } },
     },
