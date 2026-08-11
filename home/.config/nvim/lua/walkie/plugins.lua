@@ -78,6 +78,12 @@ local plugins = {
     end,
   },
 
+  -- Highlight and search TODO-style comments
+  { "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "folke/snacks.nvim" },
+    opts = {},
+  },
+
   -- Keybinding popup (press `<leader>` / Space)
   { "folke/which-key.nvim",
     event = "VeryLazy",

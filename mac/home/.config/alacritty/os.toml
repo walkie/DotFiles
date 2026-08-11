@@ -1,6 +1,7 @@
 [window]
 # Essentially a phantom title bar; the `none` option breaks usual macOS window management
 decorations = "buttonless"
+option_as_alt = "Both"
 
 [keyboard]
 bindings = [

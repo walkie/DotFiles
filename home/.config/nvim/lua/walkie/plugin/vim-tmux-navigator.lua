@@ -1,19 +1,5 @@
-local function navigate_left()
-  local ok, Snacks = pcall(require, "snacks")
-  local picker = ok and Snacks.picker.get({ source = "buffers" })[1] or nil
-  if
-    picker
-    and picker.preview.win:valid()
-    and vim.api.nvim_get_current_win() == picker.preview.win.win
-  then
-    picker:focus("list")
-    return
-  end
-  vim.cmd("TmuxNavigateLeft")
-end
-
 -- Normal-mode navigation
-vim.keymap.set("n", "<c-h>", navigate_left,
+vim.keymap.set("n", "<c-h>", "<cmd>TmuxNavigateLeft<cr>",
   { silent = true, desc = "Switch to window to the left" })
 vim.keymap.set("n", "<c-j>", "<cmd>TmuxNavigateDown<cr>",
   { silent = true, desc = "Switch to window below" })
