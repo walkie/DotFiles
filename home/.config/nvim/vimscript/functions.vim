@@ -61,13 +61,13 @@ function! NormalStyle()
   " set color scheme
   colorscheme torte
   set background=dark
-  highlight Normal guibg=NONE
 
   " tweak colors
-  highlight clear ExtraWhitespace
+  highlight Normal              guibg=NONE guifg=gray90
   highlight CursorLine          guibg=gray20
+  highlight NonText             guifg=gray50
+  highlight clear ExtraWhitespace
   highlight ExtraWhitespace     guibg=gray30 guifg=NONE
-  highlight NonText             guifg=gray40
 
   " search colors
   highlight clear Search

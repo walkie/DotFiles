@@ -10,6 +10,7 @@ local function set_picker_highlights()
   vim.api.nvim_set_hl(0, "SnacksPicker", { link = "Normal" })
   vim.api.nvim_set_hl(0, "SnacksPickerBorder", { link = "Normal" })
   vim.api.nvim_set_hl(0, "SnacksPickerDelim", { link = "NonText" })
+  vim.api.nvim_set_hl(0, "SnacksPickerListCursorLine", { bg = "gray25" })
   vim.api.nvim_set_hl(0, "SnacksPickerRow", { link = "NonText" })
 end
 
